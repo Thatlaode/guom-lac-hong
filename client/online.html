@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/font.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0b1d1b">
+<title>Gươm Lạc Hồng · Năm Dòng Đọ Sức</title>
+<link rel="stylesheet" href="css/online.css">
+</head>
+<body>
+<div id="loading"><div class="ltitle" id="logoL">GƯƠM LẠC HỒNG</div><div class="lsub">Năm Dòng Đọ Sức</div><div class="lbar"><i id="lfill"></i></div><div id="ltext">Đang dựng đất trời…</div></div>
+
+<!-- MÀN CHÍNH -->
+<div id="home" class="screen hidden">
+  <div class="hbox">
+    <div class="brand"><div id="logo" class="logo">GƯƠM LẠC HỒNG</div><div class="sub">Năm Dòng Đọ Sức</div></div>
+    <div class="row name"><label for="pname">Tên của bạn</label><input id="pname" maxlength="18" placeholder="Nhập tên…" autocomplete="off"></div>
+    <div class="lbl">Chọn Dòng</div>
+    <div id="dongs"></div>
+    <div id="dongInfo"></div>
+    <div class="row btns">
+      <button id="bPlay" class="big main">⚔️ Vào trận · Đánh Lẻ</button>
+      <button id="bPractice" class="big">🤖 Tập với người máy</button>
+    </div>
+    <div class="row btns small">
+      <button id="bRank">🏅 Bậc của tôi</button><button id="bSet">⚙️ Cài đặt</button><button id="bHelp">❓ Cách chơi</button><button id="bFull">⛶ Toàn màn hình</button>
+    </div>
+    <div id="hfoot"></div>
+  </div>
+</div>
+
+<!-- SÂN CHỜ -->
+<div id="lobby" class="screen hidden"><div class="hbox small"><h2>Sân chờ</h2><div id="lobbyN" class="big-n"></div><div id="lobbyT"></div><div id="lobbyNames" class="muted"></div><button id="bLeave">Rời sân chờ</button></div></div>
+
+<!-- HUD TRẬN -->
+<div id="hud" class="hidden">
+  <div id="cross"><i></i><b></b></div>
+  <div id="pstat" data-lay="pstat">
+    <div class="pav"><span id="pDong"></span><em id="pLv"></em></div>
+    <div class="pmain"><div class="pname"><b id="pName"></b></div>
+      <div class="bar hp"><s id="hpD"></s><i id="hpF"></i><span id="hpT"></span></div>
+      <div class="bar mp"><i id="mpF"></i><span id="mpT"></span></div>
+      <div class="bar xp"><i id="xpF"></i></div>
+      <div id="buffs"></div></div>
+  </div>
+  <div id="hideChip" class="hidden" data-lay="hideChip">🌿 Đang núp — kẻ địch ở xa không thấy bạn</div>
+  <div id="tr" data-lay="tr"><canvas id="mini" width="170" height="170"></canvas>
+    <div class="trrow"><span id="alive" title="Còn sống"></span><span id="kills" title="Bạn đã hạ"></span></div>
+    <div id="zoneT"></div></div>
+  <div id="feed" data-lay="feed"></div>
+  <div id="center" data-lay="center"></div>
+  <div id="prompt" class="hidden"></div>
+  <div id="castbar" class="hidden"><i></i><span></span></div>
+  <div id="skillbar" data-lay="skillbar"></div>
+  <div id="ptBtn" class="hidden"></div>
+  <div id="tags"></div>
+  <div id="floaters"></div>
+  <div id="suong"></div><div id="hurt"></div>
+  <div id="specBar" class="hidden"><span id="specName"></span> <button id="bSpecNext">Xem người khác ▶</button> <button id="bSpecHome">Về sân</button></div>
+  <div id="fps" class="hidden"></div>
+  <div id="pcHint">Bấm vào màn hình để khóa chuột · <kbd>Esc</kbd> mở bảng</div>
+</div>
+
+<!-- BẢNG ĐIỂM SỨC (K) -->
+<div id="points" class="panel hidden">
+  <div class="ptitle"><span>Điểm sức & chiêu</span><button class="x" data-close>✕</button></div>
+  <div class="pbody" id="pointsBody"></div>
+</div>
+<!-- BẢNG TRẬN (Tab) -->
+<div id="board" class="panel hidden"><div class="ptitle"><span>Bảng trận</span></div><div class="pbody" id="boardBody"></div></div>
+<!-- BẢN ĐỒ LỚN (M) -->
+<div id="bigmapP" class="panel hidden"><div class="ptitle"><span>Bản đồ</span><button class="x" data-close>✕</button></div><canvas id="bigmap" width="560" height="560"></canvas></div>
+
+<!-- MENU TRONG TRẬN (Esc) -->
+<div id="pause" class="screen hidden"><div class="hbox small"><h2>Tạm nghỉ tay</h2><p class="muted">Trận vẫn đang diễn ra!</p><button id="pResume" class="big main">Tiếp tục</button><button id="pSet" class="big">⚙️ Cài đặt</button><button id="pHelp" class="big">❓ Cách chơi</button><button id="pLayout" class="big">✥ Tùy chỉnh bố cục nút</button><button id="pQuit" class="big">🚪 Bỏ trận · Về sân</button></div></div>
+
+<!-- GỤC -->
+<div id="dead" class="screen hidden"><div class="hbox small"><h2>Bạn đã gục</h2><div id="deadInfo" class="big-n"></div><div id="deadBy" class="muted"></div><button id="dSpec" class="big">👁️ Xem tiếp trận</button><button id="dHome" class="big main">Về sân</button></div></div>
+
+<!-- KẾT QUẢ -->
+<div id="result" class="screen hidden"><div class="hbox"><h2 id="rTitle"></h2><div id="rStats"></div><div id="rRank"></div><div id="rBoard"></div><div class="row btns"><button id="rAgain" class="big main">Chơi lại</button><button id="rHome" class="big">Về sân</button></div></div></div>
+
+<!-- CÀI ĐẶT -->
+<div id="settings" class="screen hidden"><div class="hbox">
+  <h2>Cài đặt</h2>
+  <div class="tabs"><button data-st="hinh" class="on">🖼️ Hình</button><button data-st="tieng">🔊 Tiếng</button><button data-st="dk">🎮 Điều khiển</button><button data-st="khac">⚙️ Khác</button></div>
+  <div id="setBody"></div>
+  <div class="row btns"><button id="sClose" class="big main">Xong</button></div>
+</div></div>
+
+<!-- BẬC & CÁCH CHƠI -->
+<div id="ranks" class="screen hidden"><div class="hbox"><h2>Bậc của tôi</h2><div id="rankMe"></div><h3>Bảng bậc (máy chủ này)</h3><div id="rankTop"></div><div class="row btns"><button id="rkClose" class="big main">Đóng</button></div></div></div>
+<div id="help" class="screen hidden"><div class="hbox"><h2>Cách chơi</h2><div id="helpBody"></div><div class="row btns"><button id="hClose" class="big main">Đã hiểu</button></div></div></div>
+
+<!-- ĐIỀU KHIỂN CẢM ỨNG -->
+<div id="touch" class="hidden">
+  <div id="joy" data-lay="joy"><div id="joyBase"></div><div id="joyKnob"></div></div>
+  <div id="tBtns"></div>
+</div>
+<div id="toast" data-lay="toast"></div>
+<div id="net" class="hidden">Mất kết nối máy chủ — đang thử lại…</div>
+
+<script src="js/lib/three.min.js"></script>
+<script src="js/lib/CopyShader.js"></script>
+<script src="js/lib/LuminosityHighPassShader.js"></script>
+<script src="js/lib/EffectComposer.js"></script>
+<script src="js/lib/RenderPass.js"></script>
+<script src="js/lib/ShaderPass.js"></script>
+<script src="js/lib/UnrealBloomPass.js"></script>
+<script src="js/lib/GLTFLoader.js"></script>
+<script src="js/lib/SkeletonUtils.js"></script>
+<script src="js/core.js"></script>
+<script src="js/util.js"></script>
+<script src="js/data.js"></script>
+<script src="js/palette.js"></script>
+<script src="js/player.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/world.js"></script>
+<script src="js/monsters.js"></script>
+<script src="shared/rules.js"></script>
+<script src="shared/props.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/rig.js"></script>
+<script src="js/props.js"></script>
+<script src="js/gyro.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/online.js"></script>
+<script src="js/hud.js"></script>
+</body>
+</html>

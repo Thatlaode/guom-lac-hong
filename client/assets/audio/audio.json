@@ -1,0 +1,842 @@
+{
+ "_doc": "Ổ cắm âm thanh (QĐ-0016). files: MÃ → 1 file hoặc DANH SÁCH file (game tự chọn ngẫu nhiên + lệch cao độ nhẹ cho đỡ nhàm). Đường dẫn tính từ assets/audio. Không có file → âm tổng hợp. Danh mục mã: Bộ Não › 13-Tai-san-Do-hoa-Am-thanh/Danh-muc-Am-thanh.md",
+ "_nguon": "Nhạc: Guồng Mơ Kiếm Giả (2 bản) + beat.mp3 — chủ dự án cung cấp, xác nhận dùng được 04/11/2026. Hiệu ứng: thu-vien/ (150 game effect sounds CC0 + Fantasy SFX Sampler, xem thu-vien/GIAY-PHEP.txt)",
+ "files": {
+  "BGM-TITLE": "bgm/BGM-GUONG-MO-KIEM-GIA-1.mp3",
+  "BGM-LOBBY": "bgm/BGM-GUONG-MO-KIEM-GIA-1.mp3",
+  "BGM-SPECTATE": "bgm/BGM-GUONG-MO-KIEM-GIA-2.mp3",
+  "BGM-MATCH-CALM": "bgm/BGM-GUONG-MO-KIEM-GIA-2.mp3",
+  "BGM-MATCH-COMBAT": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-ZONE-SHRINK": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-FINAL": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-BOSS": "bgm/BGM-NHAC-THU.mp3",
+  "SFX-KIEM-BASIC-CAST": [
+   "thu-vien/can-chien/fx-sword-swing-02.mp3",
+   "thu-vien/can-chien/fx-sword-swing-03.mp3"
+  ],
+  "SFX-KIEM-BASIC-HIT": [
+   "thu-vien/can-chien/knife-slice.mp3",
+   "thu-vien/can-chien/knife-slice2.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-01.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-02.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-03.mp3"
+  ],
+  "SFX-KIEM-1-CAST": [
+   "thu-vien/can-chien/draw-knife1.mp3",
+   "thu-vien/can-chien/draw-knife2.mp3",
+   "thu-vien/can-chien/draw-knife3.mp3"
+  ],
+  "SFX-KIEM-1-HIT": [
+   "thu-vien/can-chien/knife-slice.mp3",
+   "thu-vien/can-chien/knife-slice2.mp3"
+  ],
+  "SFX-KIEM-2-CAST": [
+   "thu-vien/phep/wind-spell-impact-2.mp3",
+   "thu-vien/phep/wind-spell-impact-3.mp3"
+  ],
+  "SFX-KIEM-2-HIT": [
+   "thu-vien/can-chien/fx-sword-hit-shield-01.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-02.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-03.mp3"
+  ],
+  "SFX-KIEM-ULT-CAST": [
+   "thu-vien/phep/retro-charge-magic-11.mp3"
+  ],
+  "SFX-KIEM-ULT-HIT": [
+   "thu-vien/phep/lightning-spell-impact-1.mp3",
+   "thu-vien/phep/lightning-spell-impact-2.mp3",
+   "thu-vien/phep/lightning-spell-impact-3.mp3",
+   "thu-vien/phep/lightning-spell-impact-4.mp3",
+   "thu-vien/phep/lightning-spell-impact-5.mp3"
+  ],
+  "SFX-DUOC-BASIC-CAST": [
+   "thu-vien/can-chien/fx-arrow-shot-01.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-02.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-03.mp3"
+  ],
+  "SFX-DUOC-BASIC-HIT": [
+   "thu-vien/phep/plant-spell-impact-1.mp3",
+   "thu-vien/phep/plant-spell-impact-2.mp3",
+   "thu-vien/phep/plant-spell-impact-3.mp3",
+   "thu-vien/phep/plant-spell-impact-4.mp3",
+   "thu-vien/phep/plant-spell-impact-5.mp3"
+  ],
+  "SFX-DUOC-1-CAST": [
+   "thu-vien/phep/plant-spell-impact-1.mp3",
+   "thu-vien/phep/plant-spell-impact-2.mp3"
+  ],
+  "SFX-DUOC-1-HIT": [
+   "thu-vien/phep/plant-spell-impact-3.mp3",
+   "thu-vien/phep/plant-spell-impact-4.mp3",
+   "thu-vien/phep/plant-spell-impact-5.mp3"
+  ],
+  "SFX-DUOC-2-CAST": [
+   "thu-vien/phep/fx-heal-01.mp3",
+   "thu-vien/phep/fx-heal-02.mp3",
+   "thu-vien/phep/fx-heal-03.mp3"
+  ],
+  "SFX-DUOC-2-HIT": [
+   "thu-vien/phep/healing-spell-impact-1.mp3",
+   "thu-vien/phep/healing-spell-impact-2.mp3",
+   "thu-vien/phep/healing-spell-impact-3.mp3",
+   "thu-vien/phep/healing-spell-impact-4.mp3",
+   "thu-vien/phep/healing-spell-impact-5.mp3"
+  ],
+  "SFX-DUOC-ULT-CAST": [
+   "thu-vien/phep/healing-spell-impact-12.mp3",
+   "thu-vien/phep/healing-spell-impact-13.mp3",
+   "thu-vien/phep/healing-spell-impact-14.mp3",
+   "thu-vien/phep/healing-spell-impact-15.mp3"
+  ],
+  "SFX-DUOC-ULT-HIT": [
+   "thu-vien/phep/healing-spell-impact-6.mp3",
+   "thu-vien/phep/healing-spell-impact-7.mp3",
+   "thu-vien/phep/healing-spell-impact-8.mp3",
+   "thu-vien/phep/healing-spell-impact-9.mp3"
+  ],
+  "SFX-BANG-BASIC-CAST": [
+   "thu-vien/can-chien/fx-arrow-shot-01.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-02.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-03.mp3"
+  ],
+  "SFX-BANG-BASIC-HIT": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3",
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-BANG-1-CAST": [
+   "thu-vien/phep/fx-ice-spell-01.mp3",
+   "thu-vien/phep/fx-ice-spell-02.mp3",
+   "thu-vien/phep/fx-ice-spell-03.mp3"
+  ],
+  "SFX-BANG-1-HIT": [
+   "thu-vien/phep/ice-spell-impact-1.mp3",
+   "thu-vien/phep/ice-spell-impact-2.mp3",
+   "thu-vien/phep/ice-spell-impact-3.mp3",
+   "thu-vien/phep/ice-spell-impact-4.mp3",
+   "thu-vien/phep/ice-spell-impact-5.mp3"
+  ],
+  "SFX-BANG-2-CAST": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3"
+  ],
+  "SFX-BANG-2-HIT": [
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-BANG-ULT-CAST": [
+   "thu-vien/phep/water-spell-impact-3.mp3"
+  ],
+  "SFX-BANG-ULT-HIT": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-HOA-BASIC-CAST": [
+   "thu-vien/can-chien/fx-sword-swing-02.mp3",
+   "thu-vien/can-chien/fx-sword-swing-03.mp3"
+  ],
+  "SFX-HOA-BASIC-HIT": [
+   "thu-vien/can-chien/knife-slice.mp3",
+   "thu-vien/can-chien/knife-slice2.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-01.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-02.mp3",
+   "thu-vien/can-chien/fx-sword-hit-shield-03.mp3"
+  ],
+  "SFX-HOA-1-CAST": [
+   "thu-vien/no/retro-explosion-swoshes-04.mp3",
+   "thu-vien/phep/fx-fireball-01.mp3",
+   "thu-vien/phep/fx-fireball-02.mp3",
+   "thu-vien/phep/fx-fireball-03.mp3"
+  ],
+  "SFX-HOA-1-HIT": [
+   "thu-vien/phep/fire-spell-impact-1.mp3",
+   "thu-vien/phep/fire-spell-impact-2.mp3",
+   "thu-vien/phep/fire-spell-impact-3.mp3",
+   "thu-vien/phep/fire-spell-impact-4.mp3",
+   "thu-vien/phep/fire-spell-impact-5.mp3"
+  ],
+  "SFX-HOA-2-CAST": [
+   "thu-vien/phep/fire-spell-impact-4.mp3"
+  ],
+  "SFX-HOA-2-HIT": [
+   "thu-vien/phep/fire-spell-impact-2.mp3",
+   "thu-vien/phep/fire-spell-impact-5.mp3"
+  ],
+  "SFX-HOA-ULT-CAST": [
+   "thu-vien/phep/retro-charge-13.mp3"
+  ],
+  "SFX-HOA-ULT-HIT": [
+   "thu-vien/no/fx-explosion-big-01.mp3",
+   "thu-vien/no/fx-explosion-big-02.mp3",
+   "thu-vien/no/fx-explosion-big-03.mp3"
+  ],
+  "SFX-THACH-BASIC-CAST": [
+   "thu-vien/can-chien/fx-punch-01.mp3",
+   "thu-vien/can-chien/fx-punch-02.mp3",
+   "thu-vien/can-chien/fx-punch-03.mp3"
+  ],
+  "SFX-THACH-BASIC-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-THACH-1-CAST": [
+   "thu-vien/phep/earth-spell-impact-3.mp3",
+   "thu-vien/phep/earth-spell-impact-4.mp3"
+  ],
+  "SFX-THACH-1-HIT": [
+   "thu-vien/no/low-frequency-explosion-000.mp3",
+   "thu-vien/no/low-frequency-explosion-001.mp3"
+  ],
+  "SFX-THACH-2-CAST": [
+   "thu-vien/phep/earth-spell-impact-5.mp3"
+  ],
+  "SFX-THACH-2-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-THACH-ULT-CAST": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-THACH-ULT-HIT": [
+   "thu-vien/no/explosion-crunch-000.mp3",
+   "thu-vien/no/explosion-crunch-001.mp3",
+   "thu-vien/no/explosion-crunch-002.mp3",
+   "thu-vien/no/explosion-crunch-003.mp3",
+   "thu-vien/no/explosion-crunch-004.mp3"
+  ],
+  "SFX-HURT": [
+   "thu-vien/can-chien/impact-punch-medium-000.mp3",
+   "thu-vien/can-chien/impact-punch-medium-001.mp3",
+   "thu-vien/can-chien/impact-punch-medium-002.mp3",
+   "thu-vien/can-chien/impact-punch-medium-003.mp3",
+   "thu-vien/can-chien/impact-punch-medium-004.mp3"
+  ],
+  "SFX-CRIT": [
+   "thu-vien/no/blastimpact-01.mp3",
+   "thu-vien/no/blastimpact-02.mp3",
+   "thu-vien/no/blastimpact-03.mp3"
+  ],
+  "SFX-ELEM-KHAC": [
+   "thu-vien/phep/energyzap.mp3"
+  ],
+  "SFX-DIE": [
+   "thu-vien/no/break-01.mp3",
+   "thu-vien/no/break-02.mp3"
+  ],
+  "SFX-LEVELUP": [
+   "thu-vien/phep/healing-spell-impact-10.mp3",
+   "thu-vien/phep/healing-spell-impact-11.mp3"
+  ],
+  "SFX-DODGE": [
+   "thu-vien/phep/wind-spell-impact-1.mp3",
+   "thu-vien/phep/wind-spell-impact-4.mp3",
+   "thu-vien/phep/wind-spell-impact-5.mp3"
+  ],
+  "SFX-FLY": [
+   "thu-vien/phep/wind-spell-impact-5.mp3"
+  ],
+  "SFX-JUMP": [
+   "thu-vien/phep/wind-spell-impact-1.mp3"
+  ],
+  "SFX-STUN": [
+   "thu-vien/phep/fx-lightning-01.mp3",
+   "thu-vien/phep/fx-lightning-02.mp3",
+   "thu-vien/phep/fx-lightning-03.mp3"
+  ],
+  "SFX-PICK": [
+   "thu-vien/do-vat/fx-coin-pickup-01.mp3",
+   "thu-vien/do-vat/fx-coin-pickup-02.mp3",
+   "thu-vien/do-vat/fx-coin-pickup-03.mp3"
+  ],
+  "SFX-PICK-RARE": [
+   "thu-vien/do-vat/fx-coins-pouch-01.mp3",
+   "thu-vien/do-vat/fx-coins-pouch-02.mp3",
+   "thu-vien/do-vat/fx-coins-pouch-03.mp3"
+  ],
+  "SFX-EQUIP": [
+   "thu-vien/do-vat/fx-coins-pouch-01.mp3",
+   "thu-vien/do-vat/fx-coins-pouch-02.mp3",
+   "thu-vien/do-vat/fx-coins-pouch-03.mp3"
+  ],
+  "SFX-POT-HP": [
+   "thu-vien/do-vat/fx-potion-drink-01.mp3",
+   "thu-vien/do-vat/fx-potion-drink-02.mp3",
+   "thu-vien/do-vat/fx-potion-drink-03.mp3"
+  ],
+  "SFX-POT-MP": [
+   "thu-vien/do-vat/fx-potion-drink-01.mp3",
+   "thu-vien/do-vat/fx-potion-drink-02.mp3",
+   "thu-vien/do-vat/fx-potion-drink-03.mp3"
+  ],
+  "SFX-SUPPLY-DROP": [
+   "thu-vien/phep/retro-charge-stereoup-01.mp3"
+  ],
+  "SFX-SUPPLY-OPEN": [
+   "thu-vien/do-vat/fx-chest-open-01.mp3",
+   "thu-vien/do-vat/fx-chest-open-02.mp3",
+   "thu-vien/do-vat/fx-chest-open-03.mp3"
+  ],
+  "SFX-RESPEC": [
+   "thu-vien/phep/healing-spell-impact-12.mp3",
+   "thu-vien/phep/healing-spell-impact-13.mp3",
+   "thu-vien/phep/healing-spell-impact-14.mp3",
+   "thu-vien/phep/healing-spell-impact-15.mp3"
+  ],
+  "SFX-ZONE-WARN": [
+   "thu-vien/phep/retro-charge-07.mp3"
+  ],
+  "SFX-ZONE-MOVE": [
+   "thu-vien/no/gravitybomb-01.mp3",
+   "thu-vien/no/gravitybomb-02.mp3",
+   "thu-vien/no/gravitybomb-03.mp3"
+  ],
+  "SFX-BOSS-SPAWN": [
+   "thu-vien/quai/fx-monster-growl-01.mp3",
+   "thu-vien/quai/fx-monster-growl-02.mp3",
+   "thu-vien/quai/fx-monster-growl-03.mp3"
+  ],
+  "SFX-BOSS-SLAM": [
+   "thu-vien/no/low-frequency-explosion-000.mp3",
+   "thu-vien/no/low-frequency-explosion-001.mp3"
+  ],
+  "SFX-BOSS-DIE": [
+   "thu-vien/no/fx-explosion-big-02.mp3"
+  ],
+  "SFX-MON-HIT": [
+   "thu-vien/quai/fx-slime-01.mp3",
+   "thu-vien/quai/fx-slime-02.mp3",
+   "thu-vien/quai/fx-slime-03.mp3"
+  ],
+  "SFX-MON-SHOT": [
+   "thu-vien/ban/zaplauncher-01.mp3",
+   "thu-vien/ban/zaplauncher-02.mp3",
+   "thu-vien/ban/zaplauncher-03.mp3"
+  ],
+  "SFX-MON-GROWL": [
+   "thu-vien/quai/fx-monster-growl-01.mp3",
+   "thu-vien/quai/fx-monster-growl-02.mp3",
+   "thu-vien/quai/fx-monster-growl-03.mp3"
+  ],
+  "SFX-STEP-GRASS": [
+   "thu-vien/buoc-chan/fx-steps-grass-01.mp3",
+   "thu-vien/buoc-chan/fx-steps-grass-02.mp3",
+   "thu-vien/buoc-chan/fx-steps-grass-03.mp3"
+  ],
+  "SFX-STEP-STONE": [
+   "thu-vien/buoc-chan/fx-steps-stone-01.mp3",
+   "thu-vien/buoc-chan/fx-steps-stone-02.mp3",
+   "thu-vien/buoc-chan/fx-steps-stone-03.mp3"
+  ],
+  "AMB-FOREST": [
+   "thu-vien/moi-truong/fx-forest-day-loop-01.mp3",
+   "thu-vien/moi-truong/fx-forest-day-loop-02.mp3",
+   "thu-vien/moi-truong/fx-forest-day-loop-03.mp3"
+  ],
+  "AMB-WATER": [
+   "thu-vien/moi-truong/fx-waterfall-loop-01.mp3",
+   "thu-vien/moi-truong/fx-waterfall-loop-02.mp3",
+   "thu-vien/moi-truong/fx-waterfall-loop-03.mp3"
+  ],
+  "AMB-LAVA": [
+   "thu-vien/moi-truong/fx-lava-cave-loop-01.mp3",
+   "thu-vien/moi-truong/fx-lava-cave-loop-02.mp3",
+   "thu-vien/moi-truong/fx-lava-cave-loop-03.mp3"
+  ],
+  "UI-CLICK": [
+   "thu-vien/giao-dien/fx-click-soft-01.mp3",
+   "thu-vien/giao-dien/fx-click-soft-02.mp3",
+   "thu-vien/giao-dien/fx-click-soft-03.mp3"
+  ],
+  "UI-COUNTDOWN": [
+   "thu-vien/giao-dien/fx-click-soft-03.mp3"
+  ],
+  "UI-DENY": [
+   "thu-vien/giao-dien/fx-error-01.mp3",
+   "thu-vien/giao-dien/fx-error-02.mp3",
+   "thu-vien/giao-dien/fx-error-03.mp3"
+  ],
+  "UI-POINT-ADD": [
+   "thu-vien/giao-dien/fx-confirm-01.mp3"
+  ],
+  "UI-SKILL-UP": [
+   "thu-vien/giao-dien/fx-confirm-02.mp3"
+  ],
+  "UI-MATCH-FOUND": [
+   "thu-vien/giao-dien/fx-confirm-03.mp3"
+  ],
+  "UI-GO": [
+   "thu-vien/giao-dien/fx-confirm-03.mp3"
+  ],
+  "UI-NOTIFY": [
+   "thu-vien/giao-dien/fx-confirm-02.mp3"
+  ],
+  "UI-RANK-UP": [
+   "thu-vien/do-vat/fx-coins-pouch-01.mp3"
+  ],
+  "UI-RANK-DOWN": [
+   "thu-vien/giao-dien/fx-error-02.mp3"
+  ],
+  "SFX-TRAM-BASIC-CAST": [
+   "thu-vien/can-chien/fx-arrow-shot-01.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-02.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-03.mp3"
+  ],
+  "SFX-TRAM-BASIC-HIT": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3",
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-TRAM-1-CAST": [
+   "thu-vien/phep/fx-ice-spell-01.mp3",
+   "thu-vien/phep/fx-ice-spell-02.mp3",
+   "thu-vien/phep/fx-ice-spell-03.mp3"
+  ],
+  "SFX-TRAM-1-HIT": [
+   "thu-vien/phep/ice-spell-impact-1.mp3",
+   "thu-vien/phep/ice-spell-impact-2.mp3",
+   "thu-vien/phep/ice-spell-impact-3.mp3",
+   "thu-vien/phep/ice-spell-impact-4.mp3",
+   "thu-vien/phep/ice-spell-impact-5.mp3"
+  ],
+  "SFX-TRAM-2-CAST": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3"
+  ],
+  "SFX-TRAM-2-HIT": [
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-TRAM-ULT-CAST": [
+   "thu-vien/phep/water-spell-impact-3.mp3"
+  ],
+  "SFX-TRAM-ULT-HIT": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-TRE-BASIC-CAST": [
+   "thu-vien/can-chien/fx-punch-01.mp3",
+   "thu-vien/can-chien/fx-punch-02.mp3",
+   "thu-vien/can-chien/fx-punch-03.mp3"
+  ],
+  "SFX-TRE-BASIC-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-TRE-1-CAST": [
+   "thu-vien/phep/earth-spell-impact-3.mp3",
+   "thu-vien/phep/earth-spell-impact-4.mp3"
+  ],
+  "SFX-TRE-1-HIT": [
+   "thu-vien/no/low-frequency-explosion-000.mp3",
+   "thu-vien/no/low-frequency-explosion-001.mp3"
+  ],
+  "SFX-TRE-2-CAST": [
+   "thu-vien/phep/earth-spell-impact-5.mp3"
+  ],
+  "SFX-TRE-2-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-TRE-ULT-CAST": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-TRE-ULT-HIT": [
+   "thu-vien/no/explosion-crunch-000.mp3",
+   "thu-vien/no/explosion-crunch-001.mp3",
+   "thu-vien/no/explosion-crunch-002.mp3",
+   "thu-vien/no/explosion-crunch-003.mp3",
+   "thu-vien/no/explosion-crunch-004.mp3"
+  ],
+  "SFX-LUA-BASIC-CAST": [
+   "thu-vien/can-chien/fx-arrow-shot-01.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-02.mp3",
+   "thu-vien/can-chien/fx-arrow-shot-03.mp3"
+  ],
+  "SFX-LUA-BASIC-HIT": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3",
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-LUA-1-CAST": [
+   "thu-vien/phep/fx-ice-spell-01.mp3",
+   "thu-vien/phep/fx-ice-spell-02.mp3",
+   "thu-vien/phep/fx-ice-spell-03.mp3"
+  ],
+  "SFX-LUA-1-HIT": [
+   "thu-vien/phep/ice-spell-impact-1.mp3",
+   "thu-vien/phep/ice-spell-impact-2.mp3",
+   "thu-vien/phep/ice-spell-impact-3.mp3",
+   "thu-vien/phep/ice-spell-impact-4.mp3",
+   "thu-vien/phep/ice-spell-impact-5.mp3"
+  ],
+  "SFX-LUA-2-CAST": [
+   "thu-vien/phep/water-spell-impact-1.mp3",
+   "thu-vien/phep/water-spell-impact-2.mp3"
+  ],
+  "SFX-LUA-2-HIT": [
+   "thu-vien/phep/water-spell-impact-3.mp3",
+   "thu-vien/phep/water-spell-impact-4.mp3",
+   "thu-vien/phep/water-spell-impact-5.mp3"
+  ],
+  "SFX-LUA-ULT-CAST": [
+   "thu-vien/phep/water-spell-impact-3.mp3"
+  ],
+  "SFX-LUA-ULT-HIT": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-GAO-BASIC-CAST": [
+   "thu-vien/phep/fx-fireball-01.mp3",
+   "thu-vien/phep/fx-fireball-02.mp3",
+   "thu-vien/phep/fx-fireball-03.mp3"
+  ],
+  "SFX-GAO-BASIC-HIT": [
+   "thu-vien/phep/fire-spell-impact-1.mp3",
+   "thu-vien/phep/fire-spell-impact-2.mp3",
+   "thu-vien/phep/fire-spell-impact-3.mp3",
+   "thu-vien/phep/fire-spell-impact-4.mp3",
+   "thu-vien/phep/fire-spell-impact-5.mp3"
+  ],
+  "SFX-GAO-1-CAST": [
+   "thu-vien/no/retro-explosion-swoshes-04.mp3",
+   "thu-vien/phep/fx-fireball-01.mp3",
+   "thu-vien/phep/fx-fireball-02.mp3",
+   "thu-vien/phep/fx-fireball-03.mp3"
+  ],
+  "SFX-GAO-1-HIT": [
+   "thu-vien/phep/fire-spell-impact-1.mp3",
+   "thu-vien/phep/fire-spell-impact-2.mp3",
+   "thu-vien/phep/fire-spell-impact-3.mp3",
+   "thu-vien/phep/fire-spell-impact-4.mp3",
+   "thu-vien/phep/fire-spell-impact-5.mp3"
+  ],
+  "SFX-GAO-2-CAST": [
+   "thu-vien/phep/fire-spell-impact-4.mp3"
+  ],
+  "SFX-GAO-2-HIT": [
+   "thu-vien/phep/fire-spell-impact-2.mp3",
+   "thu-vien/phep/fire-spell-impact-5.mp3"
+  ],
+  "SFX-GAO-ULT-CAST": [
+   "thu-vien/phep/retro-charge-13.mp3"
+  ],
+  "SFX-GAO-ULT-HIT": [
+   "thu-vien/no/fx-explosion-big-01.mp3",
+   "thu-vien/no/fx-explosion-big-02.mp3",
+   "thu-vien/no/fx-explosion-big-03.mp3"
+  ],
+  "SFX-CHIENG-BASIC-CAST": [
+   "thu-vien/can-chien/fx-punch-01.mp3",
+   "thu-vien/can-chien/fx-punch-02.mp3",
+   "thu-vien/can-chien/fx-punch-03.mp3"
+  ],
+  "SFX-CHIENG-BASIC-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-CHIENG-1-CAST": [
+   "thu-vien/phep/earth-spell-impact-3.mp3",
+   "thu-vien/phep/earth-spell-impact-4.mp3"
+  ],
+  "SFX-CHIENG-1-HIT": [
+   "thu-vien/no/low-frequency-explosion-000.mp3",
+   "thu-vien/no/low-frequency-explosion-001.mp3"
+  ],
+  "SFX-CHIENG-2-CAST": [
+   "thu-vien/phep/earth-spell-impact-5.mp3"
+  ],
+  "SFX-CHIENG-2-HIT": [
+   "thu-vien/can-chien/impact-punch-heavy-000.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-001.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-002.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3",
+   "thu-vien/can-chien/impact-punch-heavy-004.mp3"
+  ],
+  "SFX-CHIENG-ULT-CAST": [
+   "thu-vien/phep/earth-spell-impact-1.mp3",
+   "thu-vien/phep/earth-spell-impact-2.mp3"
+  ],
+  "SFX-CHIENG-ULT-HIT": [
+   "thu-vien/no/explosion-crunch-000.mp3",
+   "thu-vien/no/explosion-crunch-001.mp3",
+   "thu-vien/no/explosion-crunch-002.mp3",
+   "thu-vien/no/explosion-crunch-003.mp3",
+   "thu-vien/no/explosion-crunch-004.mp3"
+  ],
+  "SFX-DRAW": [
+   "thu-vien/can-chien/draw-knife1.mp3",
+   "thu-vien/can-chien/draw-knife2.mp3",
+   "thu-vien/can-chien/draw-knife3.mp3"
+  ],
+  "SFX-SHEATHE": [
+   "thu-vien/can-chien/knife-slice.mp3",
+   "thu-vien/can-chien/knife-slice2.mp3"
+  ],
+  "VO-GUOMHO-CHON": [],
+  "VO-GUOMHO-VAO": [],
+  "VO-GUOMHO-DI": [],
+  "VO-GUOMHO-DANH": [],
+  "VO-GUOMHO-CHIEU1": [],
+  "VO-GUOMHO-CHIEU2": [],
+  "VO-GUOMHO-CHIEULON": [],
+  "VO-GUOMHO-HA": [],
+  "VO-GUOMHO-HA-LIENTIEP": [],
+  "VO-GUOMHO-BI-HA": [],
+  "VO-GUOMHO-TRONG-THUONG": [],
+  "VO-GUOMHO-CUU": [],
+  "VO-GUOMHO-UONG": [],
+  "VO-GUOMHO-MO-HOM": [],
+  "VO-GUOMHO-CUOI-DIEU": [],
+  "VO-GUOMHO-SUONG": [],
+  "VO-GUOMHO-LEN-CAP": [],
+  "VO-GUOMHO-RUT": [],
+  "VO-GUOMHO-THANG": [],
+  "VO-TRAMBAC-CHON": [],
+  "VO-TRAMBAC-VAO": [],
+  "VO-TRAMBAC-DI": [],
+  "VO-TRAMBAC-DANH": [],
+  "VO-TRAMBAC-CHIEU1": [],
+  "VO-TRAMBAC-CHIEU2": [],
+  "VO-TRAMBAC-CHIEULON": [],
+  "VO-TRAMBAC-HA": [],
+  "VO-TRAMBAC-HA-LIENTIEP": [],
+  "VO-TRAMBAC-BI-HA": [],
+  "VO-TRAMBAC-TRONG-THUONG": [],
+  "VO-TRAMBAC-CUU": [],
+  "VO-TRAMBAC-UONG": [],
+  "VO-TRAMBAC-MO-HOM": [],
+  "VO-TRAMBAC-CUOI-DIEU": [],
+  "VO-TRAMBAC-SUONG": [],
+  "VO-TRAMBAC-LEN-CAP": [],
+  "VO-TRAMBAC-RUT": [],
+  "VO-TRAMBAC-THANG": [],
+  "VO-TRELANG-CHON": [],
+  "VO-TRELANG-VAO": [],
+  "VO-TRELANG-DI": [],
+  "VO-TRELANG-DANH": [],
+  "VO-TRELANG-CHIEU1": [],
+  "VO-TRELANG-CHIEU2": [],
+  "VO-TRELANG-CHIEULON": [],
+  "VO-TRELANG-HA": [],
+  "VO-TRELANG-HA-LIENTIEP": [],
+  "VO-TRELANG-BI-HA": [],
+  "VO-TRELANG-TRONG-THUONG": [],
+  "VO-TRELANG-CUU": [],
+  "VO-TRELANG-UONG": [],
+  "VO-TRELANG-MO-HOM": [],
+  "VO-TRELANG-CUOI-DIEU": [],
+  "VO-TRELANG-SUONG": [],
+  "VO-TRELANG-LEN-CAP": [],
+  "VO-TRELANG-RUT": [],
+  "VO-TRELANG-THANG": [],
+  "VO-VUONTHUOC-CHON": [],
+  "VO-VUONTHUOC-VAO": [],
+  "VO-VUONTHUOC-DI": [],
+  "VO-VUONTHUOC-DANH": [],
+  "VO-VUONTHUOC-CHIEU1": [],
+  "VO-VUONTHUOC-CHIEU2": [],
+  "VO-VUONTHUOC-CHIEULON": [],
+  "VO-VUONTHUOC-HA": [],
+  "VO-VUONTHUOC-HA-LIENTIEP": [],
+  "VO-VUONTHUOC-BI-HA": [],
+  "VO-VUONTHUOC-TRONG-THUONG": [],
+  "VO-VUONTHUOC-CUU": [],
+  "VO-VUONTHUOC-UONG": [],
+  "VO-VUONTHUOC-MO-HOM": [],
+  "VO-VUONTHUOC-CUOI-DIEU": [],
+  "VO-VUONTHUOC-SUONG": [],
+  "VO-VUONTHUOC-LEN-CAP": [],
+  "VO-VUONTHUOC-RUT": [],
+  "VO-VUONTHUOC-THANG": [],
+  "VO-SONGCOC-CHON": [],
+  "VO-SONGCOC-VAO": [],
+  "VO-SONGCOC-DI": [],
+  "VO-SONGCOC-DANH": [],
+  "VO-SONGCOC-CHIEU1": [],
+  "VO-SONGCOC-CHIEU2": [],
+  "VO-SONGCOC-CHIEULON": [],
+  "VO-SONGCOC-HA": [],
+  "VO-SONGCOC-HA-LIENTIEP": [],
+  "VO-SONGCOC-BI-HA": [],
+  "VO-SONGCOC-TRONG-THUONG": [],
+  "VO-SONGCOC-CUU": [],
+  "VO-SONGCOC-UONG": [],
+  "VO-SONGCOC-MO-HOM": [],
+  "VO-SONGCOC-CUOI-DIEU": [],
+  "VO-SONGCOC-SUONG": [],
+  "VO-SONGCOC-LEN-CAP": [],
+  "VO-SONGCOC-RUT": [],
+  "VO-SONGCOC-THANG": [],
+  "VO-LUANUOC-CHON": [],
+  "VO-LUANUOC-VAO": [],
+  "VO-LUANUOC-DI": [],
+  "VO-LUANUOC-DANH": [],
+  "VO-LUANUOC-CHIEU1": [],
+  "VO-LUANUOC-CHIEU2": [],
+  "VO-LUANUOC-CHIEULON": [],
+  "VO-LUANUOC-HA": [],
+  "VO-LUANUOC-HA-LIENTIEP": [],
+  "VO-LUANUOC-BI-HA": [],
+  "VO-LUANUOC-TRONG-THUONG": [],
+  "VO-LUANUOC-CUU": [],
+  "VO-LUANUOC-UONG": [],
+  "VO-LUANUOC-MO-HOM": [],
+  "VO-LUANUOC-CUOI-DIEU": [],
+  "VO-LUANUOC-SUONG": [],
+  "VO-LUANUOC-LEN-CAP": [],
+  "VO-LUANUOC-RUT": [],
+  "VO-LUANUOC-THANG": [],
+  "VO-NGUALUA-CHON": [],
+  "VO-NGUALUA-VAO": [],
+  "VO-NGUALUA-DI": [],
+  "VO-NGUALUA-DANH": [],
+  "VO-NGUALUA-CHIEU1": [],
+  "VO-NGUALUA-CHIEU2": [],
+  "VO-NGUALUA-CHIEULON": [],
+  "VO-NGUALUA-HA": [],
+  "VO-NGUALUA-HA-LIENTIEP": [],
+  "VO-NGUALUA-BI-HA": [],
+  "VO-NGUALUA-TRONG-THUONG": [],
+  "VO-NGUALUA-CUU": [],
+  "VO-NGUALUA-UONG": [],
+  "VO-NGUALUA-MO-HOM": [],
+  "VO-NGUALUA-CUOI-DIEU": [],
+  "VO-NGUALUA-SUONG": [],
+  "VO-NGUALUA-LEN-CAP": [],
+  "VO-NGUALUA-RUT": [],
+  "VO-NGUALUA-THANG": [],
+  "VO-HOAGAO-CHON": [],
+  "VO-HOAGAO-VAO": [],
+  "VO-HOAGAO-DI": [],
+  "VO-HOAGAO-DANH": [],
+  "VO-HOAGAO-CHIEU1": [],
+  "VO-HOAGAO-CHIEU2": [],
+  "VO-HOAGAO-CHIEULON": [],
+  "VO-HOAGAO-HA": [],
+  "VO-HOAGAO-HA-LIENTIEP": [],
+  "VO-HOAGAO-BI-HA": [],
+  "VO-HOAGAO-TRONG-THUONG": [],
+  "VO-HOAGAO-CUU": [],
+  "VO-HOAGAO-UONG": [],
+  "VO-HOAGAO-MO-HOM": [],
+  "VO-HOAGAO-CUOI-DIEU": [],
+  "VO-HOAGAO-SUONG": [],
+  "VO-HOAGAO-LEN-CAP": [],
+  "VO-HOAGAO-RUT": [],
+  "VO-HOAGAO-THANG": [],
+  "VO-NUIDANG-CHON": [],
+  "VO-NUIDANG-VAO": [],
+  "VO-NUIDANG-DI": [],
+  "VO-NUIDANG-DANH": [],
+  "VO-NUIDANG-CHIEU1": [],
+  "VO-NUIDANG-CHIEU2": [],
+  "VO-NUIDANG-CHIEULON": [],
+  "VO-NUIDANG-HA": [],
+  "VO-NUIDANG-HA-LIENTIEP": [],
+  "VO-NUIDANG-BI-HA": [],
+  "VO-NUIDANG-TRONG-THUONG": [],
+  "VO-NUIDANG-CUU": [],
+  "VO-NUIDANG-UONG": [],
+  "VO-NUIDANG-MO-HOM": [],
+  "VO-NUIDANG-CUOI-DIEU": [],
+  "VO-NUIDANG-SUONG": [],
+  "VO-NUIDANG-LEN-CAP": [],
+  "VO-NUIDANG-RUT": [],
+  "VO-NUIDANG-THANG": [],
+  "VO-CONGCHIENG-CHON": [],
+  "VO-CONGCHIENG-VAO": [],
+  "VO-CONGCHIENG-DI": [],
+  "VO-CONGCHIENG-DANH": [],
+  "VO-CONGCHIENG-CHIEU1": [],
+  "VO-CONGCHIENG-CHIEU2": [],
+  "VO-CONGCHIENG-CHIEULON": [],
+  "VO-CONGCHIENG-HA": [],
+  "VO-CONGCHIENG-HA-LIENTIEP": [],
+  "VO-CONGCHIENG-BI-HA": [],
+  "VO-CONGCHIENG-TRONG-THUONG": [],
+  "VO-CONGCHIENG-CUU": [],
+  "VO-CONGCHIENG-UONG": [],
+  "VO-CONGCHIENG-MO-HOM": [],
+  "VO-CONGCHIENG-CUOI-DIEU": [],
+  "VO-CONGCHIENG-SUONG": [],
+  "VO-CONGCHIENG-LEN-CAP": [],
+  "VO-CONGCHIENG-RUT": [],
+  "VO-CONGCHIENG-THANG": [],
+  "ANN-BAT-DAU": [],
+  "ANN-HA-DAU": [],
+  "ANN-HA-2": [],
+  "ANN-HA-3": [],
+  "ANN-HA-4": [],
+  "ANN-HA-5": [],
+  "ANN-CHUOI-3": [],
+  "ANN-CHUOI-5": [],
+  "ANN-CHUOI-8": [],
+  "ANN-CHAN-CHUOI": [],
+  "ANN-SUONG-THU": [],
+  "ANN-HOM-DIEU": [],
+  "ANN-TRUM-XUAT-HIEN": [],
+  "ANN-TRUM-BI-HA": [],
+  "ANN-CON-10": [],
+  "ANN-CON-5": [],
+  "ANN-CON-3": [],
+  "ANN-CON-2": [],
+  "ANN-THANG": [],
+  "ANN-BI-LOAI": [],
+  "SFX-TREE-HIT": [
+   "thu-vien/can-chien/impact-01.mp3",
+   "thu-vien/can-chien/impact-02.mp3"
+  ],
+  "SFX-TREE-FALL": [
+   "thu-vien/can-chien/impact-punch-heavy-003.mp3"
+  ]
+ },
+ "vol": {
+  "BGM-TITLE": 0.65,
+  "BGM-LOBBY": 0.65,
+  "BGM-MATCH-CALM": 0.55,
+  "BGM-SPECTATE": 0.5,
+  "BGM-MATCH-COMBAT": 0.6,
+  "BGM-ZONE-SHRINK": 0.65,
+  "BGM-FINAL": 0.7,
+  "BGM-BOSS": 0.65,
+  "AMB-FOREST": 0.35,
+  "AMB-WATER": 0.4,
+  "AMB-LAVA": 0.4,
+  "SFX-STEP-GRASS": 0.45,
+  "SFX-STEP-STONE": 0.45,
+  "UI-CLICK": 0.6,
+  "SFX-HURT": 0.8,
+  "SFX-PICK": 0.6,
+  "SFX-MON-HIT": 0.5,
+  "SFX-DODGE": 0.7,
+  "SFX-JUMP": 0.5,
+  "SFX-SHEATHE": 0.4,
+  "SFX-DRAW": 0.55
+ },
+ "_giong_noi": "Lồng tiếng: VO-<DÒNG>-<HÀNH ĐỘNG>, người dẫn trận: ANN-<SỰ KIỆN>. Danh sách [] = chưa có file (game hiện phụ đề). Kịch bản: giong-noi/kich-ban.json"
+}

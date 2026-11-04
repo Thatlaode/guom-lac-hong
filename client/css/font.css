@@ -1,0 +1,8 @@
+/* Phông chữ Be Vietnam Pro (SIL Open Font License — assets/font/OFL-BeVietnamPro.txt), đóng gói kèm game, chạy không cần mạng */
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-Italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-Medium.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-SemiBold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-Bold.woff2) format("woff2");font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:"Be Vietnam Pro";src:url(../assets/font/BeVietnamPro-ExtraBold.woff2) format("woff2");font-weight:800 900;font-style:normal;font-display:swap}
+html,body,button,input,select,textarea{font-family:"Be Vietnam Pro",system-ui,sans-serif!important}

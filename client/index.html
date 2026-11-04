@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lục Điệp – Đan Nữ Tu Tiên</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="loading"><div class="ltitle">Lục Điệp</div><div class="lsub">Đan Nữ Tu Tiên</div><div class="lbar"><i id="lfill"></i></div><div id="ltext">Đang tạo thế giới…</div></div>
+
+<div id="title" class="screen hidden">
+  <div class="tbox">
+    <div class="ttl">綠 蝶</div>
+    <h1>Lục Điệp</h1><h2>Đan Nữ Tu Tiên</h2>
+    <p class="tdesc">Bước vào thế giới tu tiên rộng lớn: luyện đan, săn yêu thú, vượt núi băng sông, thăng từ cấp 1 đến cấp 99 và đánh bại Ma Long Diệt Thế.</p>
+    <div class="tbtns"><button id="bContinue" class="big">Tiếp Tục Hành Trình</button><button id="bNew" class="big">Bắt Đầu Mới</button><button id="bHelp" class="big sec">Hướng Dẫn</button></div>
+    <div class="tfoot">Chơi hoàn toàn offline · Tự động lưu trên máy bạn</div>
+  </div>
+</div>
+
+<div id="hud" class="hidden">
+  <div id="pstat">
+    <div class="pname"><b>Lục Điệp</b> <span id="plv">Lv.1</span></div>
+    <div class="bar hp"><i id="hpF"></i><span id="hpT"></span></div>
+    <div class="bar mp"><i id="mpF"></i><span id="mpT"></span></div>
+    <div class="bar xp"><i id="xpF"></i><span id="xpT"></span></div>
+    <div id="buffs"></div>
+  </div>
+  <div id="target" class="hidden"><div id="tName"></div><div class="bar hp"><i id="tF"></i><span id="tT"></span></div></div>
+  <div id="zoneBanner"></div>
+  <div id="mmWrap"><canvas id="mini" width="180" height="180"></canvas><div id="mmZone"></div><div id="mmGold">💰 0</div></div>
+  <div id="log"></div>
+  <div id="prompt" class="hidden"></div>
+  <div id="castbar" class="hidden"><i></i><span></span></div>
+  <div id="hotbar"></div>
+  <div id="hintbar"><b>I</b> Túi · <b>M</b> Bản đồ · <b>E</b> Tương tác · <b>H</b> Hồi thành · <b>Esc</b> Menu · <b>F1</b> Hướng dẫn</div>
+  <div id="floaters"></div>
+  <div id="toast"></div>
+</div>
+
+<div id="inv" class="panel hidden">
+  <div class="ptitle"><span>🎒 Hành Trang & Nhân Vật</span><button class="x" data-close>✕</button></div>
+  <div class="pbody">
+    <div class="colL"><div id="eqGrid"></div><div id="stats"></div></div>
+    <div class="colR">
+      <div class="bagHead"><span id="bagCount"></span><span class="spacer"></span><button id="bSort">Sắp xếp</button><button id="bJunk">Bán đồ phàm/linh</button><span id="invGold"></span></div>
+      <div id="bag"></div>
+      <div id="detail"><div class="muted">Chọn một vật phẩm để xem chi tiết. Nhấp đúp hoặc chuột phải để dùng/trang bị nhanh.</div></div>
+    </div>
+  </div>
+</div>
+
+<div id="shop" class="panel hidden">
+  <div class="ptitle"><span>🔥 Đan Lò – Dược Sư</span><button class="x" data-close>✕</button></div>
+  <div class="tabs"><button data-tab="buy" class="on">Cửa Hàng</button><button data-tab="craft">Luyện Đan</button><button data-tab="enh">Cường Hóa</button><span class="spacer"></span><span id="shopGold"></span></div>
+  <div id="shopBody"></div>
+</div>
+
+<div id="mapPanel" class="panel hidden">
+  <div class="ptitle"><span>🗺️ Bản Đồ Thế Giới</span><button class="x" data-close>✕</button></div>
+  <div class="mapwrap"><canvas id="bigmap" width="620" height="620"></canvas><div id="mapLegend"></div></div>
+</div>
+
+<div id="pause" class="screen hidden">
+  <div class="tbox small"><h1>Tạm Dừng</h1>
+    <div class="tbtns v">
+      <button id="pResume" class="big">Tiếp tục</button>
+      <div class="row"><span>Đồ họa</span><select id="qSel"><option value="low">Thấp</option><option value="mid">Trung bình</option><option value="high">Cao</option></select></div>
+      <div class="row"><span>Âm thanh</span><button id="pSound">Bật</button></div>
+      <button id="pSave" class="big sec">Lưu game</button>
+      <button id="pRecall" class="big sec">Hồi thành</button>
+      <button id="pHelp" class="big sec">Hướng dẫn</button>
+      <button id="pMenu" class="big sec">Về menu chính</button>
+    </div></div>
+</div>
+
+<div id="help" class="screen hidden">
+  <div class="tbox helpbox"><h1>Hướng Dẫn</h1>
+    <div class="hgrid">
+      <div><h3>Di chuyển</h3><p><kbd>W A S D</kbd> di chuyển · <kbd>Shift</kbd> chạy · <kbd>Space</kbd> nhảy<br>Kéo chuột để xoay camera · cuộn để zoom<br>Sông hồ làm chậm bước chân; núi dốc đứng phải ngự kiếm để vượt.</p>
+      <h3>Chiến đấu</h3><p><kbd>J</kbd> hoặc <b>nhấp chuột</b> luyện đan (giữ để liên tục)<br><kbd>1</kbd>-<kbd>8</kbd> kỹ năng · <kbd>Q</kbd> dùng Hồi Huyết Đan · <kbd>R</kbd> dùng Hồi Linh Đan</p>
+      <h3>Thế giới</h3><p><kbd>E</kbd> hái Linh Thảo / mở Đan Lò · <kbd>I</kbd> túi đồ · <kbd>M</kbd> bản đồ · <kbd>H</kbd> hồi thành (3 giây) · <kbd>Esc</kbd> menu</p></div>
+      <div><h3>Kỹ năng (mở khóa theo cấp)</h3><div id="helpSkills"></div></div>
+    </div>
+    <div class="tips"><b>Mẹo:</b> Quái càng xa Linh Đài càng mạnh (Lv.1 → Lv.99). Quái Tinh Anh ★ và 7 Trùm rớt đồ phẩm cao. Nhặt Linh Thảo + Yêu Đan để luyện đan, rồi cường hóa trang bị.</div>
+    <div class="tbtns"><button id="hClose" class="big">Đóng</button></div></div>
+</div>
+
+<div id="death" class="screen hidden"><div class="dbox"><h1>Trọng Thương!</h1><p>Linh lực tan biến… Bạn gục ngã giữa hoang dã.</p><button id="bRevive" class="big">Hồi sinh tại Linh Đài</button></div></div>
+<div id="tip" class="hidden"></div>
+<div id="flash"></div>
+
+<script src="js/lib/three.min.js"></script>
+<script src="js/lib/CopyShader.js"></script>
+<script src="js/lib/LuminosityHighPassShader.js"></script>
+<script src="js/lib/EffectComposer.js"></script>
+<script src="js/lib/RenderPass.js"></script>
+<script src="js/lib/ShaderPass.js"></script>
+<script src="js/lib/UnrealBloomPass.js"></script>
+<script src="js/core.js"></script>
+<script src="js/util.js"></script>
+<script src="js/data.js"></script>
+<script src="js/player.js"></script>
+<script src="js/fx.js"></script>
+<script src="js/world.js"></script>
+<script src="js/monsters.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

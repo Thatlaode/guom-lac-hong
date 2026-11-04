@@ -1,0 +1,18 @@
+{
+  "name": "guom-lac-hong",
+  "version": "0.6.0-beta.1",
+  "description": "Gươm Lạc Hồng · Năm Dòng Đọ Sức — game PvP 18 người, PC + điện thoại chung trận (dự án con VIE Esports)",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js",
+    "test:bot": "node tests/bot-match.js thuong 20",
+    "test:ui": "node tests/ui-test.js",
+    "beta": "NODE_ENV=production node server/server.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

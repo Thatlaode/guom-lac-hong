@@ -1,0 +1,843 @@
+{
+ "_doc": "Kịch bản lồng tiếng (QĐ-0033). Mã ổ: VO-<DÒNG>-<HÀNH ĐỘNG> và ANN-<SỰ KIỆN>. Chưa có file → game hiện phụ đề. Thêm file: đặt vào assets/audio/giong-noi/<thư mục Dòng>/ rồi khai đường dẫn trong audio.json (có thể nhiều file/ổ để chọn ngẫu nhiên).",
+ "acts": {
+  "CHON": "Được chọn ở màn chính",
+  "VAO": "Vừa đáp xuống trận",
+  "DI": "Thỉnh thoảng khi di chuyển (≥25 giây/lần)",
+  "DANH": "Đánh thường (12% số lần)",
+  "CHIEU1": "Tung chiêu 1",
+  "CHIEU2": "Tung chiêu 2",
+  "CHIEULON": "Tung chiêu lớn",
+  "HA": "Hạ một kẻ địch",
+  "HA-LIENTIEP": "Hạ từ 3 người trở lên không chết",
+  "BI-HA": "Bị hạ gục",
+  "TRONG-THUONG": "Gục, chờ đồng đội cứu (Đánh Cặp)",
+  "CUU": "Đỡ đồng đội dậy",
+  "UONG": "Uống Viên Bổ Máu",
+  "MO-HOM": "Mở Hòm Diều",
+  "CUOI-DIEU": "Cưỡi Diều",
+  "SUONG": "Bị Vòng Sương ăn máu",
+  "LEN-CAP": "Lên cấp",
+  "RUT": "Rút vũ khí (phím R)",
+  "THANG": "Người Đứng Cuối"
+ },
+ "dong": {
+  "kiem": {
+   "code": "GUOMHO",
+   "folder": "guom-ho",
+   "lines": {
+    "CHON": [
+     "Mặt hồ phẳng lặng, gươm vẫn sắc.",
+     "Gươm Hồ xin lĩnh mệnh."
+    ],
+    "VAO": [
+     "Gió hồ đã nổi."
+    ],
+    "DI": [
+     "Chân bước nhẹ như mặt nước.",
+     "Kẻ yếu máu, ta tới đây."
+    ],
+    "DANH": [
+     "Chém!",
+     "Một nhát là đủ."
+    ],
+    "CHIEU1": [
+     "Lướt Gươm!",
+     "Nhanh hơn gió!"
+    ],
+    "CHIEU2": [
+     "Gươm xoáy mặt hồ!"
+    ],
+    "CHIEULON": [
+     "Rùa Vàng — nổi sóng!",
+     "Hồ gươm thức dậy!"
+    ],
+    "HA": [
+     "Kết liễu.",
+     "Gươm đã trả lời."
+    ],
+    "HA-LIENTIEP": [
+     "Mặt hồ nhuộm đỏ rồi."
+    ],
+    "BI-HA": [
+     "Gươm… chưa kịp… về hồ…",
+     "Ta… sơ suất…"
+    ],
+    "TRONG-THUONG": [
+     "Còn một hơi… đỡ ta dậy!"
+    ],
+    "CUU": [
+     "Đứng lên, gươm còn chờ ngươi."
+    ],
+    "UONG": [
+     "Hồi sức."
+    ],
+    "MO-HOM": [
+     "Trời ban của quý."
+    ],
+    "CUOI-DIEU": [
+     "Lên gió!"
+    ],
+    "SUONG": [
+     "Sương độc… phải rời đi."
+    ],
+    "LEN-CAP": [
+     "Gươm thêm một phần sắc."
+    ],
+    "RUT": [
+     "Gươm ra khỏi vỏ."
+    ],
+    "THANG": [
+     "Mặt hồ lại phẳng lặng."
+    ]
+   }
+  },
+  "tram": {
+   "code": "TRAMBAC",
+   "folder": "tram-bac",
+   "lines": {
+    "CHON": [
+     "Một cây trâm, một mạng người.",
+     "Trâm Bạc đã sẵn."
+    ],
+    "VAO": [
+     "Gió nhẹ, tầm xa, mắt sáng."
+    ],
+    "DI": [
+     "Đừng để ta thấy lưng ngươi.",
+     "Giữ khoảng cách nào."
+    ],
+    "DANH": [
+     "Trúng.",
+     "Hồng tâm!"
+    ],
+    "CHIEU1": [
+     "Mưa trâm!",
+     "Đỡ được hết không?"
+    ],
+    "CHIEU2": [
+     "Én liệng!",
+     "Không chạm được ta đâu."
+    ],
+    "CHIEULON": [
+     "Trâm xuyên mây!",
+     "Một mũi — xuyên cả trời."
+    ],
+    "HA": [
+     "Thêm một vết khắc.",
+     "Không trượt."
+    ],
+    "HA-LIENTIEP": [
+     "Trâm còn, người hết."
+    ],
+    "BI-HA": [
+     "Mũi trâm… gãy rồi…"
+    ],
+    "TRONG-THUONG": [
+     "Ai đó… kéo ta lên…"
+    ],
+    "CUU": [
+     "Đứng dậy, bắn tiếp."
+    ],
+    "UONG": [
+     "Mắt sáng lại rồi."
+    ],
+    "MO-HOM": [
+     "Đồ tốt."
+    ],
+    "CUOI-DIEU": [
+     "Từ trên cao, nhìn rõ hơn."
+    ],
+    "SUONG": [
+     "Sương che mắt ta."
+    ],
+    "LEN-CAP": [
+     "Tay vững thêm."
+    ],
+    "RUT": [
+     "Trâm đã cầm tay."
+    ],
+    "THANG": [
+     "Không ai thoát khỏi tầm mắt ta."
+    ]
+   }
+  },
+  "tre": {
+   "code": "TRELANG",
+   "folder": "tre-lang",
+   "lines": {
+    "CHON": [
+     "Tre làng không bao giờ gãy!",
+     "Lũy tre xanh, ta đứng trước."
+    ],
+    "VAO": [
+     "Giữ làng, giữ nước!"
+    ],
+    "DI": [
+     "Đất này có tre có người.",
+     "Đứng sau ta."
+    ],
+    "DANH": [
+     "Phang!",
+     "Hây!"
+    ],
+    "CHIEU1": [
+     "Quét đồng!",
+     "Văng ra!"
+    ],
+    "CHIEU2": [
+     "Lũy tre xanh!",
+     "Tên không qua được tre."
+    ],
+    "CHIEULON": [
+     "Tre ngà — quật trời!",
+     "Nhổ bụi tre mà đánh!"
+    ],
+    "HA": [
+     "Đổ như rạ.",
+     "Về làng mà nghỉ."
+    ],
+    "HA-LIENTIEP": [
+     "Cả xóm cũng không cản nổi!"
+    ],
+    "BI-HA": [
+     "Tre… già… măng… mọc…"
+    ],
+    "TRONG-THUONG": [
+     "Đỡ ta… ta còn gánh được…"
+    ],
+    "CUU": [
+     "Dậy! Làng còn cần ngươi."
+    ],
+    "UONG": [
+     "Uống bát nước chè."
+    ],
+    "MO-HOM": [
+     "Của trời cho, làng chia nhau."
+    ],
+    "CUOI-DIEU": [
+     "Diều sáo vi vu!"
+    ],
+    "SUONG": [
+     "Sương xuống dày quá."
+    ],
+    "LEN-CAP": [
+     "Gậy nặng thêm rồi."
+    ],
+    "RUT": [
+     "Gậy tre trong tay!"
+    ],
+    "THANG": [
+     "Lũy tre vẫn đứng."
+    ]
+   }
+  },
+  "duoc": {
+   "code": "VUONTHUOC",
+   "folder": "vuon-thuoc",
+   "lines": {
+    "CHON": [
+     "Vườn thuốc này chữa được cả gan trời.",
+     "Có ta, khỏi lo đau."
+    ],
+    "VAO": [
+     "Hái thuốc thôi nào."
+    ],
+    "DI": [
+     "Lá này hồi máu, lá kia trói chân.",
+     "Đừng giẫm vào vườn của ta."
+    ],
+    "DANH": [
+     "Nếm thử đi!",
+     "Thuốc đắng đấy."
+    ],
+    "CHIEU1": [
+     "Tơ hồng — trói!",
+     "Đứng yên đó."
+    ],
+    "CHIEU2": [
+     "Bát lá xông!",
+     "Khỏe lại rồi."
+    ],
+    "CHIEULON": [
+     "Bướm bay ngập vườn!",
+     "Cả vườn thức dậy!"
+    ],
+    "HA": [
+     "Thuốc hết tác dụng rồi.",
+     "Nghỉ ngơi đi."
+    ],
+    "HA-LIENTIEP": [
+     "Vườn ta không thiếu phân bón."
+    ],
+    "BI-HA": [
+     "Thuốc… không kịp… sắc…"
+    ],
+    "TRONG-THUONG": [
+     "Ta tự chữa không được… giúp với…"
+    ],
+    "CUU": [
+     "Nằm yên, ta đắp lá cho."
+    ],
+    "UONG": [
+     "Thuốc nhà làm."
+    ],
+    "MO-HOM": [
+     "Hòm này có thuốc quý!"
+    ],
+    "CUOI-DIEU": [
+     "Bay đi tìm vườn mới."
+    ],
+    "SUONG": [
+     "Sương này độc hơn thuốc ta."
+    ],
+    "LEN-CAP": [
+     "Biết thêm một vị thuốc."
+    ],
+    "RUT": [
+     "Quạt lá sẵn sàng."
+    ],
+    "THANG": [
+     "Vườn thuốc còn xanh."
+    ]
+   }
+  },
+  "bang": {
+   "code": "SONGCOC",
+   "folder": "song-coc",
+   "lines": {
+    "CHON": [
+     "Cọc đã cắm, giặc phải dừng.",
+     "Thương dài giữ dòng sông."
+    ],
+    "VAO": [
+     "Nước lên rồi."
+    ],
+    "DI": [
+     "Chờ con nước rút.",
+     "Kẻ nào lao vào sẽ mắc cạn."
+    ],
+    "DANH": [
+     "Đâm!",
+     "Lùi lại!"
+    ],
+    "CHIEU1": [
+     "Sóng ba mũi!",
+     "Chậm lại đi."
+    ],
+    "CHIEU2": [
+     "Lặn theo dòng!"
+    ],
+    "CHIEULON": [
+     "Nước rút — bãi cọc lộ!",
+     "Mắc cạn hết đi!"
+    ],
+    "HA": [
+     "Chìm.",
+     "Sông cuốn đi rồi."
+    ],
+    "HA-LIENTIEP": [
+     "Cả đoàn thuyền mắc cọc!"
+    ],
+    "BI-HA": [
+     "Dòng sông… cuốn ta…"
+    ],
+    "TRONG-THUONG": [
+     "Kéo ta lên bờ!"
+    ],
+    "CUU": [
+     "Nắm lấy cán thương."
+    ],
+    "UONG": [
+     "Một ngụm nước sông."
+    ],
+    "MO-HOM": [
+     "Hàng trôi sông dạt vào."
+    ],
+    "CUOI-DIEU": [
+     "Gió sông đưa đi."
+    ],
+    "SUONG": [
+     "Sương mù trên sông."
+    ],
+    "LEN-CAP": [
+     "Cọc đóng sâu thêm."
+    ],
+    "RUT": [
+     "Thương trong tay."
+    ],
+    "THANG": [
+     "Sông lại êm."
+    ]
+   }
+  },
+  "lua": {
+   "code": "LUANUOC",
+   "folder": "lua-nuoc",
+   "lines": {
+    "CHON": [
+     "Lụa mềm, nước mạnh.",
+     "Đuổi theo ta thử xem."
+    ],
+    "VAO": [
+     "Sóng vờn rồi."
+    ],
+    "DI": [
+     "Lượn một vòng nào.",
+     "Không ai bắt được nước."
+    ],
+    "DANH": [
+     "Vút!",
+     "Quất!"
+    ],
+    "CHIEU1": [
+     "Lụa vờn sóng!"
+    ],
+    "CHIEU2": [
+     "Lướt mặt hồ!",
+     "Ở đây này!"
+    ],
+    "CHIEULON": [
+     "Nước dâng ngập lối!",
+     "Chìm trong sóng đi!"
+    ],
+    "HA": [
+     "Trôi đi.",
+     "Nước chảy, người ngã."
+    ],
+    "HA-LIENTIEP": [
+     "Sóng chưa ngừng đâu."
+    ],
+    "BI-HA": [
+     "Lụa… rách… rồi…"
+    ],
+    "TRONG-THUONG": [
+     "Nước cạn… cứu ta…"
+    ],
+    "CUU": [
+     "Theo dải lụa mà dậy."
+    ],
+    "UONG": [
+     "Ngọt như nước giếng."
+    ],
+    "MO-HOM": [
+     "Đẹp quá!"
+    ],
+    "CUOI-DIEU": [
+     "Bay theo gió!"
+    ],
+    "SUONG": [
+     "Sương lạnh quá."
+    ],
+    "LEN-CAP": [
+     "Lụa dài thêm một sải."
+    ],
+    "RUT": [
+     "Lụa đã tung."
+    ],
+    "THANG": [
+     "Nước về với nước."
+    ]
+   }
+  },
+  "hoa": {
+   "code": "NGUALUA",
+   "folder": "ngua-lua",
+   "lines": {
+    "CHON": [
+     "Ngựa sắt đã đóng yên!",
+     "Lửa ta cháy không tắt."
+    ],
+    "VAO": [
+     "Xung phong!"
+    ],
+    "DI": [
+     "Ngựa hí rồi.",
+     "Thấy giặc là xông."
+    ],
+    "DANH": [
+     "Chém!",
+     "Cháy đi!"
+    ],
+    "CHIEU1": [
+     "Ngựa lửa xông trận!",
+     "Tránh đường!"
+    ],
+    "CHIEU2": [
+     "Đao bừng lửa!"
+    ],
+    "CHIEULON": [
+     "Vó lửa — đạp trời!",
+     "Cháy rụi hết!"
+    ],
+    "HA": [
+     "Thành tro.",
+     "Ngựa đã qua."
+    ],
+    "HA-LIENTIEP": [
+     "Không ai đứng nổi trước vó ngựa!"
+    ],
+    "BI-HA": [
+     "Lửa… tắt… rồi…"
+    ],
+    "TRONG-THUONG": [
+     "Ngựa còn… người gục… cứu ta!"
+    ],
+    "CUU": [
+     "Lên ngựa, ta còn đánh!"
+    ],
+    "UONG": [
+     "Thêm dầu cho lửa."
+    ],
+    "MO-HOM": [
+     "Chiến lợi phẩm!"
+    ],
+    "CUOI-DIEU": [
+     "Ngựa không bay được, ta bay!"
+    ],
+    "SUONG": [
+     "Sương dập lửa ta."
+    ],
+    "LEN-CAP": [
+     "Lửa cháy to hơn."
+    ],
+    "RUT": [
+     "Đao ra!"
+    ],
+    "THANG": [
+     "Ngựa lửa về chuồng."
+    ]
+   }
+  },
+  "gao": {
+   "code": "HOAGAO",
+   "folder": "hoa-gao",
+   "lines": {
+    "CHON": [
+     "Tháng ba hoa gạo đỏ trời.",
+     "Đèn lồng đã thắp."
+    ],
+    "VAO": [
+     "Thắp đèn nào."
+    ],
+    "DI": [
+     "Hoa rơi đâu, lửa cháy đó.",
+     "Đứng gần nhau thì càng đẹp."
+    ],
+    "DANH": [
+     "Nổ!",
+     "Hoa lửa!"
+    ],
+    "CHIEU1": [
+     "Cánh gạo lửa!"
+    ],
+    "CHIEU2": [
+     "Đèn lồng bay!"
+    ],
+    "CHIEULON": [
+     "Trời đỏ hoa gạo!",
+     "Mưa hoa — mưa lửa!"
+    ],
+    "HA": [
+     "Tàn như hoa rụng.",
+     "Đẹp mà buồn."
+    ],
+    "HA-LIENTIEP": [
+     "Cả cây gạo trổ hoa rồi!"
+    ],
+    "BI-HA": [
+     "Đèn… tắt… mất rồi…"
+    ],
+    "TRONG-THUONG": [
+     "Thắp lại đèn cho ta…"
+    ],
+    "CUU": [
+     "Đèn còn sáng, ngươi còn sống."
+    ],
+    "UONG": [
+     "Ấm người."
+    ],
+    "MO-HOM": [
+     "Quà từ trên trời!"
+    ],
+    "CUOI-DIEU": [
+     "Bay như đèn trời."
+    ],
+    "SUONG": [
+     "Sương làm đèn mờ."
+    ],
+    "LEN-CAP": [
+     "Lửa thêm rực."
+    ],
+    "RUT": [
+     "Nâng đèn lên."
+    ],
+    "THANG": [
+     "Hoa gạo vẫn đỏ."
+    ]
+   }
+  },
+  "thach": {
+   "code": "NUIDANG",
+   "folder": "nui-dang",
+   "lines": {
+    "CHON": [
+     "Núi không lùi.",
+     "Đánh ta đi, núi chịu được."
+    ],
+    "VAO": [
+     "Đất rung rồi."
+    ],
+    "DI": [
+     "Từng bước nặng như núi.",
+     "Cứ đánh vào ta."
+    ],
+    "DANH": [
+     "Đập!",
+     "Hự!"
+    ],
+    "CHIEU1": [
+     "Dậm núi!",
+     "Quỳ xuống!"
+    ],
+    "CHIEU2": [
+     "Da đá!",
+     "Không thấy đau."
+    ],
+    "CHIEULON": [
+     "Núi dâng — nước lùi!",
+     "Đất trời rung chuyển!"
+    ],
+    "HA": [
+     "Đá đè.",
+     "Nằm xuống."
+    ],
+    "HA-LIENTIEP": [
+     "Núi lở rồi đấy!"
+    ],
+    "BI-HA": [
+     "Núi… cũng… có lúc… lở…"
+    ],
+    "TRONG-THUONG": [
+     "Ta nặng lắm… cố mà kéo…"
+    ],
+    "CUU": [
+     "Bám vào ta mà đứng."
+    ],
+    "UONG": [
+     "Thêm sức."
+    ],
+    "MO-HOM": [
+     "Hòm này nặng tay đấy."
+    ],
+    "CUOI-DIEU": [
+     "Diều có chở nổi ta không?"
+    ],
+    "SUONG": [
+     "Sương bào mòn cả đá."
+    ],
+    "LEN-CAP": [
+     "Núi cao thêm."
+    ],
+    "RUT": [
+     "Búa đá trong tay."
+    ],
+    "THANG": [
+     "Núi vẫn đứng đây."
+    ]
+   }
+  },
+  "chieng": {
+   "code": "CONGCHIENG",
+   "folder": "cong-chieng",
+   "lines": {
+    "CHON": [
+     "Tiếng chiêng gọi cả đại ngàn.",
+     "Nghe nhịp ta mà đánh."
+    ],
+    "VAO": [
+     "Mở hội!"
+    ],
+    "DI": [
+     "Nhịp một, nhịp hai…",
+     "Rừng đang nghe."
+    ],
+    "DANH": [
+     "Boong!",
+     "Vang!"
+    ],
+    "CHIEU1": [
+     "Tiếng chiêng vang!",
+     "Choáng chưa?"
+    ],
+    "CHIEU2": [
+     "Nhịp trống hội!",
+     "Theo nhịp mà chạy!"
+    ],
+    "CHIEULON": [
+     "Chiêng rền đại ngàn!",
+     "Cả núi rừng cùng đánh!"
+    ],
+    "HA": [
+     "Hết nhịp.",
+     "Lặng rồi."
+    ],
+    "HA-LIENTIEP": [
+     "Hội còn dài, chiêng còn rền!"
+    ],
+    "BI-HA": [
+     "Tiếng chiêng… nhỏ dần…"
+    ],
+    "TRONG-THUONG": [
+     "Gõ chiêng gọi ta dậy…"
+    ],
+    "CUU": [
+     "Nghe nhịp mà đứng lên."
+    ],
+    "UONG": [
+     "Rượu cần ngọt quá."
+    ],
+    "MO-HOM": [
+     "Lễ vật của trời!"
+    ],
+    "CUOI-DIEU": [
+     "Bay theo tiếng chiêng."
+    ],
+    "SUONG": [
+     "Sương lấp tiếng chiêng."
+    ],
+    "LEN-CAP": [
+     "Chiêng to thêm."
+    ],
+    "RUT": [
+     "Cầm dùi lên."
+    ],
+    "THANG": [
+     "Chiêng mừng chiến thắng!"
+    ]
+   }
+  }
+ },
+ "ann": {
+  "BAT-DAU": {
+   "d": "Trận bắt đầu",
+   "lines": [
+    "Mười Dòng đã tề tựu — giao đấu!"
+   ]
+  },
+  "HA-DAU": {
+   "d": "Hạ gục đầu tiên của trận",
+   "lines": [
+    "Máu đầu đã đổ!"
+   ]
+  },
+  "HA-2": {
+   "d": "Hạ 2 người trong 10 giây",
+   "lines": [
+    "Hạ đôi!"
+   ]
+  },
+  "HA-3": {
+   "d": "Hạ 3 người trong 10 giây",
+   "lines": [
+    "Hạ ba!"
+   ]
+  },
+  "HA-4": {
+   "d": "Hạ 4 người trong 10 giây",
+   "lines": [
+    "Hạ bốn!"
+   ]
+  },
+  "HA-5": {
+   "d": "Hạ 5 người trong 10 giây",
+   "lines": [
+    "Năm mạng — vô song!"
+   ]
+  },
+  "CHUOI-3": {
+   "d": "Hạ 3 người chưa chết",
+   "lines": [
+    "Đang hăng tay!"
+   ]
+  },
+  "CHUOI-5": {
+   "d": "Hạ 5 người chưa chết",
+   "lines": [
+    "Không ai cản nổi!"
+   ]
+  },
+  "CHUOI-8": {
+   "d": "Hạ 8 người chưa chết",
+   "lines": [
+    "Thần võ giáng trần!"
+   ]
+  },
+  "CHAN-CHUOI": {
+   "d": "Hạ kẻ đang có chuỗi ≥3",
+   "lines": [
+    "Chuỗi đã bị chặn!"
+   ]
+  },
+  "SUONG-THU": {
+   "d": "Vòng Sương bắt đầu thu",
+   "lines": [
+    "Sương đang khép lại!"
+   ]
+  },
+  "HOM-DIEU": {
+   "d": "Hòm Diều sắp rơi",
+   "lines": [
+    "Hòm Diều từ trời xuống!"
+   ]
+  },
+  "TRUM-XUAT-HIEN": {
+   "d": "Chúa Thuồng Luồng trồi lên",
+   "lines": [
+    "Thuồng Luồng đã thức giấc!"
+   ]
+  },
+  "TRUM-BI-HA": {
+   "d": "Trùm bị hạ",
+   "lines": [
+    "Thuồng Luồng đã gục!"
+   ]
+  },
+  "CON-10": {
+   "d": "Còn 10 người",
+   "lines": [
+    "Còn mười người!"
+   ]
+  },
+  "CON-5": {
+   "d": "Còn 5 người",
+   "lines": [
+    "Còn năm người!"
+   ]
+  },
+  "CON-3": {
+   "d": "Còn 3 người",
+   "lines": [
+    "Ba người cuối cùng!"
+   ]
+  },
+  "CON-2": {
+   "d": "Còn 2 người — trận quyết định",
+   "lines": [
+    "Một chọi một!"
+   ]
+  },
+  "THANG": {
+   "d": "Bạn là Người Đứng Cuối",
+   "lines": [
+    "Người Đứng Cuối!"
+   ]
+  },
+  "BI-LOAI": {
+   "d": "Bạn bị loại",
+   "lines": [
+    "Đã bị loại."
+   ]
+  }
+ }
+}

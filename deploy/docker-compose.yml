@@ -1,0 +1,10 @@
+services:
+  guom-lac-hong:
+    build: { context: .., dockerfile: deploy/Dockerfile }
+    restart: always
+    ports: ["8080:8080"]
+    environment:
+      - ADMIN_KEY=${ADMIN_KEY:-}
+    volumes: ["glh-data:/data"]
+volumes:
+  glh-data:

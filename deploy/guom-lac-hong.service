@@ -1,0 +1,21 @@
+# Dịch vụ systemd — tự chạy khi bật máy, tự khởi động lại khi lỗi
+[Unit]
+Description=Guom Lac Hong - may chu tran dau (beta)
+After=network.target
+
+[Service]
+Type=simple
+User=glh
+WorkingDirectory=/opt/guom-lac-hong
+EnvironmentFile=/etc/guom-lac-hong.env
+ExecStart=/usr/bin/node server/server.js
+Restart=always
+RestartSec=3
+# bảo vệ hệ thống
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/var/lib/guom-lac-hong
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><link rel="stylesheet" href="css/font.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bảng Admin · Gươm Lạc Hồng</title>
+<style>
+:root{--bg:#0e1614;--card:#16231f;--ink:#f0ead8;--mut:#9fb3aa;--acc:#e0b24a;--line:#2c3f39}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Segoe UI",system-ui,sans-serif;padding:16px}
+h1{margin:0 0 4px;color:var(--acc);font-size:22px}h2{font-size:16px;color:var(--acc);margin:0 0 8px}.mut{color:var(--mut);font-size:13px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:12px}.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.pre{display:flex;gap:8px;flex-wrap:wrap}.pre button{flex:1;min-width:110px}
+button{background:rgba(224,178,74,.15);color:var(--ink);border:1px solid #6a5420;border-radius:8px;padding:9px 12px;font:inherit;cursor:pointer}button.on,button.main{background:var(--acc);color:#1d1406;font-weight:700}
+.row{display:grid;grid-template-columns:1fr 130px 54px;gap:8px;align-items:center;margin:6px 0}.row input[type=range]{width:100%}.row .v{text-align:right;font-weight:700}
+.sw{display:flex;justify-content:space-between;align-items:center;margin:6px 0}
+input,select{background:#0b1210;color:var(--ink);border:1px solid var(--line);border-radius:6px;padding:7px;font:inherit}
+table{width:100%;border-collapse:collapse;font-size:14px}td,th{padding:5px;border-bottom:1px solid var(--line);text-align:left}
+#login{max-width:420px;margin:60px auto}
+.tt{overflow:auto}.tt table{font-size:13px;min-width:860px}.tt input[type=number]{width:62px;padding:4px}.tt td,.tt th{padding:4px 5px;white-space:nowrap}
+.tt tr.sub td{background:#101a17}.dn{color:var(--mut)}.hi{color:#ff8a7a;font-weight:700}.lo{color:#7ab4ff;font-weight:700}.chg{background:rgba(224,178,74,.18)!important}
+.gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:4px 14px}.gr label{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:13px}.gr input{width:70px}.ok{color:#7dffb0}.err{color:#ff8a7a}
+</style></head><body>
+<div id="login" class="c"><h1>🛡️ Bảng Admin</h1><p class="mut">Nhập mã Admin (in ở cửa sổ máy chủ, lưu trong <code>server/data/admin-key.txt</code>).</p><input id="key" placeholder="Mã Admin" style="width:100%"><p><button class="main" id="bLogin" style="width:100%">Vào</button></p><div id="lerr" class="err"></div></div>
+<div id="app" class="wrap" hidden>
+  <div><h1>🛡️ Bảng Admin · Gươm Lạc Hồng</h1><div class="mut">Chỉnh độ khó trận đấu. Áp dụng cho <b>trận mở sau khi lưu</b> (trận đang đánh giữ nguyên). <span id="saved"></span></div></div>
+  <div class="c"><h2>Mức độ khó có sẵn</h2><div class="pre" id="presets"></div><div class="mut" id="presetNote" style="margin-top:6px"></div></div>
+  <div class="g">
+    <div class="c"><h2>🤖 Người máy & trận</h2>
+      <div class="sw"><span>Độ giỏi người máy</span><select id="botSkill"></select></div>
+      <div class="sw"><span>Lấp đủ chỗ bằng người máy</span><input type="checkbox" id="fillBots"></div>
+      <div id="r_matchSize"></div><div id="r_lobbyWait"></div><div id="r_practiceBots"></div>
+      <div class="sw"><span>Có Hòm Diều</span><input type="checkbox" id="chests"></div>
+      <div class="sw"><span>Có Chúa Thuồng Luồng</span><input type="checkbox" id="boss"></div>
+      <div class="sw"><span>Có quái</span><input type="checkbox" id="monsters"></div>
+    </div>
+    <div class="c"><h2>⚔️ Sức mạnh & nhịp trận</h2>
+      <div id="r_dmgMul"></div><div id="r_monHpMul"></div><div id="r_monAtkMul"></div><div id="r_zoneSpeedMul"></div><div id="r_zoneDpsMul"></div><div id="r_expMul"></div><div id="r_lootMul"></div>
+    </div>
+    <div class="c"><h2>🎯 Hỗ trợ ngắm (công bằng PC ↔ điện thoại)</h2>
+      <div class="mut">Góc "hút" về phía địch gần tâm ngắm (radian). 0 = tự ngắm hoàn toàn (thi kỹ năng thuần).</div>
+      <div id="r_aimAssistTouch"></div><div id="r_aimAssistPc"></div>
+    </div>
+  </div>
+  <div class="c"><button class="main" id="bSave">💾 Lưu cấu hình</button> <button id="bStart">▶ Mở trận ngay (sân chờ)</button> <button id="bEnd">■ Kết thúc mọi trận</button></div>
+  <div class="c" id="tuneCard"><h2>⚖️ Cân bằng từng phần — 10 Dòng (QĐ-0031)</h2>
+    <div class="mut">Mọi ô là <b>hệ số nhân</b> (1 = như gốc, 1.1 = mạnh thêm 10%, 0.9 = yếu đi 10%). Áp vào <b>trận mở sau khi lưu</b>. Mỗi lần lưu, bản cũ được cất vào lịch sử để quay lại. Bấm tên Dòng để chỉnh từng chiêu — dòng có mũi tên → là số thật sau khi nhân.</div>
+    <p><label>Tên bản cân bằng <input id="tuneV" style="width:220px"></label> <label class="mut">Ghi chú <input id="tuneNote" style="width:260px" placeholder="vd: giảm Gươm Hồ vì thắng 30%"></label></p>
+    <h2 style="margin-top:6px">Hệ số chung</h2><div class="gr" id="tuneG"></div>
+    <h2 style="margin-top:10px">Theo đợt Vòng Sương (sát thương người đánh người — cân bằng đầu / giữa / cuối trận)</h2><div class="gr" id="tunePh"></div>
+    <h2 style="margin-top:10px">Theo từng Dòng</h2><div class="tt"><table id="tuneF"></table></div>
+    <p><button class="main" id="bTune">💾 Lưu bản cân bằng</button> <button id="bTuneReset">↺ Về bản gốc</button> <span id="tsaved"></span></p>
+    <div class="g"><div><h2>📊 Thống kê theo Dòng (bản đang dùng)</h2><div id="fstats" class="tt"></div><button id="bFsReset" style="margin-top:6px">Xóa thống kê</button></div><div><h2>🕘 Lịch sử bản cân bằng</h2><div id="thist"></div></div></div>
+  </div>
+  <div class="g"><div class="c"><h2>Trận đang chạy</h2><div id="status"></div></div><div class="c"><h2>Kết nối</h2><div id="conn"></div></div></div>
+</div>
+<script src="shared/rules.js"></script>
+<script>
+const $=id=>document.getElementById(id);let KEY=localStorage.getItem('glh_admin')||'',CFG={},META={};
+const NAMES={matchSize:'Số người mỗi trận',lobbyWait:'Chờ ở sân (giây)',practiceBots:'Người máy khi tập',dmgMul:'Hệ số sát thương người chơi',monHpMul:'Máu quái ×',monAtkMul:'Sức đánh quái ×',zoneSpeedMul:'Tốc độ Vòng Sương ×',zoneDpsMul:'Sương gây sát thương ×',expMul:'Điểm lớn (EXP) ×',lootMul:'Rơi đồ ×',aimAssistTouch:'Điện thoại',aimAssistPc:'Máy tính'};
+const STEP={matchSize:1,lobbyWait:1,practiceBots:1,aimAssistTouch:0.01,aimAssistPc:0.01};
+async function api(p,body){const r=await fetch('/api/admin/'+p,{method:body?'POST':'GET',headers:{'x-admin-key':KEY,'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});if(r.status===403)throw new Error('Sai mã Admin');return r.json();}
+async function login(){KEY=$('key').value.trim()||KEY;try{META=await api('meta');CFG=await api('config');localStorage.setItem('glh_admin',KEY);$('login').hidden=true;$('app').hidden=false;render();status();loadTune();setInterval(status,3000);}catch(e){$('lerr').textContent=e.message;}}
+function render(){
+  $('presets').innerHTML=Object.entries(META.presets).map(([k,p])=>`<button data-p="${k}" class="${CFG.preset===k?'on':''}">${p.n}</button>`).join('')+`<button class="${CFG.preset==='tuychinh'?'on':''}" disabled>Tự chỉnh</button>`;
+  document.querySelectorAll('[data-p]').forEach(b=>b.onclick=async()=>{CFG=await api('config',{preset:b.dataset.p});render();flash();});
+  $('presetNote').textContent='Đang dùng: '+(META.presets[CFG.preset]?META.presets[CFG.preset].n:'Tự chỉnh')+' · Người máy: '+META.botSkill[CFG.botSkill].n;
+  $('botSkill').innerHTML=Object.entries(META.botSkill).map(([k,b])=>`<option value="${k}">${b.n} (phản xạ ${b.react}s, lệch ngắm ${b.aimErr})</option>`).join('');$('botSkill').value=CFG.botSkill;
+  for(const k of ['fillBots','chests','boss','monsters'])$(k).checked=!!CFG[k];
+  for(const k in META.limits){const el=$('r_'+k);if(!el)continue;const [a,b]=META.limits[k],st=STEP[k]||0.05;el.innerHTML=`<div class="row"><span>${NAMES[k]}</span><input type="range" min="${a}" max="${b}" step="${st}" value="${CFG[k]}" id="i_${k}"><span class="v" id="v_${k}">${CFG[k]}</span></div>`;$('i_'+k).oninput=e=>{$('v_'+k).textContent=e.target.value;};}
+}
+function collect(){const o={botSkill:$('botSkill').value};for(const k of ['fillBots','chests','boss','monsters'])o[k]=$(k).checked;for(const k in META.limits){const el=$('i_'+k);if(el)o[k]=+el.value;}return o;}
+function flash(){$('saved').innerHTML='<span class="ok">✓ Đã lưu</span>';setTimeout(()=>$('saved').textContent='',2000);}
+async function status(){try{const s=await api('status');$('status').innerHTML=s.matches.length?'<table><tr><th>Trận</th><th>Kiểu</th><th>Thời gian</th><th>Còn</th><th>Người thật</th><th>Độ khó</th></tr>'+s.matches.map(m=>`<tr><td>${m.id}</td><td>${m.mode==='practice'?'Tập':'Đánh Lẻ'}</td><td>${Math.floor(m.t/60)}:${String(m.t%60).padStart(2,'0')}</td><td>${m.alive}/${m.size}</td><td>${m.humans}</td><td>${m.preset}</td></tr>`).join('')+'</table>':'<span class="mut">Chưa có trận</span>';$('conn').innerHTML=`Đang kết nối: <b>${s.online}</b> · Sân chờ: ${s.lobby.length?s.lobby.join(', '):'trống'}<br><span class="mut">Địa chỉ cho điện thoại cùng wifi:</span><br>`+s.ips.map(ip=>`<b>http://${ip}:${s.port}</b>`).join('<br>');}catch(e){}}
+/* ---------- Cân bằng từng phần ---------- */
+let TUNE=null,TL=null,OPEN={};
+const num=(id,v,st=0.05)=>`<input type="number" step="${st}" min="0" max="5" value="${v}" data-k="${id}">`;
+async function loadTune(){const r=await api('tune');TUNE=r.tune;TL=r.labels;renderTune();loadStats();loadHist();}
+function eff(){return GLH.buildFactions(TUNE);}
+function renderTune(){
+  $('tuneV').value=TUNE.v;
+  $('tuneG').innerHTML=Object.entries(TL.g).map(([k,n])=>`<label>${n} ${num('g.'+k,TUNE.g[k])}</label>`).join('');
+  $('tunePh').innerHTML=TUNE.g.phase.map((v,i)=>`<label>${i<5?'Đợt '+(i+1):'Sau đợt 5'} ${num('ph.'+i,v)}</label>`).join('');
+  const E=eff(),fk=Object.keys(GLH.BASE_FACTIONS);let h='<tr><th>Dòng</th><th>Bật</th>'+Object.values(TL.f).map(n=>`<th>${n}</th>`).join('')+'<th>Nhanh</th></tr>';
+  for(const k of fk){const F=GLH.BASE_FACTIONS[k],f=TUNE.f[k],e=E[k];
+    h+=`<tr><td><a href="#" data-open="${k}" style="color:${F.col}">${OPEN[k]?'▾':'▸'} ${F.short}</a> <span class="dn">${F.sex==='nu'?'Nữ':'Nam'}</span></td><td><input type="checkbox" data-k="f.${k}.on" ${f.on?'checked':''}></td>`+Object.keys(TL.f).map(x=>`<td class="${f[x]!==1?'chg':''}">${num('f.'+k+'.'+x,f[x])}</td>`).join('')+`<td><button data-q="${k}" data-d="-0.05">−5%</button> <button data-q="${k}" data-d="0.05">+5%</button></td></tr>`;
+    if(OPEN[k]){F.skills.forEach((sk,i)=>{const s=f.s[i],es=e.skills[i];h+=`<tr class="sub"><td colspan="2">↳ ${sk.ult?'⭐ ':''}${i+1}. ${sk.n}</td><td colspan="${Object.keys(TL.f).length+1}">`+Object.entries(TL.s).map(([x,n])=>`${n} ${num('s.'+k+'.'+i+'.'+x,s[x])}`).join(' &nbsp; ')+`<div class="dn">→ ${GLH.skillText(es,1)} · ${es.mp} hơi · hồi ${es.cd}s</div></td></tr>`;});
+      h+=`<tr class="sub"><td colspan="2">↳ Tâm Pháp: ${F.passive.n}</td><td colspan="${Object.keys(TL.f).length+1}" class="dn">→ ${e.passive.d}</td></tr>`;}
+  }
+  $('tuneF').innerHTML=h;
+  document.querySelectorAll('#tuneCard [data-k]').forEach(el=>el.onchange=()=>{const p=el.dataset.k.split('.'),v=el.type==='checkbox'?el.checked:+el.value;
+    if(p[0]==='g')TUNE.g[p[1]]=v;else if(p[0]==='ph')TUNE.g.phase[+p[1]]=v;else if(p[0]==='f')TUNE.f[p[1]][p[2]]=v;else if(p[0]==='s')TUNE.f[p[1]].s[+p[2]][p[3]]=v;setTimeout(renderTune,0);});
+  document.querySelectorAll('[data-open]').forEach(a=>a.onclick=e=>{e.preventDefault();OPEN[a.dataset.open]=!OPEN[a.dataset.open];renderTune();});
+  document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{const f=TUNE.f[b.dataset.q];f.dmg=+(f.dmg+ +b.dataset.d).toFixed(2);renderTune();});
+}
+async function loadStats(){const S=await api('fstats'),B=S[TUNE.v];if(!B){$('fstats').innerHTML='<span class="mut">Chưa có trận nào với bản này. Mỗi trận đấu xong sẽ được cộng vào.</span>';return;}
+  const rows=Object.entries(B.f).map(([k,f])=>{const F=GLH.BASE_FACTIONS[k]||{short:k},wr=100*f.wins/f.n,exp=100/18; /* kỳ vọng mỗi lượt ≈ 1/số người */return `<tr><td>${F.short}</td><td>${f.n}</td><td class="${wr>exp*1.6?'hi':wr<exp*0.5?'lo':''}">${wr.toFixed(1)}%</td><td>${(100*f.top3/f.n).toFixed(0)}%</td><td>${(f.place/f.n*18).toFixed(1)}</td><td>${(f.kills/f.n).toFixed(2)}</td><td>${Math.round(f.dmg/f.n)}</td><td>${f.humans}</td></tr>`;}).join('');
+  $('fstats').innerHTML=`<div class="mut">${B.games} trận · đỏ = thắng quá nhiều, xanh = thắng quá ít (người máy ngắm kém hơn người thật — xem cả số người thật)</div><table><tr><th>Dòng</th><th>Lượt</th><th>Thắng</th><th>Top 3</th><th>Hạng TB/18</th><th>Hạ TB</th><th>Sát thương TB</th><th>Người thật</th></tr>${rows}</table>`;}
+async function loadHist(){const H=await api('tune-history');$('thist').innerHTML=H.length?'<table>'+H.slice(0,12).map(h=>`<tr><td>${new Date(h.at).toLocaleString('vi-VN')}</td><td><b>${h.v||''}</b><br><span class="dn">${h.note||''}</span></td><td><button data-hr="${h.i}">Khôi phục</button></td></tr>`).join('')+'</table>':'<span class="mut">Chưa có</span>';
+  document.querySelectorAll('[data-hr]').forEach(b=>b.onclick=async()=>{if(!confirm('Khôi phục bản này?'))return;TUNE=await api('tune-restore',{i:+b.dataset.hr});renderTune();loadHist();loadStats();});}
+$('bTune').onclick=async()=>{TUNE.v=$('tuneV').value.trim()||TUNE.v;TUNE=await api('tune',{tune:TUNE,note:$('tuneNote').value});renderTune();loadHist();loadStats();$('tsaved').innerHTML='<span class="ok">✓ Đã lưu — áp dụng từ trận sau</span>';setTimeout(()=>$('tsaved').textContent='',3000);};
+$('bTuneReset').onclick=async()=>{if(!confirm('Đưa mọi hệ số về 1 (bản gốc)?'))return;TUNE=await api('tune-reset',{});renderTune();loadHist();loadStats();};
+$('bFsReset').onclick=async()=>{if(!confirm('Xóa toàn bộ thống kê?'))return;await api('fstats',{});loadStats();};
+$('bLogin').onclick=login;$('key').onkeydown=e=>{if(e.key==='Enter')login();};
+$('bSave').onclick=async()=>{CFG=await api('config',collect());render();flash();};
+$('bStart').onclick=async()=>{await api('start');status();};$('bEnd').onclick=async()=>{if(confirm('Kết thúc mọi trận đang chạy?')){await api('end');status();}};
+if(KEY){$('key').value=KEY;login();}
+</script></body></html>

@@ -1,0 +1,19 @@
+/* Sinh tài liệu 10 Dòng từ shared/rules.js → Bộ Não (chạy: node tools/sinh-tai-lieu-dong.js > 12-Muoi-Dong-va-Chieu.md) */
+const G = require('../shared/rules.js'), E = G.ELEM;
+let o = `---\ntags: [gdd, dong, chieu]\ncap_nhat: ${new Date().toISOString().slice(0, 10)}\nnguon: shared/rules.js (sinh tự động bằng tools/sinh-tai-lieu-dong.js — sửa số trong code rồi chạy lại)\n---\n# 12 · Mười Dòng & hệ thống chiêu (QĐ-0030)\n\n`;
+o += `> **Năm Gốc × hai giới = 10 Dòng.** Mỗi Gốc có 1 Dòng **nam** và 1 Dòng **nữ** với lối đánh khác hẳn nhau. Tên gợi hình thuần Việt, không lấy tên nhân vật lịch sử (QĐ-0019).\n> Số liệu dưới đây là **bản gốc**; Admin nhân hệ số từng phần trong Bảng Admin (QĐ-0031) → trong game, Bí kíp Dòng luôn hiện số đã nhân.\n\n`;
+o += `## Bản đồ Dòng\n| Gốc | Dòng nam | Dòng nữ | Át | Bị át bởi |\n|---|---|---|---|---|\n`;
+for (const el in G.ELEM_PAIRS) { const [a, b] = G.ELEM_PAIRS[el], by = Object.keys(G.AT).find(k => G.AT[k] === el); o += `| ${E[el].ic} ${E[el].n} | ${G.BASE_FACTIONS[a].short} — ${G.BASE_FACTIONS[a].role} | ${G.BASE_FACTIONS[b].short} — ${G.BASE_FACTIONS[b].role} | ${E[G.AT[el]].n} | ${E[by].n} |\n`; }
+o += `\n## Luật chung của chiêu\n- **Đánh thường** + **3 chiêu** (phím 1 2 3; chiêu 3 là **chiêu lớn**) + **Tâm Pháp** (nội tại, luôn có tác dụng).\n- Chiêu 1 học từ cấp 1; chiêu 2 từ cấp 2; chiêu lớn từ cấp 6/10/14. Mỗi bậc thêm \`up\` vào hệ số sát thương và giảm 4% hồi chiêu.\n- Kiểu chiêu: **lao** (dash), **sóng quanh mình** (nova), **đạn bay thẳng** (proj — né được), **gọi xuống điểm ngắm** (zone), **tự cường hóa** (buff), **lướt** (blink), **nhảy đập** (leap), **quét quạt** (cone).\n- Khống chế: choáng, trói, chậm, **hất văng** (mới), đốt cháy. Thời gian khống chế nhân với hệ số "Khống chế" của Admin.\n- Hồng tâm ×${G.SKILL.precisionMul} · đòn hiểm tối đa ${G.SKILL.critMax}% ×${G.SKILL.critMul} · người đánh người ×${G.SKILL.pvpMul} · Gốc át ×1.15 / bị át ×0.9.\n\n`;
+const st = b => `Máu ×${b.hp} · Sức đánh ×${b.atk} · Thủ ×${b.def} · Hơi ×${b.mp} · Tốc chạy ×${b.spd}`;
+for (const el in G.ELEM_PAIRS) for (const fk of G.ELEM_PAIRS[el]) {
+  const F = G.FACTIONS[fk], B = F.basic;
+  o += `---\n## ${F.n} · ${F.sex === 'nu' ? 'Nữ' : 'Nam'} · Gốc ${E[F.elem].n} ${E[F.elem].ic}\n**Vai trò:** ${F.role} · **Độ khó:** ${'★'.repeat(F.diff)}${'☆'.repeat(5 - F.diff)} · **Vũ khí:** \`${F.weapon}\` (cất ở ${F.sheath === 'back' ? 'lưng' : 'hông'}) · mã \`${fk}\`\n\n${F.desc}\n\n- **Chỉ số gốc:** ${st(F.base)}\n- **Điểm sức ban đầu:** Mạnh ${F.pot0.str} · Lanh ${F.pot0.agi} · Bền ${F.pot0.vit} · Hơi ${F.pot0.ene} · tự cộng mỗi cấp theo tỉ lệ ${F.auto.str}/${F.auto.agi}/${F.auto.vit}/${F.auto.ene}\n\n`;
+  o += `| | Chiêu | Hơi | Hồi | Chi tiết (bậc 1) |\n|---|---|---|---|---|\n`;
+  o += `| ${F.passive.ic} | **Tâm Pháp · ${F.passive.n}** | — | — | ${F.passive.d} |\n`;
+  o += `| 🗡️ | **${B.n}** (đánh thường) | — | ${B.cd}s | ${B.t === 'melee' ? `Cận chiến tầm ${B.r} m, quét ${Math.round(B.arc * 114)}°` : `Đạn bay thẳng tầm ${B.range} m`} · ×${B.m}${B.slow ? ` · chậm ${B.slow * 100}%` : ''}${B.splash ? ` · nổ lan ${B.splash} m` : ''} |\n`;
+  F.skills.forEach((s, i) => { o += `| ${s.ic} | **${i + 1}. ${s.n}**${s.ult ? ' ⭐ chiêu lớn' : ''} | ${s.mp} | ${s.cd}s | ${G.skillText(s, 1)}${s.up ? ` · mỗi bậc +${s.up}` : ''} · học cấp ${s.lv.join('/')} |\n`; });
+  o += `\n- **Cách chơi:** ${F.how}\n- **Chuỗi đòn:** ${F.combo}\n- **Khắc chế:** ${F.counter}\n\n`;
+}
+o += `---\n## Ghi chú cân bằng\n- Thử 40 trận toàn người máy (20 người/trận, độ khó Thường): tỉ lệ thắng mỗi Dòng 3–18% (kỳ vọng 10%). Người máy ngắm đạn kém hơn người thật nên Dòng đánh xa bị thiệt trong thử máy — **cân bằng thật phải dựa trên trận người thật** (Bảng Admin › Thống kê theo Dòng có cột Người thật).\n- Chỉnh: Admin › Cân bằng từng phần. Xem [[../03-Ky-thuat/Can-bang-Tung-phan-Admin]].\n`;
+process.stdout.write(o);

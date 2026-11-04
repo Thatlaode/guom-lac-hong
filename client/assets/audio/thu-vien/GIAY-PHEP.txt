@@ -1,0 +1,6 @@
+THƯ VIỆN ÂM THANH - GƯƠM LẠC HỒNG
+- Tiền tố fx- : Fantasy SFX Sampler (dùng trong game kể cả thương mại; KHÔNG được bán/phát tán lại thành gói âm thanh riêng). Âm do AI tạo rồi biên tập (theo README gốc).
+- Không tiền tố : 150 game effect sounds, CC0 (Kenney, lentikula, CoMiGo, Kronbits) - xem GIAY-PHEP-150-CC0.txt
+- _nguon-goc.json : tên file gốc của từng âm
+- Nhóm: can-chien, ban, no, phep, quai, do-vat, giao-dien, buoc-chan, moi-truong
+- Gắn âm vào game: sửa ../audio.json (MÃ -> file hoặc danh sách file)

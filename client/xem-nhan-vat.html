@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><link rel="stylesheet" href="css/font.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phòng xem nhân vật · Gươm Lạc Hồng</title>
+<style>
+:root{--acc:#e0b24a}*{box-sizing:border-box}body{margin:0;background:#1a2622;color:#f0ead8;font:14px "Segoe UI",system-ui,sans-serif;overflow:hidden}
+#ui{position:fixed;left:0;right:0;bottom:0;padding:10px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;background:linear-gradient(transparent,rgba(0,0,0,.7))}
+button{background:rgba(224,178,74,.18);color:#f0ead8;border:1px solid #6a5420;border-radius:8px;padding:8px 12px;font:inherit;cursor:pointer}button.on{background:var(--acc);color:#1d1406}
+#top{position:fixed;left:10px;top:8px;right:10px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}#top b{color:var(--acc);font-size:18px}.mut{opacity:.7;font-size:12px}
+canvas{display:block}
+</style></head><body>
+<div id="top"><div><b>Phòng xem nhân vật</b> <span class="mut">· khung 65 xương · hoạt ảnh Quaternius (CC0) · kéo chuột để xoay</span></div><div class="mut" id="info">Đang nạp…</div></div>
+<div id="ui"></div>
+<script src="js/lib/three.min.js"></script><script src="js/lib/GLTFLoader.js"></script><script src="js/lib/SkeletonUtils.js"></script>
+<script src="js/core.js"></script><script src="shared/rules.js"></script><script src="js/rig.js"></script>
+<script>
+const R=new THREE.WebGLRenderer({antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.15;document.body.prepend(R.domElement);
+const S=new THREE.Scene();S.background=new THREE.Color(0x2c3e38);S.fog=new THREE.Fog(0x2c3e38,14,40);
+const C=new THREE.PerspectiveCamera(36,innerWidth/innerHeight,0.1,100);const _q=new URLSearchParams(location.search);let yaw=+(_q.get('yaw'))||0,dist=+(_q.get('dist'))||11,pit=0.2;
+S.add(new THREE.HemisphereLight(0xfff4e0,0x3a4a40,1.0));const sun=new THREE.DirectionalLight(0xffffff,1.3);sun.position.set(4,8,6);sun.castShadow=true;sun.shadow.mapSize.set(2048,2048);Object.assign(sun.shadow.camera,{left:-8,right:8,top:8,bottom:-8});S.add(sun);
+const g=new THREE.Mesh(new THREE.CircleGeometry(14,48),new THREE.MeshStandardMaterial({color:0x4a6a50,roughness:1}));g.rotation.x=-Math.PI/2;g.receiveShadow=true;S.add(g);
+const SOCKTEST=location.search.includes('sock'),ROTS=[[0,0,Math.PI/2,'+X'],[0,0,-Math.PI/2,'-X'],[Math.PI/2,0,0,'-Z'],[-Math.PI/2,0,0,'+Z'],[0,0,0,'-Y'],[Math.PI,0,0,'+Y']];
+const QS=new URLSearchParams(location.search),ONLY=QS.get('dong');const KEYS=SOCKTEST?ROTS.map(()=> 'kiem'):ONLY?ONLY.split(','):GLH.FACTION_KEYS;
+const rigs=[];KEYS.forEach((fk,i)=>{const r=new Rig({hex:GLH.FACTIONS[fk].hex,profile:SOCKTEST?{sockets:{weapon:{rot:ROTS[i].slice(0,3)}}}:{}});r.attach('weapon',rigWeapon(fk));const half=Math.ceil(KEYS.length/2),two=KEYS.length>5&&!SOCKTEST,row=two?(GLH.FACTIONS[fk].sex==='nu'?1:0):0,col=two?Math.floor(i/2):i,nc=two?half:KEYS.length;r.g.position.set((col-(nc-1)/2)*1.5,0,-row*1.9);S.add(r.g);r.fk=fk;r.st={speed:0};rigs.push(r);
+ const c=document.createElement('canvas');c.width=256;c.height=48;const x=c.getContext('2d');x.font='bold 26px Segoe UI';x.textAlign='center';x.fillStyle=GLH.FACTIONS[fk].col;x.fillText(SOCKTEST?ROTS[i][3]:GLH.FACTIONS[fk].short,128,34);const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),transparent:true}));sp.scale.set(1.3,0.25,1);sp.position.y=2.15;r.g.add(sp);});
+Promise.all(rigs.map(r=>r.useChar(r.fk))).then(()=>{document.getElementById('info').textContent='Sẵn sàng · '+Object.keys(CharLib.clips||{}).filter(k=>!k.includes('#')).length+' động tác';window.__READY=true;});
+let mode='idle',air=0,vy=0,t=0;
+const A=[['Rút / Cất vũ khí','arm'],['Đứng','idle'],['Đi','walk'],['Chạy bộ','jog'],['Chạy nhanh','run'],['Nhảy','jump'],['Đánh thường','basic'],['Chạy + đánh','runatk'],['Chạy cầm vũ khí','runarm'],['Nhảy cầm vũ khí','jumparm'],['Chiêu 1','s0'],['Chiêu 2','s1'],['Chiêu lớn','s2'],['Lộn Nhào','dodge'],['Cưỡi Diều','fly'],['Trúng đòn','hit'],['Gục','die'],['Mở Hòm Diều','open'],['Vui mừng','victory']];
+const ui=document.getElementById('ui');A.forEach(([n,k])=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>doIt(k,b);ui.appendChild(b);});
+function doIt(k,b){document.querySelectorAll('#ui button').forEach(x=>x.classList.remove('on'));b&&b.classList.add('on');
+ if(k==='arm'){for(const r of rigs){r.forceArmed=!r.forceArmed;r.setArmed&&r.setArmed(r.forceArmed);}return;}
+ if(k==='runarm'||k==='jumparm'){for(const r of rigs){r.forceArmed=true;r.setArmed&&r.setArmed(true,true);} if(k==='jumparm'){vy=6.6;k='idle';} else k='run';}
+ const sp={idle:0,walk:0.35,jog:0.7,run:1,runatk:1,runarm:1}[k];for(const r of rigs){r.st={speed:sp??0,fly:k==='fly',dead:k==='die',opening:k==='open'};}
+ if(k==='jump'){vy=6.6;}
+ for(const r of rigs){const F=GLH.FACTIONS[r.fk];
+  if(k==='basic'||k==='runatk')r.play(F.basic.anim);
+  if(k[0]==='s'&&k.length===2){const sk=F.skills[+k[1]];r.play(sk.ult?'ult':sk.anim||'cast');}
+  if(['dodge','hit','victory'].includes(k))r.play(k);if(k==='open')r.play('open');}
+ mode=k;if(k==='runatk'){clearInterval(window._ra);window._ra=setInterval(()=>{if(mode!=='runatk')return clearInterval(window._ra);for(const r of rigs)r.play(GLH.FACTIONS[r.fk].basic.anim);},700);}
+}
+window.doIt=doIt;
+let drag=null;R.domElement.onpointerdown=e=>drag={x:e.clientX,y:e.clientY};onpointerup=()=>drag=null;onpointermove=e=>{if(!drag)return;yaw-=(e.clientX-drag.x)*0.006;pit=Math.max(-0.1,Math.min(0.9,pit+(e.clientY-drag.y)*0.004));drag={x:e.clientX,y:e.clientY};};
+R.domElement.onwheel=e=>{dist=Math.max(2.5,Math.min(16,dist+e.deltaY*0.01));};
+onresize=()=>{R.setSize(innerWidth,innerHeight);C.aspect=innerWidth/innerHeight;C.updateProjectionMatrix();};
+const clk=new THREE.Clock();(function f(){requestAnimationFrame(f);const dt=window.__STEP||Math.min(clk.getDelta(),0.05);t+=dt;
+ vy-=18*dt;const pa=air;air=Math.max(0,air+vy*dt);if(air===0)vy=0;
+ for(const r of rigs){r.g.position.y=air+(r.st.fly?1.2+Math.sin(t*2)*0.1:0);r.update(dt,Object.assign({},r.st,{air:air>0.08,landV:pa>0.05&&air===0?6:0}));}
+ C.position.set(Math.sin(yaw)*dist*Math.cos(pit),1.1+Math.sin(pit)*dist,Math.cos(yaw)*dist*Math.cos(pit));C.lookAt(0,0.95,0);R.render(S,C);window.__F=(window.__F||0)+1;})();
+</script></body></html>
