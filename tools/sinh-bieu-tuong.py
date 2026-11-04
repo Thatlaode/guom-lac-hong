@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# ⚠ CŨ (từ 0.6.0-beta.2): hình chiêu/huy hiệu nay lấy từ bộ UI thật — tools/dung-bo-ui.py. Chạy file này sẽ KHÔNG còn được manifest dùng.
 """Sinh bộ biểu tượng SVG thuần Việt cho Gươm Lạc Hồng (QĐ-0037).
 Chạy: python3 tools/sinh-bieu-tuong.py  → ghi vào client/assets/ui/... và cập nhật client/assets/manifest.json
 Khung: vuông bo nhẹ (r=4), viền vàng kim đôi, nền sơn mài theo màu Gốc, góc có ô vuông kiểu hoa văn Đông Sơn.
@@ -8,16 +9,16 @@ ROOT = os.path.join(os.path.dirname(__file__), '..', 'client', 'assets')
 GOLD = ('#FFF1BC', '#D5AD59', '#8A6328')
 ELEM = {'kim': ('#4A4F55', '#1E2226'), 'moc': ('#3E5A2E', '#18241A'), 'thuy': ('#22546A', '#0E2230'), 'hoa': ('#7A2228', '#2E0E12'), 'tho': ('#6E4E26', '#2A1C10')}
 DONG = {  # mã Dòng: (gốc, mã hình đánh thường, chiêu1, chiêu2, chiêu lớn, tâm pháp)
- 'GUOMHO': ('kim', 'sword', 'dash', 'whirl', 'turtle', 'execute'),
- 'TRAMBAC': ('kim', 'needle', 'needles', 'swallow', 'cloudneedle', 'eye'),
- 'TRELANG': ('moc', 'staff', 'sweep', 'bamboo', 'bambooburst', 'bambooshield'),
- 'VUONTHUOC': ('moc', 'pill', 'vine', 'bowl', 'butterfly', 'leafheal'),
- 'SONGCOC': ('thuy', 'spear', 'waves3', 'bubbles', 'stakes', 'wave'),
- 'LUANUOC': ('thuy', 'ribbon', 'ribbonfan', 'drop', 'whirlpool', 'splash'),
- 'NGUALUA': ('hoa', 'saber', 'charge', 'flameblade', 'meteor', 'flame'),
- 'HOAGAO': ('hoa', 'fireball', 'flower', 'lantern', 'redsky', 'flowerflame'),
- 'NUIDANG': ('tho', 'hammer', 'stomp', 'rockshield', 'mountain', 'rock'),
- 'CONGCHIENG': ('tho', 'soundwave', 'gong', 'drum', 'gongrays', 'drum4'),
+ 'THANKIEM': ('kim', 'sword', 'dash', 'whirl', 'turtle', 'execute'),
+ 'NGANCHAM': ('kim', 'needle', 'needles', 'swallow', 'cloudneedle', 'eye'),
+ 'THIETTRUC': ('moc', 'staff', 'sweep', 'bamboo', 'bambooburst', 'bambooshield'),
+ 'BACHTHAO': ('moc', 'pill', 'vine', 'bowl', 'butterfly', 'leafheal'),
+ 'HAITHUONG': ('thuy', 'spear', 'waves3', 'bubbles', 'stakes', 'wave'),
+ 'THUYTIEN': ('thuy', 'ribbon', 'ribbonfan', 'drop', 'whirlpool', 'splash'),
+ 'VIEMDAO': ('hoa', 'saber', 'charge', 'flameblade', 'meteor', 'flame'),
+ 'HOALIEN': ('hoa', 'fireball', 'flower', 'lantern', 'redsky', 'flowerflame'),
+ 'THIETSON': ('tho', 'hammer', 'stomp', 'rockshield', 'mountain', 'rock'),
+ 'DONGCO': ('tho', 'soundwave', 'gong', 'drum', 'gongrays', 'drum4'),
 }
 G_FILL = 'fill="url(#g)" stroke="#1E120A" stroke-width="2.6" stroke-linejoin="round"'
 G_LINE = 'fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"'

@@ -5,8 +5,8 @@
 const $ = id => document.getElementById(id);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const ECODE = { kiem: 'KIEM', tram: 'TRAM', tre: 'TRE', duoc: 'DUOC', bang: 'BANG', lua: 'LUA', hoa: 'HOA', gao: 'GAO', thach: 'THACH', chieng: 'CHIENG' };
-const DCODE = { kiem: 'GUOMHO', tram: 'TRAMBAC', tre: 'TRELANG', duoc: 'VUONTHUOC', bang: 'SONGCOC', lua: 'LUANUOC', hoa: 'NGUALUA', gao: 'HOAGAO', thach: 'NUIDANG', chieng: 'CONGCHIENG' };
-const DICON = { kiem: '⚔️', tram: '🪡', tre: '🎋', duoc: '🌿', bang: '🔱', lua: '🎐', hoa: '🐎', gao: '🏮', thach: '⛰️', chieng: '🔔' };
+const DCODE = { kiem: 'THANKIEM', tram: 'NGANCHAM', tre: 'THIETTRUC', duoc: 'BACHTHAO', bang: 'HAITHUONG', lua: 'THUYTIEN', hoa: 'VIEMDAO', gao: 'HOALIEN', thach: 'THIETSON', chieng: 'DONGCO' };
+const DICON = { kiem: '⚔️', tram: '🪡', tre: '🎋', duoc: '🌿', bang: '🔱', lua: '🎐', hoa: '🔥', gao: '🏮', thach: '⛰️', chieng: '🔔' };
 const FXCOL = { pill: [0.6, 1, 0.5], vine: [0.4, 1, 0.4], water: [0.5, 0.8, 1], fire: [1, 0.55, 0.2], mon: [1, 0.4, 0.8], needle: [0.92, 0.95, 1], needleBig: [1, 1, 1], silk: [0.6, 0.92, 1], gong: [1, 0.82, 0.35], petal: [1, 0.3, 0.25] };
 const FXSIZE = { fire: 1.3, needle: 0.45, needleBig: 1.1, silk: 1.0, gong: 1.7, petal: 1.25 };
 const SETK = 'glh_settings_v1';
@@ -27,7 +27,7 @@ class OnlineGame {
   async boot() {
     try { const t = await fetch('/api/tune').then(r => r.json()); if (t && t.f) GLH.setTune(t); } catch (e) { } // số liệu Admin đang dùng
     if (!GLH.FACTIONS[this.S.fk] || !GLH.FACTIONS[this.S.fk].on) this.S.fk = GLH.FACTION_ON[0] || 'kiem';
-    await Assets.load(); await Audio2.load(); if (Assets.url('LOGO-MAIN')) { $('logoL').innerHTML = Assets.icon('LOGO-MAIN', 'GƯƠM LẠC HỒNG', 'logoimg'); }
+    await Assets.load(); await Audio2.load(); Audio2.memeOn = this.S.meme !== false; if (Assets.url('LOGO-MAIN')) { $('logoL').innerHTML = Assets.icon('LOGO-MAIN', 'GƯƠM LẠC HỒNG', 'logoimg'); }
     await this.step(0.1, 'Khởi tạo đồ họa…', () => this.initGL());
     await this.step(0.3, 'Dựng núi sông, rừng tre…', () => { applyPaletteToZones(); this.world = new World(this.scene); });
     await this.step(0.7, 'Gọi gió, thắp đèn…', () => {
@@ -37,7 +37,7 @@ class OnlineGame {
     });
     await this.step(0.8, 'Gọi các Dòng võ…', null); try { await Promise.race([Promise.all([CharLib.allClips(), CharLib.template(this.S.fk)]), new Promise(r => setTimeout(r, 25000))]); } catch (e) { }
     GLH.FACTION_KEYS.forEach(fk => CharLib.template(fk).catch(() => { }));
-    await this.step(0.9, 'Mở sân đình…', () => { this.hud = new Hud(this); this.applyQuality(this.S.quality); this.bindInput(); this.connect(); });
+    await this.step(0.9, 'Mở sân đình…', () => { this.hud = new Hud(this); TouchGuard.init(this); Voice.init(this); this.applyQuality(this.S.quality); this.bindInput(); this.connect(); });
     $('loading').classList.add('hidden'); this.showHome(); this.clock = new THREE.Clock(); this.loop();
   }
   initGL() {
@@ -82,13 +82,15 @@ class OnlineGame {
       case 'toast': this.hud.toast(m.text, m.col); break;
       case 'eqd': this.hud.feed(`Mặc <b style="color:${GLH.RAR[m.rar].c}">${esc(m.name)}</b>`); break;
       case 'dead': this.announce('BI-LOAI'); this.hud.dead(m); Audio2.bgm('BGM-DEFEAT'); break;
-      case 'end': if (m.place === 1) { this.announce('THANG'); this.me && this.say(this.me, 'THANG', { pri: true }); } this.hud.result(m); this.mode = 'result'; this.unlock(); Audio2.bgm(m.place === 1 ? 'BGM-VICTORY' : 'BGM-DEFEAT'); break;
+      case 'rtc': Voice.onSignal(m); break;
+      case 'chat': Voice.onChat(m); break;
+      case 'end': TouchGuard.stop(); Voice.closeAll(); Voice.setTalk(false); if (m.place === 1) { this.announce('THANG'); this.me && this.say(this.me, 'THANG', { pri: true }); } this.hud.result(m); this.mode = 'result'; this.unlock(); Audio2.bgm(m.place === 1 ? 'BGM-VICTORY' : 'BGM-DEFEAT'); break;
     }
   }
   queue(mode) { this.S.name = ($('pname').value || '').trim().slice(0, 18) || this.S.name || 'Người chơi'; this.saveSet(); Audio2.init(); this.hello(); this.send({ t: 'queue', mode }); if (mode !== 'practice') { this.mode = 'lobby'; this.hud.show('lobby'); Audio2.bgm('BGM-LOBBY'); } Audio2.play('UI-CLICK'); }
   /* ---------------- Bắt đầu / kết thúc trận ---------------- */
   startMatch(m) {
-    this.endMatchView(); this.mode = 'play'; this.myId = m.you; this.ks = {}; this.fb = false; this.alive = 0; setTimeout(() => { this.announce('BAT-DAU'); setTimeout(() => this.me && this.say(this.me, 'VAO'), 1600); }, 1200); this.aimAssist = m.cfg.aimAssist; this.matchSize = m.size; this.preview.g.visible = false;
+    this.endMatchView(); this.mode = 'play'; TouchGuard.start(); if (this.S.mic === 'open') Voice.enable(); this.myId = m.you; this.ks = {}; this.fb = false; this.alive = 0; setTimeout(() => { this.announce('BAT-DAU'); setTimeout(() => this.me && this.say(this.me, 'VAO'), 1600); }, 1200); this.aimAssist = m.cfg.aimAssist; this.matchSize = m.size; this.preview.g.visible = false;
     for (const [id, name, fk, bot, x, z, face] of m.players) this.addPlayer(id, name, fk, bot, x, z, face);
     for (const a of m.mons) this.addMon(...a);
     if (this.propsV) this.scene.remove(this.propsV.g); this.propsV = m.props ? new PropsView(this.scene, m.props, this.world) : null; this.pidx = this.propsV ? this.propsV.idx : null; this.snapN = 0;
@@ -162,17 +164,18 @@ class OnlineGame {
     const ks = this.ks || (this.ks = {}), st = id => ks[id] || (ks[id] = { streak: 0, times: [] }), now = this.tm;
     if (!this.fb) { this.fb = true; this.announce('HA-DAU'); }
     const vs = st(P.id); if (vs.streak >= 3 && K) this.announce('CHAN-CHUOI'); vs.streak = 0;
-    this.say(P, 'BI-HA', { pri: true });
+    const mm = (th, X, ch) => { if (Math.random() > ch || !X) return false; const near = this.me ? Math.hypot(X.x - this.me.x, X.z - this.me.z) : 99; if (!X.isMe && near > 25) return false; const t = Audio2.meme(th, { x: X.isMe ? undefined : X.x, z: X.isMe ? undefined : X.z }); if (t && this.S.sub !== false) this.floatText(X.x, X.rig.g.position.y + 2.5, X.z, '“' + t + '”', 'vo meme'); if (t) Audio2.voLast[X.id] = performance.now() / 1000; return !!t; };
+    if (!mm('BIHA', P, P.isMe ? 0.55 : 0.25)) this.say(P, 'BI-HA', { pri: true });
     if (!K) return; const s = st(K.id); s.streak++; s.times = s.times.filter(t => now - t < 10); s.times.push(now);
     const n = s.times.length; if (n >= 2) this.announce('HA-' + Math.min(5, n)); else if ([3, 5, 8].includes(s.streak)) this.announce('CHUOI-' + s.streak);
-    this.say(K, s.streak >= 3 ? 'HA-LIENTIEP' : 'HA', { pri: true });
+    if (!mm('HA', K, K.isMe ? 0.45 : 0.2)) this.say(K, s.streak >= 3 ? 'HA-LIENTIEP' : 'HA', { pri: true });
   }
   onEvent(e) {
     const me = this.me, my = me && me.id;
     switch (e[0]) {
       case 'hit': {
         const [, tt, id, d, fl, src] = e, t = tt === 'p' ? this.P(id) : this.mons.get(id); if (!t) return; const tp = tt === 'p' ? t.rig.g.position : (t.mesh ? t.mesh.position : { x: t.x, y: 0, z: t.z }), h = tt === 'p' ? 1.9 : (t.baseH || 1);
-        if (id === my && tt === 'p') { this.hud.hurt(); Audio2.play('SFX-HURT'); this.shake = Math.max(this.shake, 0.12); this.lastFight = this.tm; if (this.S.dmgNum) this.floatText(tp.x, tp.y + h, tp.z, '-' + d, 'hurt'); if (this.S.vib && navigator.vibrate && d > (this.my ? this.my.mhp * 0.08 : 50)) navigator.vibrate(30); }
+        if (id === my && tt === 'p') { this.hitT = this.tm; this.hud.hurt(); Audio2.play('SFX-HURT'); this.shake = Math.max(this.shake, 0.12); this.lastFight = this.tm; if (this.S.dmgNum) this.floatText(tp.x, tp.y + h, tp.z, '-' + d, 'hurt'); if (this.S.vib && navigator.vibrate && d > (this.my ? this.my.mhp * 0.08 : 50)) navigator.vibrate(30); }
         else if (src === my) { this.lastFight = this.tm; const cls = fl & 2 ? 'prec' : fl & 1 ? 'crit' : fl & 4 ? 'elem' : 'dmg'; if (this.S.dmgNum) this.floatText(tp.x, tp.y + h, tp.z, (fl & 2 ? '◎ ' : '') + d + (fl & 1 ? '!' : ''), cls); this.hud.hitMark(fl); Audio2.play(fl & 2 ? 'SFX-PRECISION' : fl & 1 ? 'SFX-CRIT' : fl & 4 ? 'SFX-ELEM-KHAC' : 'SFX-' + ECODE[me.fk] + '-1-HIT'); }
         else if (src > 0) { const S = this.P(src); if (S) Audio2.play('SFX-' + ECODE[S.fk] + '-BASIC-HIT', tp.x, tp.z, { vol: 0.7 }); } else if (src < 0 && tt === 'p') Audio2.play('SFX-MON-HIT', tp.x, tp.z, { vol: 0.6 });
         if (tt === 'p') { t.rig.play('hit'); this.fx.sparks(tp.x, tp.y + 1.1, tp.z, fl & 3 ? 14 : 7, fl & 2 ? [1, 0.9, 0.3] : [1, 0.5, 0.4], 2.5); } else if (t.mesh) { t.squash = 1; t.engaged = 4; this.fx.sparks(tp.x, tp.y + h * 0.5, tp.z, 6, [0.8, 1, 0.8], 2); }
@@ -185,7 +188,7 @@ class OnlineGame {
         if (k === 'b') { P.rig.play(F.basic.anim); Audio2.play('SFX-' + ECODE[P.fk] + '-BASIC-CAST', x, z); }
         else if (k === 'dodge') { P.rig.play('dodge'); Audio2.play('SFX-DODGE', x, z); for (let i = 0; i < 4; i++) this.fx.ghost(x, P.rig.g.position.y, z); }
         else if (k === 'respec') { P.rig.play('respec'); this.fx.burst(x, P.rig.g.position.y + 1, z, 60); }
-        else { const sk = F.skills[k]; P.rig.play(sk.ult ? 'ult' : (sk.anim || 'cast')); this.say(P, sk.ult ? 'CHIEULON' : 'CHIEU' + (k + 1), { pri: sk.ult, gap: 0.6 }); Audio2.play('SFX-' + ECODE[P.fk] + '-' + (sk.ult ? 'ULT' : (k + 1)) + '-CAST', x, z); this.fx.burst(x, P.rig.g.position.y + 1, z, sk.ult ? 80 : 30); if (sk.fx === 'swarm') this.fx.swarm(P.rig.g.position); if (sk.t === 'cone') { const c = GLH.ELEM[F.elem].c, cc = new THREE.Color(c); for (let i = 0; i < 18; i++) { const a = face + (Math.random() - 0.5) * 2 * sk.arc, r = sk.r * (0.3 + Math.random() * 0.7); this.fx.sparks(x + Math.sin(a) * r, P.rig.g.position.y + 0.9, z + Math.cos(a) * r, 3, [cc.r, cc.g, cc.b], 2); } } if (P.isMe) this.lastFight = this.tm; }
+        else { const sk = F.skills[k]; P.rig.play(sk.ult ? 'ult' : (sk.anim || 'cast')); { const t = sk.ult && (P.isMe || (this.me && Math.hypot(P.x - this.me.x, P.z - this.me.z) < 25)) && Math.random() < 0.3 ? Audio2.meme('CHIEU', { x: P.isMe ? undefined : P.x, z: P.isMe ? undefined : P.z }) : ''; if (t) { this.S.sub !== false && this.floatText(P.x, P.rig.g.position.y + 2.5, P.z, '“' + t + '”', 'vo meme'); } else this.say(P, sk.ult ? 'CHIEULON' : 'CHIEU' + (k + 1), { pri: sk.ult, gap: 0.6 }); } Audio2.play('SFX-' + ECODE[P.fk] + '-' + (sk.ult ? 'ULT' : (k + 1)) + '-CAST', x, z); this.fx.burst(x, P.rig.g.position.y + 1, z, sk.ult ? 80 : 30); if (sk.fx === 'swarm') this.fx.swarm(P.rig.g.position); if (sk.t === 'cone') { const c = GLH.ELEM[F.elem].c, cc = new THREE.Color(c); for (let i = 0; i < 18; i++) { const a = face + (Math.random() - 0.5) * 2 * sk.arc, r = sk.r * (0.3 + Math.random() * 0.7); this.fx.sparks(x + Math.sin(a) * r, P.rig.g.position.y + 0.9, z + Math.cos(a) * r, 3, [cc.r, cc.g, cc.b], 2); } } if (P.isMe) this.lastFight = this.tm; }
         break;
       }
       case 'tp': { const P = this.P(e[1]); if (!P) return; for (let i = 0; i < 5; i++) this.fx.ghost(P.x + (e[2] - P.x) * i / 5, P.rig.g.position.y, P.z + (e[3] - P.z) * i / 5); if (!P.isMe) { P.buf.length = 0; P.x = e[2]; P.z = e[3]; } break; }
@@ -259,7 +262,7 @@ class OnlineGame {
     const showName = S.tagName !== false, showHp = S.tagHp !== false, mon = S.tagMon || 'engaged';
     for (const P of this.players.values()) {
       if (P.isMe || !P.alive || !P.rig.g.visible || (P._d || 99) > 50) continue; if (!showName && !showHp) break;
-      const y = P.rig.g.position.y + (P.fly ? 3.3 : 2.15); put(P.x, y, P.z, showName ? esc(P.name) : '', showName ? P.lvl : 0, showHp ? P.hp / P.mhp : -1, 'pl' + (P.bot ? ' bot' : ''));
+      const y = P.rig.g.position.y + (P.fly ? 3.3 : 2.15); put(P.x, y, P.z, showName ? esc(P.name) : '', showName ? P.lvl : 0, showHp ? P.hp / P.mhp : -1, 'pl' + (P.bot ? ' bot' : '') + (P.speaking ? ' spk' : ''));
     }
     if (mon !== 'off') for (const mo of this.mons.values()) {
       if (!mo.alive || !mo.mesh || !mo.mesh.visible) continue; const eng = mo.engaged > 0 || mo.boss || mo.hp < mo.maxHp; if (mon === 'engaged' && !eng) continue;
@@ -297,7 +300,7 @@ class OnlineGame {
       if (e.code === 'F9') { Assets.reload().then(() => this.hud.toast('Đã nạp lại hình ảnh', '#7dffb0')); return; }
       if (e.repeat) return; this.keys[e.code] = true; if (this.mode !== 'play') return;
       if (e.code === 'Tab') { this.hud.toggle('board', true); return; }
-      if (e.code === 'KeyK') { this.hud.toggle('points'); return; } if (e.code === 'KeyM') { this.hud.toggle('bigmapP'); return; }
+      if (e.code === 'KeyK') { this.hud.toggle('points'); return; } if (e.code === 'KeyB' || e.code === 'KeyI') { this.hud.toggle('bag'); return; } if (e.code === 'KeyM') { this.hud.toggle('bigmapP'); return; }
       if (this.hud.anyPanel() && e.code === 'Escape') { this.hud.closePanels(); return; }
       if (!this.me || !this.me.alive) { if (e.code === 'Space') this.send({ t: 'spec' }); return; }
       if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') { if (!e.repeat) this.dodge(); }
@@ -338,9 +341,10 @@ class OnlineGame {
   /* ---------------- Vòng lặp ---------------- */
   loop() {
     requestAnimationFrame(() => this.loop()); const dt = Math.min(this.clock.getDelta(), 0.05); this.tm += dt; const now = performance.now();
-    if (this.mode === 'play' && this.me && this.isTouch && this.me.alive) Gyro.update(this, dt); // ngắm bằng nghiêng máy
+    if (this.mode === 'play' && this.me && this.isTouch && this.me.alive) Gyro.update(this, dt);
+    if (this.mode === 'play') Voice.update(); // ngắm bằng nghiêng máy
     if (this.mode === 'play' && this.me) this.updatePlay(dt, now); else this.updateMenu(dt);
-    if (this.mode === 'play' && this.me && this.me.alive) { const me = this.me; if (me.speed > 0.5 && this.tm - (this.diT || 0) > 25 && Math.random() < 0.004) { this.diT = this.tm; this.say(me, 'DI'); } if ((me.fl & 256) && this.tm - (this.suT || -99) > 15) { this.suT = this.tm; this.say(me, 'SUONG', { pri: true }); } }
+    if (this.mode === 'play' && this.me && this.me.alive) { const me = this.me; if (this.my && this.my.hp < this.my.mhp * 0.25 && me.speed > 0.5 && this.tm - (this.hitT || -99) < 3 && this.tm - (this.chayT || -99) > 20) { this.chayT = this.tm; const t = Audio2.meme('CHAY', { gap: 2 }); if (t && this.S.sub !== false) this.floatText(me.x, me.rig.g.position.y + 2.5, me.z, '“' + t + '”', 'vo meme'); } if (me.speed > 0.5 && this.tm - (this.diT || 0) > 25 && Math.random() < 0.004) { this.diT = this.tm; this.say(me, 'DI'); } if ((me.fl & 256) && this.tm - (this.suT || -99) > 15) { this.suT = this.tm; this.say(me, 'SUONG', { pri: true }); } }
     this.fx.update(dt, this.fxProxy(), this.tm); this.updateFloaters(dt); if (this.mode === 'play') this.updateTags();
     if (this.mode === 'play') this.hud.update(dt);
     this.ema = this.ema * 0.95 + dt * 0.05; if (++this.fc % 60 === 0) { if (this.S.fps) $('fps').textContent = Math.round(1 / this.ema) + ' khung/giây'; const mx = Math.min(devicePixelRatio, this.maxPR); let pr = this.pr; if (this.ema > 0.026) pr = Math.max(0.55, pr - 0.1); else if (this.ema < 0.018) pr = Math.min(mx, pr + 0.05); if (Math.abs(pr - this.pr) > 0.01) { this.pr = pr; this.renderer.setPixelRatio(pr); if (this.composer) this.composer.setPixelRatio(pr); } }

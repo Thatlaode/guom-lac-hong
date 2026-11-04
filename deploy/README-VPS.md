@@ -9,8 +9,8 @@
 
 ## Cài (một lệnh)
 ```bash
-# 1. chép file GLH-0.6.0-beta.1.zip lên VPS (WinSCP / scp), rồi:
-sudo apt-get install -y unzip && unzip GLH-0.6.0-beta.1.zip -d glh && cd glh
+# 1. chép file GLH-0.6.0-beta.2.zip lên VPS (WinSCP / scp), rồi:
+sudo apt-get install -y unzip && unzip GLH-0.6.0-beta.2.zip -d glh && cd glh
 # 2. cài — có tên miền:
 sudo bash deploy/cai-dat.sh game.vieesport.vn email@cua-ban.com
 #    chưa có tên miền (chơi qua http://IP_VPS, Gyro không chạy):
@@ -46,3 +46,9 @@ Vẫn nên đặt nginx + https phía trước (dùng `nginx-guom-lac-hong.conf`
 
 ## Chưa có (để bản chính thức)
 Tài khoản thật / đăng nhập vieesport · nhiều máy chủ · chống DDoS lớn (dùng Cloudflare phía trước nếu cần) · nén model mạnh hơn (BUG-0012).
+
+## Mới ở 0.6.0-beta.2
+- **Voice chat & Gyro BẮT BUỘC https** — trình duyệt chặn micro/cảm biến khi http. Chạy `cai-dat.sh` với tên miền để có Let's Encrypt.
+- Voice đi thẳng giữa 2 máy (WebRTC, STUN Google). Nếu người chơi 4G/mạng công ty không nghe được nhau → cài TURN:
+  `sudo apt-get install -y coturn` rồi khai `turn:` trong `client/js/voice.js` (biến `ICE`). Mở cổng UDP 3478 + 49152–65535.
+- Cập nhật từ beta.1: chép zip mới lên, `unzip GLH-0.6.0-beta.2.zip -d glh2 && cd glh2` rồi `sudo bash deploy/cap-nhat.sh` (dữ liệu người chơi & mã Admin giữ nguyên).

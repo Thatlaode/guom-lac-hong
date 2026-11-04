@@ -23,12 +23,12 @@
  },
  "dong": {
   "kiem": {
-   "code": "GUOMHO",
-   "folder": "guom-ho",
+   "code": "THANKIEM",
+   "folder": "than-kiem",
    "lines": {
     "CHON": [
      "Mặt hồ phẳng lặng, gươm vẫn sắc.",
-     "Gươm Hồ xin lĩnh mệnh."
+     "Thần Kiếm xin lĩnh mệnh."
     ],
     "VAO": [
      "Gió hồ đã nổi."
@@ -93,12 +93,12 @@
    }
   },
   "tram": {
-   "code": "TRAMBAC",
-   "folder": "tram-bac",
+   "code": "NGANCHAM",
+   "folder": "ngan-cham",
    "lines": {
     "CHON": [
      "Một cây trâm, một mạng người.",
-     "Trâm Bạc đã sẵn."
+     "Ngân Châm đã sẵn."
     ],
     "VAO": [
      "Gió nhẹ, tầm xa, mắt sáng."
@@ -163,8 +163,8 @@
    }
   },
   "tre": {
-   "code": "TRELANG",
-   "folder": "tre-lang",
+   "code": "THIETTRUC",
+   "folder": "thiet-truc",
    "lines": {
     "CHON": [
      "Tre làng không bao giờ gãy!",
@@ -233,8 +233,8 @@
    }
   },
   "duoc": {
-   "code": "VUONTHUOC",
-   "folder": "vuon-thuoc",
+   "code": "BACHTHAO",
+   "folder": "bach-thao",
    "lines": {
     "CHON": [
      "Vườn thuốc này chữa được cả gan trời.",
@@ -303,8 +303,8 @@
    }
   },
   "bang": {
-   "code": "SONGCOC",
-   "folder": "song-coc",
+   "code": "HAITHUONG",
+   "folder": "hai-thuong",
    "lines": {
     "CHON": [
      "Cọc đã cắm, giặc phải dừng.",
@@ -372,8 +372,8 @@
    }
   },
   "lua": {
-   "code": "LUANUOC",
-   "folder": "lua-nuoc",
+   "code": "THUYTIEN",
+   "folder": "thuy-tien",
    "lines": {
     "CHON": [
      "Lụa mềm, nước mạnh.",
@@ -441,8 +441,8 @@
    }
   },
   "hoa": {
-   "code": "NGUALUA",
-   "folder": "ngua-lua",
+   "code": "VIEMDAO",
+   "folder": "viem-dao",
    "lines": {
     "CHON": [
      "Ngựa sắt đã đóng yên!",
@@ -510,8 +510,8 @@
    }
   },
   "gao": {
-   "code": "HOAGAO",
-   "folder": "hoa-gao",
+   "code": "HOALIEN",
+   "folder": "hoa-lien",
    "lines": {
     "CHON": [
      "Tháng ba hoa gạo đỏ trời.",
@@ -578,8 +578,8 @@
    }
   },
   "thach": {
-   "code": "NUIDANG",
-   "folder": "nui-dang",
+   "code": "THIETSON",
+   "folder": "thiet-son",
    "lines": {
     "CHON": [
      "Núi không lùi.",
@@ -648,8 +648,8 @@
    }
   },
   "chieng": {
-   "code": "CONGCHIENG",
-   "folder": "cong-chieng",
+   "code": "DONGCO",
+   "folder": "dong-co",
    "lines": {
     "CHON": [
      "Tiếng chiêng gọi cả đại ngàn.",
@@ -838,6 +838,69 @@
    "lines": [
     "Đã bị loại."
    ]
+  }
+ },
+ "meme": {
+  "_doc": "Phụ đề cho âm meme — sửa chữ ở đây khi thay file. \"khi\": lúc phát. Tỉ lệ phát: HA 45%, BIHA 55%, CHIEU 30% (chiêu lớn), CHAY 1 lần/20 giây khi máu < 25% và đang bị đánh.",
+  "MEME-CHAY-01": {
+   "sub": "Tao lạy mày!",
+   "khi": "bỏ chạy",
+   "goc": "tao_lay_may_8211_Do_mixi-www_tiengdong_com.mp3"
+  },
+  "MEME-CHAY-02": {
+   "sub": "Trời ơi cứu tui với, cứu cuộc đời tôi với!",
+   "khi": "bỏ chạy",
+   "goc": "troi-oi-cuu-tui-voi-cuu-cuoc-doi-toi-voi-ban-goc-www_tiengdong_com.mp3"
+  },
+  "MEME-CHAY-03": {
+   "sub": "Ôi đời ơi!",
+   "khi": "bỏ chạy",
+   "goc": "am-thanh-oi-doi-oi-www_tiengdong_com.mp3"
+  },
+  "MEME-HA-01": {
+   "sub": "Em có sai với ai đi nữa…",
+   "khi": "hạ gục",
+   "goc": "em-co-sai-voi-ai-di-nua-huan-hoa-hong-ban-goc-www_tiengdong_com.mp3"
+  },
+  "MEME-HA-02": {
+   "sub": "Không làm mà đòi có ăn…",
+   "khi": "hạ gục",
+   "goc": "cau-noi-nhung-cai-loai-khong-lam-ma-doi-co-an-huan-hoa-hong-www_tiengdong_com.mp3"
+  },
+  "MEME-HA-03": {
+   "sub": "Ui đời ơi, dễ vãi!",
+   "khi": "hạ gục",
+   "goc": "am-thanh-meme-ui-doi-oi-de-vl-bomman-www_tiengdong_com.mp3"
+  },
+  "MEME-HA-04": {
+   "sub": "Mày đây, mày múa nữa đi!",
+   "khi": "hạ gục",
+   "goc": "may-day-may-mua-nua-di-zeros-ban-goc-www_tiengdong_com.mp3"
+  },
+  "MEME-HA-05": {
+   "sub": "Cút ra ngoài!",
+   "khi": "hạ gục",
+   "goc": "am-thanh-cut-ra-ngoai-www_tiengdong_com.mp3"
+  },
+  "MEME-BIHA-01": {
+   "sub": "Cay thế nhờ!",
+   "khi": "bị hạ",
+   "goc": "dm_cay_the_nho_8211_Do_mixi-www_tiengdong_com.mp3"
+  },
+  "MEME-BIHA-02": {
+   "sub": "Quê vãi!",
+   "khi": "bị hạ",
+   "goc": "meme_que_vl_8211_Do_mixi-www_tiengdong_com.mp3"
+  },
+  "MEME-CHIEU-01": {
+   "sub": "Không có đâu tiền bíp!",
+   "khi": "tung chiêu lớn",
+   "goc": "am-thanh-khong-co-dau-tien-bip-www_tiengdong_com.mp3"
+  },
+  "MEME-CHIEU-02": {
+   "sub": "Ôi đời ơi, cái gì đây?!",
+   "khi": "tung chiêu lớn",
+   "goc": "oi-doi-oi-cai-gi-day-meme-pham-vinh-www_tiengdong_com.mp3"
   }
  }
 }

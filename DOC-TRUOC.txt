@@ -1,4 +1,0 @@
-GƯƠM LẠC HỒNG · Năm Dòng Đọ Sức — BẢN THỬ NGHIỆM 0.6.0-beta.1
-- Chơi thử trên máy Windows: chạy CHAY_SERVER.bat (xem HUONG-DAN-CHAY.md)
-- Đưa lên VPS: đọc deploy/README-VPS.md (một lệnh: sudo bash deploy/cai-dat.sh TEN_MIEN EMAIL)
-- Bản này KHÔNG chứa dữ liệu riêng (Mã Admin, bậc hạng, thống kê) — VPS tự tạo mới.

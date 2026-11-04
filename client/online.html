@@ -46,7 +46,7 @@
       <div id="buffs"></div></div>
   </div>
   <div id="hideChip" class="hidden" data-lay="hideChip">🌿 Đang núp — kẻ địch ở xa không thấy bạn</div>
-  <div id="tr" data-lay="tr"><canvas id="mini" width="170" height="170"></canvas>
+  <div id="tr" data-lay="tr"><div class="mmw"><canvas id="mini" width="170" height="170"></canvas><i id="mmFrame"></i></div>
     <div class="trrow"><span id="alive" title="Còn sống"></span><span id="kills" title="Bạn đã hạ"></span></div>
     <div id="zoneT"></div></div>
   <div id="feed" data-lay="feed"></div>
@@ -64,6 +64,10 @@
 </div>
 
 <!-- BẢNG ĐIỂM SỨC (K) -->
+<div id="bag" class="panel hidden">
+  <div class="ptitle"><span>Túi đồ & Trang bị</span><button class="x" data-close>✕</button></div>
+  <div class="pbody" id="bagBody"></div>
+</div>
 <div id="points" class="panel hidden">
   <div class="ptitle"><span>Điểm sức & chiêu</span><button class="x" data-close>✕</button></div>
   <div class="pbody" id="pointsBody"></div>
@@ -126,7 +130,7 @@
 <script src="js/rig.js"></script>
 <script src="js/props.js"></script>
 <script src="js/gyro.js"></script>
-<script src="js/layout.js"></script>
+<script src="js/layout.js"></script><script src="js/touch-guard.js"></script><script src="js/voice.js"></script>
 <script src="js/online.js"></script>
 <script src="js/hud.js"></script>
 </body>

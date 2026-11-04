@@ -7,7 +7,7 @@
    ===================================================================== */
 const LAY_NAMES = {
   pstat: 'Khung máu & hơi', tr: 'Bản đồ nhỏ', feed: 'Tin hạ gục', center: 'Thông báo lớn', toast: 'Nhắc nhở', hideChip: 'Báo đang núp', skillbar: 'Thanh chiêu (máy tính)',
-  joy: 'Cần đi', tAtk: 'Nút Đánh', tS0: 'Chiêu 1', tS1: 'Chiêu 2', tS2: 'Chiêu lớn', tDodge: 'Lộn Nhào', tJump: 'Nhảy', tFly: 'Cưỡi Diều', tHp: 'Bổ Máu', tMp: 'Bổ Hơi', tOpen: 'Mở hòm', tPt: 'Nút Điểm', tMenu: 'Nút Menu',
+  joy: 'Cần đi', tAtk: 'Nút Đánh', tS0: 'Chiêu 1', tS1: 'Chiêu 2', tS2: 'Chiêu lớn', tDodge: 'Lộn Nhào', tJump: 'Nhảy', tFly: 'Cưỡi Diều', tHp: 'Bổ Máu', tMp: 'Bổ Hơi', tOpen: 'Mở hòm', tPt: 'Nút Điểm', tMenu: 'Nút Menu', tBag: 'Nút Túi đồ', tChat: 'Nút Chat', tMic: 'Nút Nói (voice)', chatLog: 'Khung chat',
 };
 const Layout = {
   els() { return [...document.querySelectorAll('[data-lay]')].filter(e => e.getClientRects().length > 0 || ['toast', 'center', 'feed', 'hideChip'].includes(e.id)); },

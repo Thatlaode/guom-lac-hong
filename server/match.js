@@ -40,7 +40,7 @@ class Match {
     const F = this.FA[o.fk] && this.FA[o.fk].on ? o.fk : this.FON[0], P = {
       id: nid(), name: String(o.name || 'Người chơi').slice(0, 24), bot: !!o.bot, conn: o.conn || null, fk: F, touch: !!o.touch,
       x: 0, z: 0, y: 0, face: 0, alive: true, lvl: 1, exp: 0, pot: Object.assign({}, this.FA[F].pot0), potFree: 0, skl: [1, 0, 0], sklFree: 0,
-      eq: {}, cd: { b: 0, s0: 0, s1: 0, s2: 0, dodge: 0, fly: 0, pot: 0 }, buffs: {}, shield: { v: 0, t: 0 }, cc: { stun: 0, root: 0, slow: 0, slowT: 0, burn: 0, burnT: 0, burnSrc: null },
+      eq: {}, bag: [], cd: { b: 0, s0: 0, s1: 0, s2: 0, dodge: 0, fly: 0, pot: 0 }, buffs: {}, shield: { v: 0, t: 0 }, cc: { stun: 0, root: 0, slow: 0, slowT: 0, burn: 0, burnT: 0, burnSrc: null },
       inv: 2, flying: false, items: { bomau: 2, bohoi: 1, chen: 0, ruou: 0 }, respecFree: GLH.RESPEC.freePerMatch, kills: 0, dmg: 0, place: 0,
       lastHitT: -99, lastFightT: -99, lastIn: 0, moveBonus: 0, opening: null, respecing: null, vay: false, lastAtk: null,
     };
@@ -126,7 +126,7 @@ class Match {
     this.updateMons(dt); this.updateProjs(dt); this.updateZonesFx(dt); this.updatePulses(dt); this.updateSlams(dt);
     this.checkEnd();
   }
-  emit(...e) { this.events.push(e); }
+  emit(...e) { if (e[0] === 'heal') { const P = this.players.get(e[1]); if (P) P.healed = (P.healed || 0) + (e[2] || 0); } this.events.push(e); }
   zoneMsg() { const Z = this.zone, ph = GLH.ZONE_PHASES[Math.min(Z.pi, GLH.ZONE_PHASES.length - 1)]; const dur = (Z.stage === 'wait' ? ph.wait : ph.shrink) / this.cfg.zoneSpeedMul; return [r2(Z.cur.x), r2(Z.cur.z), r2(Z.cur.r), Z.next ? r2(Z.next.x) : 0, Z.next ? r2(Z.next.z) : 0, Z.next ? r2(Z.next.r) : 0, Z.stage === 'wait' ? 0 : Z.stage === 'shrink' ? 1 : 2, Z.stage === 'done' ? 0 : r2(Math.max(0, dur - (this.t - Z.t0))), Z.pi]; }
   updateZone(dt) {
     const Z = this.zone; if (Z.stage === 'done') { this.zoneDamage(dt, GLH.ZONE_PHASES[GLH.ZONE_PHASES.length - 1].dps); return; }
@@ -196,11 +196,39 @@ class Match {
   }
   addItem(P, k, n) { const max = GLH.ITEMS[k].max, had = P.items[k] || 0; P.items[k] = Math.min(max, had + n); return P.items[k] > had; }
   tryPick(P, d) {
+    if (d.by === P.id && this.t - d.t < 4) return;                         // vừa tự vứt → không nhặt lại ngay
     if (d.kind === 'it') { if (this.addItem(P, d.key, d.n)) { this.drops.delete(d.id); this.emit('undrop', d.id, P.id); this.emit('sfxAt', 'SFX-PICK', r2(d.x), r2(d.z)); } }
-    else if (d.kind === 'eq') { if (this.offerEquip(P, d.item, true)) { this.drops.delete(d.id); this.emit('undrop', d.id, P.id); } }
+    else if (d.kind === 'eq') {
+      if (this.offerEquip(P, d.item, true)) { this.drops.delete(d.id); this.emit('undrop', d.id, P.id); return; }
+      if (P.bag.length < GLH.BAG_MAX && !P.bot) { P.bag.push(d.item); this.drops.delete(d.id); this.emit('undrop', d.id, P.id); this.emit('sfxAt', 'SFX-PICK', r2(d.x), r2(d.z)); this.toast(P, 'Cất vào túi: ' + d.item.name, GLH.RAR[d.item.rar].c); }
+    }
+  }
+  /* ---- VOICE & CHAT (QĐ-0048): máy chủ chỉ CHUYỂN TIN báo hiệu WebRTC giữa 2 người cùng trận; tiếng nói đi thẳng giữa 2 máy ---- */
+  rtc(P, m) {
+    const Q = this.players.get(m.to); if (!Q || Q === P || !Q.conn || Q.bot) return;
+    const near = Math.hypot(Q.x - P.x, Q.z - P.z) < GLH.VOICE.range + 15, mate = P.team && P.team === Q.team; if (!near && !mate && m.k !== 'bye') return;
+    const sig = m.sig; if (!sig || JSON.stringify(sig).length > 12000) return; this.srv.send(Q.conn, { t: 'rtc', from: P.id, k: m.k, sig });
+  }
+  chat(P, m) {
+    const text = String(m.text || '').replace(/[<>]/g, '').replace(/\s+/g, ' ').trim().slice(0, 120); if (!text) return;
+    if (this.t - (P.chatT || -9) < 0.8) return; P.chatT = this.t; const ch = m.ch === 'team' ? 'team' : 'all';
+    if (ch === 'team' && !P.team) return this.toast(P, 'Đánh Lẻ không có đồng đội — kênh Đội dùng ở chế độ Đánh Đội', '#ff9a6a');
+    for (const Q of this.players.values()) if (Q.conn && (ch === 'all' || Q.team === P.team)) this.srv.send(Q.conn, { t: 'chat', ch, from: P.id, name: P.name, fk: P.fk, text });
+  }
+  /* ---- TÚI ĐỒ (QĐ-0046): nhặt · vứt · mặc · tháo ---- */
+  dropAt(P, kind, o) { const a = Math.random() * 6.283, d = Object.assign({ id: nid(), kind, x: P.x + Math.cos(a) * 2.3, z: P.z + Math.sin(a) * 2.3, t: this.t, by: P.id }, o); this.drops.set(d.id, d); this.emit('drop', d.id, r2(d.x), r2(d.z), kind, kind === 'eq' ? d.item.rar : 0, kind === 'eq' ? d.item.name : GLH.ITEMS[d.key].n); return d; }
+  inv(P, m) {
+    if (!P.alive) return; const i = m.i | 0, sl = GLH.SLOT_KEYS.includes(m.slot) ? m.slot : null;
+    switch (m.a) {
+      case 'eq': { const it = P.bag[i]; if (!it) return; const old = P.eq[it.slot]; P.eq[it.slot] = it; P.bag.splice(i, 1); if (old) P.bag.push(old); this.recalc(P); this.emit('sfxAt', 'SFX-EQUIP', r2(P.x), r2(P.z)); return; }
+      case 'un': { if (!sl || !P.eq[sl]) return; if (P.bag.length >= GLH.BAG_MAX) return this.toast(P, 'Túi đầy — vứt bớt đồ trước', '#ff9a6a'); P.bag.push(P.eq[sl]); delete P.eq[sl]; this.recalc(P); return; }
+      case 'drop': { const it = P.bag[i]; if (!it) return; P.bag.splice(i, 1); this.dropAt(P, 'eq', { item: it }); return; }
+      case 'dropEq': { if (!sl || !P.eq[sl]) return; const it = P.eq[sl]; delete P.eq[sl]; this.recalc(P); this.dropAt(P, 'eq', { item: it }); return; }
+      case 'dropIt': { const k = m.k; if (!GLH.ITEMS[k] || !(P.items[k] > 0)) return; const n = Math.min(P.items[k], Math.max(1, m.n | 0)); P.items[k] -= n; this.dropAt(P, 'it', { key: k, n }); return; }
+    }
   }
   score(it) { const s = it.stats; return (s.atk || 0) * 3 + (s.def || 0) * 2 + (s.hp || 0) * 0.25 + (s.mp || 0) * 0.2 + (s.crit || 0) * 6 + (s.atkp || 0) * 4 + (s.defp || 0) * 3 + (s.hpp || 0) * 3 + (s.spd || 0) * 3 + (s.ls || 0) * 5 + (s.exp || 0) + (s.luck || 0); }
-  offerEquip(P, it, fromGround) { const cur = P.eq[it.slot]; if (cur && this.score(cur) >= this.score(it)) return false; P.eq[it.slot] = it; this.recalc(P); if (P.conn) this.srv.send(P.conn, { t: 'eqd', slot: it.slot, name: it.name, rar: it.rar }); this.emit('sfxAt', it.rar >= 3 ? 'SFX-PICK-RARE' : 'SFX-EQUIP', r2(P.x), r2(P.z)); return true; }
+  offerEquip(P, it, fromGround) { const cur = P.eq[it.slot]; if (cur && this.score(cur) >= this.score(it)) return false; P.eq[it.slot] = it; if (cur && !P.bot) { if (P.bag.length < GLH.BAG_MAX) P.bag.push(cur); else this.dropAt(P, 'eq', { item: cur }); } this.recalc(P); if (P.conn) this.srv.send(P.conn, { t: 'eqd', slot: it.slot, name: it.name, rar: it.rar }); this.emit('sfxAt', it.rar >= 3 ? 'SFX-PICK-RARE' : 'SFX-EQUIP', r2(P.x), r2(P.z)); return true; }
   makeEquip(L, rar, slot) { const it = this.T.makeEquip(clamp(L, 1, 20), rar, slot); it.name = ITEM_NAMES[it.slot][clamp(it.rar, 0, 4)] + (it.rar >= 1 ? ' ' + GLH.RAR[it.rar].n : ''); it.stats = this.T.equipStats(it); return it; }
   giveExp(P, n) {
     if (P.lvl >= GLH.MATCH.maxLvl) return; P.exp += n * this.cfg.expMul;
@@ -220,6 +248,9 @@ class Match {
       case 'atk': return this.basic(P, m);
       case 'sk': return this.cast(P, m);
       case 'pot': return this.potion(P, m.k);
+      case 'inv': return this.inv(P, m);
+      case 'rtc': return this.rtc(P, m);
+      case 'chat': return this.chat(P, m);
       case 'pt': if (m.auto) { if (P.potFree > 0) this.autoPot(P); } else if (GLH.POT_KEYS.includes(m.k) && P.potFree > 0) { const n = clamp(m.n | 0 || 1, 1, P.potFree); P.pot[m.k] += n; P.potFree -= n; this.recalc(P); } return;
       case 'up': this.upgrade(P, m.i | 0); return;
       case 'respec': return this.startRespec(P);
@@ -349,7 +380,7 @@ class Match {
     let burn = o.burn || 0; if (SP.k === 'burnOnHit' && o.basic) burn = Math.max(burn, SP.burn);
     if (burn) { tg.cc.burn = S.atk * burn; tg.cc.burnT = 3; tg.cc.burnSrc = src; }
     if (stun || o.root) { tg.opening = null; tg.respecing = null; if (stun && tg.flying) { tg.flying = false; this.emit('fly', tg.id, 0); } }
-    src.dmg += d; src.lastFightT = this.t; if (S.ls > 0) src.hp = Math.min(S.hp, src.hp + d * S.ls / 100);
+    src.dmg += d; tg.taken = (tg.taken || 0) + d; src.lastFightT = this.t; if (S.ls > 0) src.hp = Math.min(S.hp, src.hp + d * S.ls / 100);
     if (SP.k === 'skillHeal' && o.skill) src.hp = Math.min(S.hp, src.hp + d * SP.p);
     const fs = this.fstat(src.fk); fs.dmg += d;
     this.emit('hit', 'p', tg.id, Math.round(d), fl, src.id); this.rawDamage(tg, d, src); return d;
@@ -361,7 +392,7 @@ class Match {
     if (tg.hp <= 0) this.killPlayer(tg, src && src.id ? src : null);
   }
   killPlayer(P, killer, how) {
-    if (!P.alive) return; P.alive = false; P.hp = 0; P.flying = false; P.opening = null;
+    if (!P.alive) return; for (const it of P.bag) this.dropAt(P, 'eq', { item: it }); P.bag = []; P.alive = false; P.aliveT = this.t; P.hp = 0; P.flying = false; P.opening = null;
     const alive = [...this.players.values()].filter(q => q.alive).length; P.place = alive + 1;
     if (killer && killer.alive !== undefined && killer !== P && this.players.has(killer.id)) {
       killer.kills++; this.fstat(killer.fk).kills++; this.giveExp(killer, GLH.killExp(P.lvl)); const half = k => { const n = Math.floor((P.items[k] || 0) / 2); if (n) this.addItem(killer, k, n); }; ['bomau', 'bohoi', 'chen'].forEach(half);
@@ -472,10 +503,10 @@ class Match {
   finish() {
     this.ended = true; const list = [...this.players.values()];
     const aliveSorted = list.filter(p => p.alive).sort((a, b) => b.hp - a.hp); aliveSorted.forEach((p, i) => { p.place = i + 1; });
-    const board = list.slice().sort((a, b) => a.place - b.place).map(p => [p.name, p.fk, p.place, p.kills, p.bot ? 1 : 0, Math.round(p.dmg), p.lvl]);
+    const board = list.slice().sort((a, b) => a.place - b.place).map(p => [p.name, p.fk, p.place, p.kills, p.bot ? 1 : 0, Math.round(p.dmg), p.lvl, Math.round(p.taken || 0), Math.round(p.healed || 0), Math.round(p.aliveT ?? this.t)]);
     for (const P of list) {
       if (!P.conn) continue; let rank = null;
-      if (this.mode === 'solo') rank = this.srv.store.applyResult(P.name, P.place, list.length, P.kills, this.humans, list.length);
+      if (this.mode === 'solo') rank = this.srv.store.applyResult(P.name, P.place, list.length, P.kills, this.humans, list.length, P.fk);
       this.srv.send(P.conn, { t: 'end', place: P.place, n: list.length, kills: P.kills, dmg: Math.round(P.dmg), lvl: P.lvl, rank, board, practice: this.mode === 'practice' });
     }
     this.result = { board, t: this.t, humans: this.humans, preset: this.cfg.preset, tuneV: this.tune.v, list: list.map(p => ({ fk: p.fk, place: p.place, kills: p.kills, dmg: Math.round(p.dmg), bot: p.bot, lvl: p.lvl })) };
@@ -492,9 +523,9 @@ class Match {
   spec(P) { if (P.alive) return P; let k = P.specId && this.players.get(P.specId); if (!k || !k.alive) { k = [...this.players.values()].find(q => q.alive); P.specId = k && k.id; } return k; }
   meFor(P) {
     const F = this.FA[P.fk], cd = {}; for (const k in P.cd) cd[k] = r2(P.cd[k]);
-    const eq = {}; for (const k of GLH.SLOT_KEYS) if (P.eq[k]) eq[k] = [P.eq[k].name, P.eq[k].rar];
+    const pk = it => [it.name, it.rar, it.stats, it.lv, it.slot]; const eq = {}; for (const k of GLH.SLOT_KEYS) if (P.eq[k]) eq[k] = pk(P.eq[k]); const bag = P.bag.map(pk);
     const buffs = []; for (const k in P.buffs) if (P.buffs[k].t > 0) buffs.push([k, r2(P.buffs[k].t)]); if (P.vay) buffs.push(['vay', -1]); if (P.shield.v > 0) buffs.push(['shield', r2(P.shield.t)]);
-    return { t: 'me', hp: Math.round(P.hp), mhp: P.st.hp, mp: Math.round(P.mp), mmp: P.st.mp, lvl: P.lvl, exp: Math.round(P.exp), need: GLH.expNeed(P.lvl), pot: P.pot, potFree: P.potFree, skl: P.skl, sklFree: P.sklFree, cd, items: P.items, eq, buffs,
+    return { t: 'me', hp: Math.round(P.hp), mhp: P.st.hp, mp: Math.round(P.mp), mmp: P.st.mp, lvl: P.lvl, exp: Math.round(P.exp), need: GLH.expNeed(P.lvl), pot: P.pot, potFree: P.potFree, skl: P.skl, sklFree: P.sklFree, cd, items: P.items, eq, bag, buffs,
       st: { atk: Math.round(P.st.atk), def: Math.round(P.st.def), crit: r2(P.st.crit), spd: r2(P.st.spd), amp: r2(P.st.amp) }, cc: { stun: r2(P.cc.stun), root: r2(P.cc.root), slow: r2(P.cc.slow) },
       respecFree: P.respecFree, kills: P.kills, fly: P.flying, alive: P.alive, opening: P.opening ? r2((this.t - P.opening.t0) / GLH.CHEST.openT) : P.respecing ? r2((this.t - P.respecing.t0) / GLH.RESPEC.castT) : -1, spec: P.alive ? 0 : (this.spec(P) || {}).id || 0, calm: this.t - P.lastFightT >= GLH.RESPEC.calm };
   }

@@ -12,7 +12,7 @@ const Audio2 = {
     if (this.ctx) this.preload(); if (this.ctx && this.wantBgm) { const w = this.wantBgm; this.wantBgm = null; this.bgm(w); }
   },
   setVol(b, v) { this.vol[b] = v; if (this.bus[b]) this.bus[b].gain.value = v; try { localStorage.setItem('glh_vol', JSON.stringify(this.vol)); } catch (e) { } },
-  group(id) { return id.startsWith('BGM') ? 'bgm' : id.startsWith('UI') ? 'ui' : /^(VO-|ANN-|VOICE)/.test(id) ? 'voice' : 'sfx'; },
+  group(id) { return id.startsWith('BGM') ? 'bgm' : id.startsWith('UI') ? 'ui' : /^(VO-|ANN-|VOICE|MEME-)/.test(id) ? 'voice' : 'sfx'; },
   fileOf(id) { const f = this.cfg.files[id]; if (!f) return null; const a = Array.isArray(f) ? f : [f]; return a.length ? 'assets/audio/' + a[0] : null; },
   filesOf(id) { const f = this.cfg.files[id]; if (!f) return []; return (Array.isArray(f) ? f : [f]).map(x => 'assets/audio/' + x); },
   fbuf: {}, loading: {},
@@ -25,7 +25,7 @@ const Audio2 = {
   play(id, x, z, o = {}) {
     if (!this.ctx || !this.on) return; const now = this.ctx.currentTime; if (this.last[id] && now - this.last[id] < 0.045) return; this.last[id] = now;
     let k = 1; if (x !== undefined) { const d = Math.hypot(x - this.listener.x, z - this.listener.z); if (d > 50) return; k = Math.max(0, 1 - d / 50); k *= k; }
-    k *= (this.cfg.vol[id] ?? 1) * (o.vol ?? 1); const b = this.pickBuf(id);
+    k *= (this.cfg.vol[id] ?? 1) * (o.vol ?? 1); const b = o.file ? (this.fbuf[o.file] !== undefined ? this.fbuf[o.file] : (this.loadFile(o.file), null)) : this.pickBuf(id);
     if (b) { const s = this.ctx.createBufferSource(), g = this.ctx.createGain(); s.buffer = b; s.playbackRate.value = o.rate || (0.94 + Math.random() * 0.12); g.gain.value = k; s.connect(g); g.connect(this.bus[this.group(id)]); s.start(); return; }
     if (b === null) return; // có file nhưng đang nạp → im lặng, không lẫn âm tổng hợp
     this.synth(id, k);
@@ -33,7 +33,7 @@ const Audio2 = {
   /* ---------- LỒNG TIẾNG (QĐ-0033) — kiểu MOBA: mỗi Dòng một giọng, người dẫn trận riêng ----------
      voice(fk, 'CHIEU1') → ổ VO-<DÒNG>-CHIEU1; announce('HA-DAU') → ổ ANN-HA-DAU
      Chưa có file → không phát âm tổng hợp, chỉ trả về câu thoại để hiện PHỤ ĐỀ (kich-ban.json). */
-  VO_CODE: { kiem: 'GUOMHO', tram: 'TRAMBAC', tre: 'TRELANG', duoc: 'VUONTHUOC', bang: 'SONGCOC', lua: 'LUANUOC', hoa: 'NGUALUA', gao: 'HOAGAO', thach: 'NUIDANG', chieng: 'CONGCHIENG' },
+  VO_CODE: { kiem: 'THANKIEM', tram: 'NGANCHAM', tre: 'THIETTRUC', duoc: 'BACHTHAO', bang: 'HAITHUONG', lua: 'THUYTIEN', hoa: 'VIEMDAO', gao: 'HOALIEN', thach: 'THIETSON', chieng: 'DONGCO' },
   script: null, voLast: {}, subOn: true,
   async loadScript() { try { this.script = await (await fetch('assets/audio/giong-noi/kich-ban.json', { cache: 'no-cache' })).json(); } catch (e) { this.script = null; } },
   lineOf(fk, act) { const d = this.script && this.script.dong[fk]; const L = d && d.lines[act]; return L && L.length ? L[Math.random() * L.length | 0] : ''; },
@@ -41,10 +41,19 @@ const Audio2 = {
   voice(fk, act, o = {}) {
     const id = 'VO-' + (this.VO_CODE[fk] || 'X') + '-' + act, who = o.who || 'me', now = performance.now() / 1000, L = this.voLast[who] || 0;
     if (!o.pri && now - L < (o.gap || 1.6)) return ''; this.voLast[who] = now;
-    const text = this.lineOf(fk, act); if (this.ctx && this.on && this.filesOf(id).length) this.play(id, o.x, o.z, { vol: o.vol ?? 1, rate: 1 });
+    const d = this.script && this.script.dong[fk], LS = (d && d.lines[act]) || [], i = LS.length ? Math.random() * LS.length | 0 : 0, text = LS[i] || '', fs = this.filesOf(id);
+    if (this.ctx && this.on && fs.length) this.play(id, o.x, o.z, { vol: o.vol ?? 1, rate: 1, file: fs[Math.min(i, fs.length - 1)] });  // phụ đề khớp đúng file
     return text;
   },
-  announce(ev) { const id = 'ANN-' + ev, s = this.script && this.script.ann[ev], text = s ? s.lines[Math.random() * s.lines.length | 0] : ''; if (this.ctx && this.on && this.filesOf(id).length) this.play(id, undefined, undefined, { rate: 1 }); return text; },
+  /* ÂM MEME (QĐ-0043): meme('HA') → chọn ngẫu nhiên một ổ MEME-HA-xx có file; trả về phụ đề (rỗng nếu không phát) */
+  memeOn: true, memeLast: 0,
+  meme(th, o = {}) {
+    if (!this.memeOn || !this.ctx || !this.on) return ''; const now = performance.now() / 1000; if (now - this.memeLast < (o.gap ?? 4)) return '';
+    const ids = Object.keys(this.cfg.files).filter(k => k.startsWith('MEME-' + th + '-') && this.filesOf(k).length); if (!ids.length) return '';
+    const id = ids[Math.random() * ids.length | 0]; this.memeLast = now; this.play(id, o.x, o.z, { rate: 1, vol: o.vol ?? 1 });
+    const m = this.script && this.script.meme && this.script.meme[id]; return (m && m.sub) || '';
+  },
+  announce(ev) { const id = 'ANN-' + ev, s = this.script && this.script.ann[ev], i = s ? Math.random() * s.lines.length | 0 : 0, text = s ? s.lines[i] : '', fs = this.filesOf(id); if (this.ctx && this.on && fs.length) this.play(id, undefined, undefined, { rate: 1, file: fs[Math.min(i, fs.length - 1)] }); return text; },
   /* âm lặp: bước chân, môi trường. on=false để tắt (mờ dần) */
   loops: {},
   loop(id, on, vol = 1) {

@@ -21,7 +21,7 @@ class Hud {
     /* 5 cột = Năm Gốc, hàng trên Dòng nam, hàng dưới Dòng nữ */
     for (const row of [0, 1]) for (const el of Object.keys(GLH.ELEM_PAIRS)) {
       const fk = GLH.ELEM_PAIRS[el][row], F = GLH.FACTIONS[fk], E = GLH.ELEM[F.elem], d = document.createElement('div'); d.className = 'dong' + (fk === G.S.fk ? ' on' : '') + (F.on ? '' : ' off'); d.style.setProperty('--c', F.col);
-      d.innerHTML = `<div class="em">${Assets.icon('EMB-DONG-' + DCODE[fk], DICON[fk])}</div><b>${F.short}</b><small>${F.sex === 'nu' ? 'Nữ' : 'Nam'} · ${E.n}</small>${F.on ? '' : '<i>Admin tạm khóa</i>'}`;
+      d.dataset.el = F.elem; d.innerHTML = `<div class="cd">${Assets.icon('CD-' + DCODE[fk], DICON[fk], 'cdimg')}</div><div class="em">${Assets.icon('EMB-DONG-' + DCODE[fk], DICON[fk])}</div><b>${F.short}</b><small>${F.sex === 'nu' ? 'Nữ' : 'Nam'} · ${E.n}</small>${F.on ? '' : '<i>Admin tạm khóa</i>'}`;
       d.onclick = () => { if (!F.on) return this.toast('Dòng này đang được Admin tạm khóa để cân bằng'); G.S.fk = fk; G.saveSet(); [...box.children].forEach(c => c.classList.remove('on')); d.classList.add('on'); this.dongInfo(); this.updatePreview(); Audio2.init(); Audio2.play('UI-CLICK'); Audio2.voice && Audio2.voice(fk, 'CHON'); };
       box.appendChild(d);
     }
@@ -29,8 +29,18 @@ class Hud {
     fetch('/api/info').then(r => r.json()).then(j => { if (j.beta && !document.querySelector('.betaTag')) { const b = document.createElement('div'); b.className = 'betaTag'; b.textContent = 'BẢN THỬ NGHIỆM · BETA'; const lg = document.querySelector('#home .logo'); lg && lg.after(b); } $('hfoot').innerHTML = `Độ khó máy chủ: <b>${esc(j.presetName)}</b> (Admin chỉnh) · Bản cân bằng: <b>${esc(GLH.TUNE.v)}</b> · Đang trực tuyến: ${j.online} · Bản ${esc(j.version)}<br>${G.isTouch ? 'Điện thoại: cần đẩy bên trái để đi, vuốt bên phải để xoay, nút bên phải để đánh' : 'Máy tính: WASD đi · chuột ngắm & đánh · 1 2 3 chiêu · Space nhảy · Shift lộn · F cưỡi diều · X rút/cất vũ khí'}`; }).catch(() => { });
   }
   dongInfo() {
-    const fk = this.G.S.fk, F = GLH.FACTIONS[fk], E = GLH.ELEM[F.elem], at = GLH.ELEM[GLH.AT[F.elem]], by = Object.keys(GLH.AT).find(k => GLH.AT[k] === F.elem);
-    $('dongInfo').innerHTML = `<b style="color:${F.col}">${F.n}</b> · ${F.sex === 'nu' ? 'Nữ' : 'Nam'} · Gốc <b>${E.n}</b> (át ${at.n}, bị ${GLH.ELEM[by].n} át) · ${F.role} · ${'★'.repeat(F.diff)}${'☆'.repeat(5 - F.diff)}<br>${F.desc}<br><span class="skc">${Assets.icon('TP-' + DCODE[fk], F.passive.ic)} Tâm Pháp: <i>${F.passive.n}</i></span> <button class="mini" id="btnGuide">📖 Bí kíp Dòng: chiêu, cách chơi, khắc chế</button>`;
+    const fk = this.G.S.fk, F = GLH.FACTIONS[fk], E = GLH.ELEM[F.elem], at = GLH.ELEM[GLH.AT[F.elem]], by = Object.keys(GLH.AT).find(k => GLH.AT[k] === F.elem), b = F.base, D = DCODE[fk];
+    const bar = (n, v) => `<div class="hbar"><span>${n}</span><i><u style="width:${Math.min(100, v * 72)}%"></u></i></div>`;
+    const sk = [{ id: 'SK-' + D + '-0', ic: '🗡️', n: F.basic.n, d: 'Đánh thường' }, ...F.skills.map((x, i) => ({ id: 'SK-' + D + '-' + (i + 1), ic: x.ic, n: x.n, d: (x.ult ? 'Chiêu lớn · ' : 'Chiêu ' + (i + 1) + ' · ') + x.mp + ' hơi · hồi ' + x.cd + 's — ' + GLH.skillText(x, 1) })), { id: 'TP-' + D, ic: F.passive.ic, n: 'Tâm Pháp · ' + F.passive.n, d: F.passive.d }];
+    $('dongInfo').style.setProperty('--c', F.col); $('dongInfo').dataset.el = F.elem;
+    $('dongInfo').innerHTML = `<div class="di-l">${Assets.icon('EMB-DONG-' + D, DICON[fk], 'diemb')}</div>
+      <div class="di-r"><div class="di-h"><b>${F.n}</b><span class="tag el-${F.elem}">Gốc ${E.n}</span><span class="tag">${F.sex === 'nu' ? 'Nữ' : 'Nam'}</span><span class="tag">${F.role}</span><span class="star">${'★'.repeat(F.diff)}<s>${'★'.repeat(5 - F.diff)}</s></span></div>
+      <div class="di-d">${F.desc} <span class="muted">Át ${at.n} · bị ${GLH.ELEM[by].n} át.</span></div>
+      <div class="di-g"><div class="di-bars">${bar('Máu', b.hp)}${bar('Sức đánh', b.atk)}${bar('Thủ', b.def)}${bar('Tốc chạy', b.spd)}</div>
+      <div class="di-sk">${sk.map((x, i) => `<div class="disk${i === 4 ? ' tp' : ''}" data-i="${i}" tabindex="0">${Assets.icon(x.id, x.ic)}</div>`).join('')}<div id="diSkT" class="di-skt"></div></div></div>
+      <button class="mini" id="btnGuide">📖 Bí kíp đầy đủ: chiêu, cách chơi, khắc chế</button></div>`;
+    const tip = i => { const x = sk[i]; $('diSkT').innerHTML = `<b>${x.n}</b> <small>${x.d}</small>`; document.querySelectorAll('.disk').forEach(e => e.classList.toggle('on', +e.dataset.i === i)); };
+    document.querySelectorAll('.disk').forEach(e => { e.onmouseenter = e.onclick = () => tip(+e.dataset.i); }); tip(1);
     $('btnGuide').onclick = () => this.showGuide(fk);
   }
   /* Bí kíp: hướng dẫn đầy đủ một Dòng — số liệu sinh từ luật đang chạy (đã gồm chỉnh của Admin) */
@@ -74,7 +84,7 @@ class Hud {
     if (t === 'hinh') { B.innerHTML = row('Mức hình', `<select id="sQ"><option value="low">Nhẹ</option><option value="mid">Vừa</option><option value="high">Đẹp</option><option value="ultra">Rất đẹp</option></select>`) + row('Hiện số khung hình', tog('sFps', S.fps)) + `<div class="lbl">Nhãn trên đầu</div>` + row('Tên & cấp người chơi khác', tog('sTagN', S.tagName !== false)) + row('Thanh máu người chơi khác', tog('sTagH', S.tagHp !== false)) + row('Nhãn quái', `<select id="sTagM"><option value="engaged">Khi đang đánh nhau</option><option value="always">Luôn hiện</option><option value="off">Tắt</option></select>`) + row('Cỡ nhãn', range('sTagS', S.tagSize || 1, 0.7, 1.5, 0.05)) + `<div class="lbl">Bộ lọc màu</div><div class="grades">${GRADE_KEYS.map(k => `<button class="grd${S.grade === k ? ' on' : ''}" data-g="${k}"><b>${GRADES[k].n}</b><small>${GRADES[k].d}</small></button>`).join('')}</div>`; B.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { G.applyGrade(b.dataset.g); G.saveSet(); B.querySelectorAll('[data-g]').forEach(x => x.classList.toggle('on', x === b)); Audio2.play('UI-CLICK'); }); $('sQ').value = S.quality; $('sTagN').onchange = e => { S.tagName = e.target.checked; G.saveSet(); }; $('sTagH').onchange = e => { S.tagHp = e.target.checked; G.saveSet(); }; $('sTagM').value = S.tagMon || 'engaged'; $('sTagM').onchange = e => { S.tagMon = e.target.value; G.saveSet(); }; $('sTagS').oninput = e => { S.tagSize = +e.target.value; G.saveSet(); }; $('sQ').onchange = e => G.applyQuality(e.target.value); $('sFps').onchange = e => { S.fps = e.target.checked; $('fps').classList.toggle('hidden', !S.fps); G.saveSet(); }; }
     if (t === 'tieng') { B.innerHTML = [['bgm', 'Nhạc nền'], ['sfx', 'Tiếng chiêu'], ['ui', 'Tiếng nút'], ['voice', 'Tiếng nói']].map(([k, n]) => row(n, range('v_' + k, Audio2.vol[k], 0, 1, 0.05))).join(''); for (const k of ['bgm', 'sfx', 'ui', 'voice']) $('v_' + k).oninput = e => { Audio2.init(); Audio2.setVol(k, +e.target.value); if (k !== 'bgm') Audio2.play(k === 'ui' ? 'UI-CLICK' : 'SFX-KIEM-1-HIT'); }; }
     if (t === 'dk') { B.innerHTML = row('Góc nhìn', `<select id="sCam"><option value="0">Sau lưng (mặc định)</option><option value="1">Thứ nhất (như game bắn súng)</option></select>`) + row('Độ nhạy chuột / vuốt', range('sSens', S.sens, 0.3, 3, 0.1)) + row('Đảo trục dọc', tog('sInv', S.invY)) + row('Cỡ nút cảm ứng', range('sBtn', S.btn, 0.7, 1.4, 0.05)) + row('Vị trí & cỡ từng nút', `<button id="sLay">✥ Tùy chỉnh bố cục</button>`) + (G.isTouch ? row('Ngắm bằng nghiêng máy (Gyro)', `<select id="sGyro"><option value="off">Tắt</option><option value="aim">Khi giữ nút Đánh / tung chiêu</option><option value="on">Luôn bật</option></select>`) + row('Độ nhạy Gyro', range('sGyroS', S.gyroSens || 1, 0.3, 3, 0.1)) + row('Đảo trục Gyro ngang', tog('sGyX', S.gyroInvX)) + row('Đảo trục Gyro dọc', tog('sGyY', S.gyroInvY)) + `<div class="muted" id="gyroNote">${Gyro.has ? '✔ Máy có con quay hồi chuyển' : 'Chọn chế độ để bật cảm biến. Xoay máy thử: nếu góc nhìn quay ngược, bật Đảo trục.'}</div>` : '') + row('Phím (máy tính)', '<span class="muted">WASD đi · Chuột trái/J đánh · Chuột phải/1 chiêu 1 · 2 · 3 · Alt+số (hoặc U) nâng chiêu · V đổi góc nhìn · Space nhảy · Shift lộn · F diều · Q R T đồ dùng · E mở hòm · K điểm sức · G gột điểm · Tab bảng · M bản đồ</span>'); $('sCam').value = S.fpv ? '1' : '0'; $('sLay').onclick = () => { if (G.mode !== 'play') return this.toast('Vào trận (hoặc Tập với người máy) rồi mở Menu › Tùy chỉnh bố cục để thấy nút thật'); this.show('hud'); Layout.open(G); }; if ($('sGyro')) { $('sGyro').value = S.gyro || 'off'; $('sGyro').onchange = async e => { const v = e.target.value; if (v !== 'off' && !(await Gyro.request())) { this.toast('Máy chưa cho phép dùng cảm biến chuyển động', '#ff9a6a'); e.target.value = 'off'; return; } S.gyro = v; G.saveSet(); setTimeout(() => { const n = $('gyroNote'); if (n) n.textContent = Gyro.has ? '✔ Đã nhận cảm biến — nghiêng máy để xoay góc nhìn' : '⚠ Chưa nhận được tín hiệu cảm biến (trình duyệt cần https hoặc máy không có Gyro)'; }, 800); }; $('sGyroS').oninput = ev => { S.gyroSens = +ev.target.value; G.saveSet(); }; $('sGyX').onchange = ev => { S.gyroInvX = ev.target.checked; G.saveSet(); }; $('sGyY').onchange = ev => { S.gyroInvY = ev.target.checked; G.saveSet(); }; } $('sCam').onchange = e => { S.fpv = e.target.value === '1'; G.saveSet(); }; $('sSens').oninput = e => { S.sens = +e.target.value; G.saveSet(); }; $('sInv').onchange = e => { S.invY = e.target.checked; G.saveSet(); }; $('sBtn').oninput = e => { S.btn = +e.target.value; document.documentElement.style.setProperty('--btn', `clamp(52px, ${7.4 * S.btn}vmin, ${78 * S.btn}px)`); G.saveSet(); }; }
-    if (t === 'khac') { B.innerHTML = row('Ngôn ngữ', '<span>Tiếng Việt</span>') + row('Hiện số máu khi đánh', tog('sDmg', S.dmgNum)) + row('Phụ đề lời thoại', tog('sSub', S.sub !== false)) + row('Rung máy khi bị đánh', tog('sVib', S.vib)); $('sSub').onchange = e => { S.sub = e.target.checked; G.saveSet(); }; $('sDmg').onchange = e => { S.dmgNum = e.target.checked; G.saveSet(); }; $('sVib').onchange = e => { S.vib = e.target.checked; G.saveSet(); }; }
+    if (t === 'khac') { B.innerHTML = row('Ngôn ngữ', '<span>Tiếng Việt</span>') + row('Hiện số máu khi đánh', tog('sDmg', S.dmgNum)) + row('Phụ đề lời thoại', tog('sSub', S.sub !== false)) + row('Âm meme (bỏ chạy, hạ gục, chiêu lớn)', tog('sMeme', S.meme !== false)) + row('Voice chat · micro', `<select id="sMic"><option value="off">Tắt micro</option><option value="ptt">Nhấn giữ để nói (phím V / nút 🎙️)</option><option value="open">Luôn mở micro</option></select>`) + row('Voice chat · nghe', `<select id="sHear"><option value="all">Kênh Chung (người ở gần) + Đội</option><option value="team">Chỉ đồng đội</option><option value="off">Tắt tiếng mọi người</option></select>`) + row('Âm lượng voice', `<input type="range" id="sVv" min="0" max="1.5" step="0.05" value="${S.voiceVol ?? 1}">`) + row('Rung máy khi bị đánh', tog('sVib', S.vib)); $('sMic').value = S.mic || 'off'; $('sHear').value = S.hear || 'all'; $('sMic').onchange = e => { S.mic = e.target.value; G.saveSet(); if (S.mic === 'off') Voice.disable(); else if (G.mode === 'play') Voice.enable(); const m = $('tMic'); if (m) m.style.display = S.mic === 'off' ? 'none' : ''; }; $('sHear').onchange = e => { S.hear = e.target.value; G.saveSet(); }; $('sVv').oninput = e => { S.voiceVol = +e.target.value; G.saveSet(); }; $('sMeme').onchange = e => { S.meme = e.target.checked; Audio2.memeOn = S.meme; G.saveSet(); }; $('sSub').onchange = e => { S.sub = e.target.checked; G.saveSet(); }; $('sDmg').onchange = e => { S.dmgNum = e.target.checked; G.saveSet(); }; $('sVib').onchange = e => { S.vib = e.target.checked; G.saveSet(); }; }
   }
   openHelp(back) {
     this.helpBack = back; this.softUnlock = true; this.G.unlock(); this.show('help');
@@ -89,12 +99,12 @@ class Hud {
   openRanks() {
     const G = this.G; this.show('ranks'); const name = ($('pname').value || G.S.name || '').trim();
     fetch('/api/me?name=' + encodeURIComponent(name)).then(r => r.json()).then(m => { const R = m.rank; $('rankMe').innerHTML = `<div class="big-n">${Assets.icon('RANK-' + ['MAM', 'TRENON', 'TREGIA', 'GUOMBAC', 'GUOMVANG', 'TRONGDONG'][R.i], GLH.RANKS[R.i].ic)} ${R.n} ${R.div}</div><div>${esc(m.name || name)} · ${m.pts} điểm bậc · ${m.matches} trận · ${m.wins} lần Đứng Cuối · ${m.kills} lần hạ</div><div class="muted">Bậc: ${GLH.RANKS.map(r => r.ic + ' ' + r.n).join(' → ')}</div>`; }).catch(() => { });
-    fetch('/api/top').then(r => r.json()).then(list => { $('rankTop').innerHTML = '<table class="tb"><tr><th>#</th><th>Tên</th><th>Bậc</th><th>Điểm</th><th>Trận</th></tr>' + list.map((r, i) => `<tr><td>${i + 1}</td><td>${esc(r.name)}</td><td>${r.rank.ic} ${r.rank.n} ${r.rank.div}</td><td>${r.pts}</td><td>${r.matches}</td></tr>`).join('') + '</table>'; }).catch(() => { });
+    fetch('/api/top').then(r => r.json()).then(list => { $('rankTop').innerHTML = '<table class="tb rb"><tr><th>#</th><th>Người chơi</th><th>Bậc</th><th>Điểm</th><th>Trận</th><th>Đứng cuối</th></tr>' + list.map((r, i) => `<tr class="${r.name === G.S.name ? 'me' : ''}"><td>${this.medal(i + 1)}</td><td class="who">${r.fav ? this.ava(r.fav) : '<span class="ava">👤</span>'}<div><b>${esc(r.name)}</b><small>${r.fav ? 'Hay chơi: ' + GLH.FACTIONS[r.fav].short : ''}</small></div></td><td class="rk">${Assets.icon('RANK-' + ['MAM', 'TRENON', 'TREGIA', 'GUOMBAC', 'GUOMVANG', 'TRONGDONG'][r.rank.i], r.rank.ic)} ${r.rank.n} ${r.rank.div}</td><td class="k">${r.pts}</td><td>${r.matches}</td><td>${r.wins}</td></tr>`).join('') + '</table>'; }).catch(() => { });
   }
   /* ---------- Trận ---------- */
   startMatch(m) {
     const G = this.G, F = GLH.FACTIONS[G.me.fk]; this.cache = {}; this.lastPractice = m.mode === 'practice';
-    $('pDong').innerHTML = Assets.icon('EMB-DONG-' + DCODE[G.me.fk], DICON[G.me.fk]); $('pName').textContent = G.me.name; $('feed').innerHTML = ''; $('center').innerHTML = ''; $('specBar').classList.add('hidden');
+    $('pDong').innerHTML = Assets.icon('MAT-' + DCODE[G.me.fk], DICON[G.me.fk]); $('pName').textContent = G.me.name; $('feed').innerHTML = ''; $('center').innerHTML = ''; $('specBar').classList.add('hidden');
     this.buildSkillbar(); if (G.isTouch) this.buildTouch();
     this.center(m.mode === 'practice' ? 'Tập với người máy — không tính bậc' : `Đánh Lẻ · ${m.size} người · độ khó ${esc((GLH.PRESETS[m.cfg.preset] || { n: 'Tự chỉnh' }).n)}`, '#ffd24a');
     setTimeout(() => this.center(G.isTouch ? 'Đẩy vòng trái để đi · vuốt phải để ngắm' : 'Bấm vào màn hình để khóa chuột và ngắm', '#cfe8ff'), 1800);
@@ -122,6 +132,9 @@ class Hud {
     hold(btn('tMp', 'TOUCH-BOHOI', '🔵', 'Bổ Hơi', 88, 3.0, 'small'), () => G.send({ t: 'pot', k: 'bohoi' }));
     hold(btn('tOpen', 'TOUCH-CHICHO', '📦', 'Mở hòm', 48, 4.15, 'small'), () => G.interact());
     hold(fixed('tPt', 'TOUCH-DIEM', '⬆', 'Điểm', 'max(16px, env(safe-area-inset-left))'), () => this.toggle('points'));
+    hold(fixed('tBag', 'IC-TUI', '🎒', 'Túi', 'calc(max(16px, env(safe-area-inset-left)) + 140px)'), () => this.toggle('bag'));
+    hold(fixed('tChat', 'IC-CHAT', '💬', 'Chat', 'calc(max(16px, env(safe-area-inset-left)) + 210px)'), () => Voice.openChat());
+    { const m = fixed('tMic', 'IC-MIC', '🎙️', 'Nói', 'calc(max(16px, env(safe-area-inset-left)) + 280px)'); m.dataset.lay = 'tMic'; const dn = e => { e.preventDefault(); if (G.S.mic === 'open') { Voice.setTalk(!Voice.talking); return; } Voice.ptt(true); }, up = () => { if (G.S.mic !== 'open') Voice.ptt(false); }; m.addEventListener('touchstart', dn, { passive: false }); m.addEventListener('touchend', up); m.addEventListener('touchcancel', up); m.style.display = (G.S.mic || 'off') === 'off' ? 'none' : ''; }
     hold(fixed('tMenu', 'SET-TAB-KHAC', '☰', 'Menu', 'calc(max(16px, env(safe-area-inset-left)) + 70px)'), () => this.show('pause'));
     this.bindJoy(); Layout.apply(G);
   }
@@ -163,6 +176,7 @@ class Hud {
     // xem trận khi đã gục
     if (!my.alive && my.spec) { const s = G.players.get(my.spec); this.set('specName', 'html', s ? 'Đang xem: ' + Assets.icon('EMB-DONG-' + DCODE[s.fk], DICON[s.fk]) + ' <b>' + esc(s.name) + '</b>' : ''); }
     if (!$('points').classList.contains('hidden')) this.renderPoints();
+    this.renderBag();
     if (!$('board').classList.contains('hidden')) this.renderBoard();
     this.miniT = (this.miniT || 0) - dt; if (this.miniT <= 0) { this.miniT = 0.1; this.drawMini($('mini'), 60); if (!$('bigmapP').classList.contains('hidden')) this.drawMini($('bigmap'), 190, true); }
   }
@@ -195,11 +209,11 @@ class Hud {
   }
   renderBoard() {
     const G = this.G, list = [...G.players.values()].sort((a, b) => (b.alive - a.alive) || b.lvl - a.lvl);
-    this.set('boardBody', 'html', `<div class="muted">Còn ${G.alive} / ${G.players.size} người</div><table class="tb"><tr><th>Tên</th><th>Dòng</th><th>Cấp</th><th>Máu</th></tr>` + list.map(p => `<tr class="${p.isMe ? 'me' : ''} ${p.alive ? '' : 'dead'}"><td>${esc(p.name)}</td><td>${DICON[p.fk]} ${GLH.FACTIONS[p.fk].short}</td><td>${p.lvl}</td><td>${p.alive ? Math.round(p.hp / p.mhp * 100) + '%' : 'gục'}</td></tr>`).join('') + '</table>');
+    this.set('boardBody', 'html', `<div class="muted">Còn ${G.alive} / ${G.players.size} người</div><table class="tb rb"><tr><th>Người chơi</th><th>Cấp</th><th>Hạ</th><th>Máu</th></tr>` + list.map(p => `<tr class="${p.isMe ? 'me' : ''} ${p.alive ? '' : 'dead'}"><td class="who">${this.ava(p.fk)}<div><b>${esc(p.name)}${p.bot && !p.name.includes('🤖') ? ' <small class="bot">🤖</small>' : ''}</b><small>${GLH.FACTIONS[p.fk].short}</small></div></td><td>${p.lvl}</td><td class="k">${p.kills ?? ''}</td><td>${p.alive ? `<div class="sbar hp"><i style="width:${Math.round(p.hp / p.mhp * 100)}%"></i><span>${Math.round(p.hp / p.mhp * 100)}%</span></div>` : '<span class="muted">gục</span>'}</td></tr>`).join('') + '</table>');
   }
-  anyPanel() { return ['points', 'board', 'bigmapP'].some(id => !$(id).classList.contains('hidden')); }
-  closePanels() { for (const id of ['points', 'board', 'bigmapP']) $(id).classList.add('hidden'); }
-  toggle(id, force) { const el = $(id), show = force === undefined ? el.classList.contains('hidden') : force; el.classList.toggle('hidden', !show); if (id === 'points' && show) { this._pk = null; if (!this.G.isTouch) { this.softUnlock = true; this.G.unlock(); } } if (id === 'points' && !show && !this.G.isTouch) this.G.lock(); }
+  anyPanel() { return ['points', 'bag', 'board', 'bigmapP'].some(id => !$(id).classList.contains('hidden')); }
+  closePanels() { for (const id of ['points', 'bag', 'board', 'bigmapP']) $(id).classList.add('hidden'); }
+  toggle(id, force) { const el = $(id), show = force === undefined ? el.classList.contains('hidden') : force; el.classList.toggle('hidden', !show); if ((id === 'points' || id === 'bag') && show) { this._pk = null; this._bk = null; if (!this.G.isTouch) { this.softUnlock = true; this.G.unlock(); } } if ((id === 'points' || id === 'bag') && !show && !this.G.isTouch && !this.anyPanel()) this.G.lock(); }
   /* ---------- Thông báo ---------- */
   /* thông báo: khung nhỏ gọn, hiện/ẩn có hiệu ứng; vị trí kéo được trong Tùy chỉnh bố cục */
   note(box, html, col, life, max) { const B = $(box), d = document.createElement('div'); d.innerHTML = html; d.style.setProperty('--c', col); B.appendChild(d); setTimeout(() => d.classList.add('out'), life - 320); setTimeout(() => d.remove(), life); while (B.children.length > max) B.firstChild.remove(); return d; }
@@ -214,6 +228,51 @@ class Hud {
     $('rStats').innerHTML = `<div class="row btns"><span>⚔️ Hạ <b>${m.kills}</b></span><span>💥 Sát thương <b>${m.dmg}</b></span><span>⭐ Cấp <b>${m.lvl}</b></span></div>`;
     if (m.rank) { const r = m.rank, up = r.rank.i > r.prev.i, dn = r.rank.i < r.prev.i; $('rRank').innerHTML = `<div class="big-n" style="text-align:center">${r.rank.ic} ${r.rank.n} ${r.rank.div} <span style="font-size:20px;color:${r.delta >= 0 ? '#7dffb0' : '#ff7a7a'}">${r.delta >= 0 ? '+' : ''}${r.delta}</span></div><div class="muted" style="text-align:center">${r.after} điểm bậc${up ? ' · LÊN BẬC!' : dn ? ' · xuống bậc' : ''}</div>`; Audio2.play(up ? 'UI-RANK-UP' : dn ? 'UI-RANK-DOWN' : 'UI-NOTIFY'); }
     else $('rRank').innerHTML = `<div class="muted" style="text-align:center">${m.practice ? 'Trận tập — không tính bậc' : ''}</div>`;
-    $('rBoard').innerHTML = '<table class="tb"><tr><th>#</th><th>Tên</th><th>Dòng</th><th>Hạ</th><th>Sát thương</th><th>Cấp</th></tr>' + m.board.map(b => `<tr class="${b[0] === this.G.me?.name && !b[4] ? 'me' : ''}"><td>${b[2]}</td><td>${esc(b[0])}</td><td>${DICON[b[1]]} ${GLH.FACTIONS[b[1]].short}</td><td>${b[3]}</td><td>${b[5]}</td><td>${b[6]}</td></tr>`).join('') + '</table>';
+    $('rBoard').innerHTML = this.resultBoard(m.board);
   }
+  /* ---------- BẢNG KẾT QUẢ kiểu MOBA (QĐ-0045): bục 3 người + bảng chi tiết có thanh số liệu ---------- */
+  ava(fk, cls = '') { const F = GLH.FACTIONS[fk]; return `<span class="ava el-${F.elem} ${cls}" title="${esc(F.n)}">${Assets.icon('MAT-' + DCODE[fk], DICON[fk])}<i>${Assets.icon('EMB-DONG-' + DCODE[fk], '')}</i></span>`; }
+  medal(place) { return place <= 3 ? Assets.icon('HC-' + place, ['🥇', '🥈', '🥉'][place - 1], 'medal') : `<span class="pl">${place}</span>`; }
+  resultBoard(board) {
+    const me = this.G.me?.name, rows = board.map(b => ({ name: b[0], fk: b[1], place: b[2], kills: b[3], bot: b[4], dmg: b[5] || 0, lvl: b[6], taken: b[7] || 0, heal: b[8] || 0, t: b[9] || 0 }));
+    const mx = k => Math.max(1, ...rows.map(r => r[k])), MD = mx('dmg'), MT = mx('taken'), MH = mx('heal');
+    rows.forEach(r => r.score = r.kills * 300 + r.dmg + r.heal * 0.6 + r.taken * 0.25 + (rows.length - r.place) * 60);
+    const mvp = rows.slice().sort((a, b) => b.score - a.score)[0];
+    const tm = t => `${t / 60 | 0}:${String(t % 60 | 0).padStart(2, '0')}`, nm = r => `${esc(r.name)}${r.bot && !r.name.includes('🤖') ? ' <small class="bot">🤖</small>' : ''}`;
+    const pod = [2, 1, 3].map(pl => rows.find(r => r.place === pl)).filter(Boolean).map(r => `<div class="pod p${r.place}${r === mvp ? ' mvp' : ''}">${r === mvp ? '<em class="mvpb">MVP</em>' : ''}<div class="pimg">${Assets.icon('CD-' + DCODE[r.fk], DICON[r.fk], 'cdimg')}</div>${this.medal(r.place)}<b>${nm(r)}</b><small>${GLH.FACTIONS[r.fk].short} · ⚔️ ${r.kills} · 💥 ${r.dmg}</small></div>`).join('');
+    const bar = (v, M, c) => `<div class="sbar ${c}"><i style="width:${(v / M * 100).toFixed(1)}%"></i><span>${v}</span></div>`;
+    return `<div class="podium">${pod}</div><div class="rtab"><table class="tb rb"><tr><th>#</th><th>Người chơi</th><th>Cấp</th><th>Hạ</th><th>Sát thương</th><th>Chịu đòn</th><th>Hồi máu</th><th>Trụ</th></tr>` +
+      rows.map(r => `<tr class="${r.name === me && !r.bot ? 'me' : ''}${r === mvp ? ' mvpr' : ''}"><td>${this.medal(r.place)}</td><td class="who">${this.ava(r.fk)}<div><b>${nm(r)}</b>${r === mvp ? '<em class="mvpb s">MVP</em>' : ''}<small>${GLH.FACTIONS[r.fk].short}</small></div></td><td>${r.lvl}</td><td class="k">${r.kills}</td><td>${bar(r.dmg, MD, 'd')}</td><td>${bar(r.taken, MT, 't')}</td><td>${bar(r.heal, MH, 'h')}</td><td class="muted">${tm(r.t)}</td></tr>`).join('') + '</table></div>';
+  }
+
+  /* ---------- TÚI ĐỒ (QĐ-0046): 6 ô đang mặc + 8 ô túi + đồ dùng; chạm 1 món để xem thuộc tính & so sánh ---------- */
+  renderBag() {
+    const G = this.G, my = G.my; if (!my || $('bag').classList.contains('hidden')) return;
+    const key = JSON.stringify([my.eq, my.bag, my.items, this.bagSel]); if (this._bk === key) return; this._bk = key;
+    const sel = this.bagSel || null, slotIc = { weapon: '🗡️', armor: '🥋', head: '🎩', boots: '👢', ring: '💍', amulet: '📿' };
+    const power = st => Math.round(Object.entries(st || {}).reduce((a, [k, v]) => a + v * ({ atk: 3, def: 2, hp: 0.25, mp: 0.2, crit: 6, atkp: 4, defp: 3, hpp: 3, spd: 3, ls: 5, exp: 1, luck: 1 }[k] || 1), 0));
+    const cell = (it, ref, empty) => it ? `<div class="bcell r${it[1]}${sel === ref ? ' on' : ''}" data-ref="${ref}" style="--rc:${GLH.RAR[it[1]].c}"><span class="bic">${Assets.icon('IC-SLOT-' + it[4], slotIc[it[4]] || '🎁')}</span><em>Lv${it[3]}</em></div>` : `<div class="bcell empty" ${empty ? `title="${empty}"` : ''}><span class="bic ghost">${empty ? slotIc[empty.k] : ''}</span>${empty ? `<em>${empty.n}</em>` : ''}</div>`;
+    const eqH = GLH.SLOT_KEYS.map(k => cell(my.eq[k], 'e:' + k, !my.eq[k] && { k, n: GLH.SLOT_NAME[k] })).join('');
+    const bag = my.bag || [], bagH = Array.from({ length: GLH.BAG_MAX }, (_, i) => cell(bag[i], 'b:' + i)).join('');
+    const itH = Object.keys(GLH.ITEMS).filter(k => my.items[k] > 0).map(k => `<div class="icell${sel === 'i:' + k ? ' on' : ''}" data-ref="i:${k}">${Assets.icon(ITEM_IC[k] ? ITEM_IC[k][0] : '', ITEM_IC[k] ? ITEM_IC[k][1] : '🎁')}<b>${my.items[k]}</b></div>`).join('') || '<span class="muted">— trống —</span>';
+    let det = '<div class="muted bdet0">Chạm một món để xem thuộc tính, so sánh với đồ đang mặc, mặc · tháo · vứt.<br>Đi qua đồ rơi để nhặt: tốt hơn thì tự mặc, không thì cất túi (túi đầy thì để lại). Bị hạ sẽ rơi hết đồ trong túi.</div>';
+    if (sel) {
+      const [t, v] = sel.split(':');
+      if (t === 'i') { const I = GLH.ITEMS[v]; det = `<div class="bdet"><h4>${I.n} ×${my.items[v]}</h4><div class="muted">${I.d || ''}</div><div class="bact"><button data-a="dropIt" data-k="${v}">🗑️ Vứt 1</button></div></div>`; }
+      else {
+        const it = t === 'e' ? my.eq[v] : bag[+v]; if (it) {
+          const cur = t === 'b' ? my.eq[it[4]] : null, S = it[2] || {}, C = cur ? cur[2] || {} : null, keys = [...new Set([...Object.keys(S), ...(C ? Object.keys(C) : [])])];
+          const row = k => { const a = S[k] || 0, b = C ? C[k] || 0 : null, d = b == null ? 0 : a - b; return `<div class="bst"><span>${STAT_NAME[k] || k}</span><b>${a ? '+' + a : '—'}</b>${b == null ? '' : `<i class="${d > 0 ? 'dg' : d < 0 ? 'db' : ''}">${d > 0 ? '▲' + +d.toFixed(1) : d < 0 ? '▼' + +(-d).toFixed(1) : '='}</i>`}</div>`; };
+          const pw = power(S), pc = C ? power(C) : null;
+          det = `<div class="bdet"><h4 style="color:${GLH.RAR[it[1]].c}">${esc(it[0])}</h4><div class="muted">${GLH.SLOT_NAME[it[4]]} · ${GLH.RAR[it[1]].n} · cấp ${it[3]} · Lực chiến <b>${pw}</b>${pc != null ? ` <i class="${pw > pc ? 'dg' : pw < pc ? 'db' : ''}">(${pw >= pc ? '+' : ''}${pw - pc} so với đồ đang mặc)</i>` : ''}</div>
+            <div class="bsts">${keys.map(row).join('')}</div>
+            <div class="bact">${t === 'b' ? `<button class="main" data-a="eq" data-i="${v}">Mặc vào</button><button data-a="drop" data-i="${v}">🗑️ Vứt</button>` : `<button data-a="un" data-slot="${v}">Tháo ra túi</button><button data-a="dropEq" data-slot="${v}">🗑️ Vứt</button>`}</div></div>`;
+        } else this.bagSel = null;
+      }
+    }
+    $('bagBody').innerHTML = `<div class="bgrid"><div><div class="lbl">Đang mặc</div><div class="beq">${eqH}</div><div class="lbl">Túi (${bag.length}/${GLH.BAG_MAX})</div><div class="bbag">${bagH}</div><div class="lbl">Đồ dùng</div><div class="bits">${itH}</div></div><div>${det}</div></div>`;
+    $('bagBody').querySelectorAll('[data-ref]').forEach(e => e.onclick = () => { this.bagSel = this.bagSel === e.dataset.ref ? null : e.dataset.ref; this._bk = null; this.renderBag(); Audio2.play('UI-CLICK'); });
+    $('bagBody').querySelectorAll('[data-a]').forEach(e => e.onclick = () => { const d = e.dataset; G.send({ t: 'inv', a: d.a, i: +d.i || 0, slot: d.slot, k: d.k, n: 1 }); this.bagSel = null; this._bk = null; Audio2.play('UI-CLICK'); });
+  }
+
 }
