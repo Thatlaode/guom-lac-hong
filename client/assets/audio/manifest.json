@@ -1,0 +1,2752 @@
+[
+ {
+  "id": "VO-THANKIEM-CHON-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHON-1.mp3",
+  "character": "THANKIEM",
+  "action": "CHON",
+  "index": 1,
+  "text": "Mặt hồ phẳng lặng, gươm vẫn sắc.",
+  "duration": 1.62,
+  "bytes": 13164
+ },
+ {
+  "id": "VO-THANKIEM-CHON-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHON-2.mp3",
+  "character": "THANKIEM",
+  "action": "CHON",
+  "index": 2,
+  "text": "Thần Kiếm xin lĩnh mệnh.",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THANKIEM-VAO-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-VAO-1.mp3",
+  "character": "THANKIEM",
+  "action": "VAO",
+  "index": 1,
+  "text": "Gió hồ đã nổi.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-THANKIEM-DI-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-DI-1.mp3",
+  "character": "THANKIEM",
+  "action": "DI",
+  "index": 1,
+  "text": "Chân bước nhẹ như mặt nước.",
+  "duration": 1.254,
+  "bytes": 10239
+ },
+ {
+  "id": "VO-THANKIEM-DI-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-DI-2.mp3",
+  "character": "THANKIEM",
+  "action": "DI",
+  "index": 2,
+  "text": "Kẻ yếu máu, ta tới đây.",
+  "duration": 1.437,
+  "bytes": 11701
+ },
+ {
+  "id": "VO-THANKIEM-DANH-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-DANH-1.mp3",
+  "character": "THANKIEM",
+  "action": "DANH",
+  "index": 1,
+  "text": "Chém!",
+  "duration": 0.418,
+  "bytes": 3551
+ },
+ {
+  "id": "VO-THANKIEM-DANH-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-DANH-2.mp3",
+  "character": "THANKIEM",
+  "action": "DANH",
+  "index": 2,
+  "text": "Một nhát là đủ.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-THANKIEM-CHIEU1-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHIEU1-1.mp3",
+  "character": "THANKIEM",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Lướt Gươm!",
+  "duration": 0.731,
+  "bytes": 6059
+ },
+ {
+  "id": "VO-THANKIEM-CHIEU1-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHIEU1-2.mp3",
+  "character": "THANKIEM",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Nhanh hơn gió!",
+  "duration": 0.758,
+  "bytes": 6268
+ },
+ {
+  "id": "VO-THANKIEM-CHIEU2-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHIEU2-1.mp3",
+  "character": "THANKIEM",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Gươm xoáy mặt hồ!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THANKIEM-CHIEULON-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHIEULON-1.mp3",
+  "character": "THANKIEM",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Rùa Vàng , nổi sóng!",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-THANKIEM-CHIEULON-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CHIEULON-2.mp3",
+  "character": "THANKIEM",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Hồ gươm thức dậy!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THANKIEM-HA-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-HA-1.mp3",
+  "character": "THANKIEM",
+  "action": "HA",
+  "index": 1,
+  "text": "Kết liễu.",
+  "duration": 0.575,
+  "bytes": 4805
+ },
+ {
+  "id": "VO-THANKIEM-HA-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-HA-2.mp3",
+  "character": "THANKIEM",
+  "action": "HA",
+  "index": 2,
+  "text": "Gươm đã trả lời.",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "VO-THANKIEM-HA-LIENTIEP-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-HA-LIENTIEP-1.mp3",
+  "character": "THANKIEM",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Mặt hồ nhuộm đỏ rồi.",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-THANKIEM-BI-HA-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-BI-HA-1.mp3",
+  "character": "THANKIEM",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Gươm, chưa kịp, về hồ,",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THANKIEM-BI-HA-2",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-BI-HA-2.mp3",
+  "character": "THANKIEM",
+  "action": "BI-HA",
+  "index": 2,
+  "text": "Ta, sơ suất,",
+  "duration": 0.601,
+  "bytes": 5014
+ },
+ {
+  "id": "VO-THANKIEM-TRONG-THUONG-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-TRONG-THUONG-1.mp3",
+  "character": "THANKIEM",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Còn một hơi, đỡ ta dậy!",
+  "duration": 1.228,
+  "bytes": 10030
+ },
+ {
+  "id": "VO-THANKIEM-CUU-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CUU-1.mp3",
+  "character": "THANKIEM",
+  "action": "CUU",
+  "index": 1,
+  "text": "Đứng lên, gươm còn chờ ngươi.",
+  "duration": 1.567,
+  "bytes": 12746
+ },
+ {
+  "id": "VO-THANKIEM-UONG-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-UONG-1.mp3",
+  "character": "THANKIEM",
+  "action": "UONG",
+  "index": 1,
+  "text": "Hồi sức.",
+  "duration": 0.444,
+  "bytes": 3760
+ },
+ {
+  "id": "VO-THANKIEM-MO-HOM-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-MO-HOM-1.mp3",
+  "character": "THANKIEM",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Trời ban của quý.",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "VO-THANKIEM-CUOI-DIEU-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-CUOI-DIEU-1.mp3",
+  "character": "THANKIEM",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Lên gió!",
+  "duration": 0.601,
+  "bytes": 5014
+ },
+ {
+  "id": "VO-THANKIEM-SUONG-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-SUONG-1.mp3",
+  "character": "THANKIEM",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương độc, phải rời đi.",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THANKIEM-LEN-CAP-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-LEN-CAP-1.mp3",
+  "character": "THANKIEM",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Gươm thêm một phần sắc.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-THANKIEM-RUT-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-RUT-1.mp3",
+  "character": "THANKIEM",
+  "action": "RUT",
+  "index": 1,
+  "text": "Gươm ra khỏi vỏ.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-THANKIEM-THANG-1",
+  "path": "giong-noi/than-kiem/VO-THANKIEM-THANG-1.mp3",
+  "character": "THANKIEM",
+  "action": "THANG",
+  "index": 1,
+  "text": "Mặt hồ lại phẳng lặng.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-NGANCHAM-CHON-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHON-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CHON",
+  "index": 1,
+  "text": "Một cây trâm, một mạng người.",
+  "duration": 1.933,
+  "bytes": 15672
+ },
+ {
+  "id": "VO-NGANCHAM-CHON-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHON-2.mp3",
+  "character": "NGANCHAM",
+  "action": "CHON",
+  "index": 2,
+  "text": "Ngân Châm đã sẵn.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-NGANCHAM-VAO-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-VAO-1.mp3",
+  "character": "NGANCHAM",
+  "action": "VAO",
+  "index": 1,
+  "text": "Gió nhẹ, tầm xa, mắt sáng.",
+  "duration": 2.456,
+  "bytes": 19852
+ },
+ {
+  "id": "VO-NGANCHAM-DI-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-DI-1.mp3",
+  "character": "NGANCHAM",
+  "action": "DI",
+  "index": 1,
+  "text": "Đừng để ta thấy lưng ngươi.",
+  "duration": 1.489,
+  "bytes": 12119
+ },
+ {
+  "id": "VO-NGANCHAM-DI-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-DI-2.mp3",
+  "character": "NGANCHAM",
+  "action": "DI",
+  "index": 2,
+  "text": "Giữ khoảng cách nào.",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-NGANCHAM-DANH-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-DANH-1.mp3",
+  "character": "NGANCHAM",
+  "action": "DANH",
+  "index": 1,
+  "text": "Trúng.",
+  "duration": 0.47,
+  "bytes": 3969
+ },
+ {
+  "id": "VO-NGANCHAM-DANH-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-DANH-2.mp3",
+  "character": "NGANCHAM",
+  "action": "DANH",
+  "index": 2,
+  "text": "Hồng tâm!",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEU1-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEU1-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Mưa trâm!",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEU1-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEU1-2.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Đỡ được hết không?",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEU2-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEU2-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Én liệng!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEU2-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEU2-2.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Không chạm được ta đâu.",
+  "duration": 1.254,
+  "bytes": 10239
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEULON-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEULON-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Trâm xuyên mây!",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-NGANCHAM-CHIEULON-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CHIEULON-2.mp3",
+  "character": "NGANCHAM",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Một mũi , xuyên cả trời.",
+  "duration": 1.802,
+  "bytes": 14627
+ },
+ {
+  "id": "VO-NGANCHAM-HA-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-HA-1.mp3",
+  "character": "NGANCHAM",
+  "action": "HA",
+  "index": 1,
+  "text": "Thêm một vết khắc.",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-NGANCHAM-HA-2",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-HA-2.mp3",
+  "character": "NGANCHAM",
+  "action": "HA",
+  "index": 2,
+  "text": "Không trượt.",
+  "duration": 0.679,
+  "bytes": 5641
+ },
+ {
+  "id": "VO-NGANCHAM-HA-LIENTIEP-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-HA-LIENTIEP-1.mp3",
+  "character": "NGANCHAM",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Trâm còn, người hết.",
+  "duration": 1.593,
+  "bytes": 12955
+ },
+ {
+  "id": "VO-NGANCHAM-BI-HA-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-BI-HA-1.mp3",
+  "character": "NGANCHAM",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Mũi trâm, gãy rồi,",
+  "duration": 1.672,
+  "bytes": 13582
+ },
+ {
+  "id": "VO-NGANCHAM-TRONG-THUONG-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-TRONG-THUONG-1.mp3",
+  "character": "NGANCHAM",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Ai đó, kéo ta lên,",
+  "duration": 1.776,
+  "bytes": 14418
+ },
+ {
+  "id": "VO-NGANCHAM-CUU-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CUU-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CUU",
+  "index": 1,
+  "text": "Đứng dậy, bắn tiếp.",
+  "duration": 1.489,
+  "bytes": 12119
+ },
+ {
+  "id": "VO-NGANCHAM-UONG-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-UONG-1.mp3",
+  "character": "NGANCHAM",
+  "action": "UONG",
+  "index": 1,
+  "text": "Mắt sáng lại rồi.",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-NGANCHAM-MO-HOM-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-MO-HOM-1.mp3",
+  "character": "NGANCHAM",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Đồ tốt.",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-NGANCHAM-CUOI-DIEU-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-CUOI-DIEU-1.mp3",
+  "character": "NGANCHAM",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Từ trên cao, nhìn rõ hơn.",
+  "duration": 2.09,
+  "bytes": 16926
+ },
+ {
+  "id": "VO-NGANCHAM-SUONG-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-SUONG-1.mp3",
+  "character": "NGANCHAM",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương che mắt ta.",
+  "duration": 1.384,
+  "bytes": 11283
+ },
+ {
+  "id": "VO-NGANCHAM-LEN-CAP-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-LEN-CAP-1.mp3",
+  "character": "NGANCHAM",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Tay vững thêm.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-NGANCHAM-RUT-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-RUT-1.mp3",
+  "character": "NGANCHAM",
+  "action": "RUT",
+  "index": 1,
+  "text": "Trâm đã cầm tay.",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-NGANCHAM-THANG-1",
+  "path": "giong-noi/ngan-cham/VO-NGANCHAM-THANG-1.mp3",
+  "character": "NGANCHAM",
+  "action": "THANG",
+  "index": 1,
+  "text": "Không ai thoát khỏi tầm mắt ta.",
+  "duration": 1.829,
+  "bytes": 14836
+ },
+ {
+  "id": "VO-THIETTRUC-CHON-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHON-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CHON",
+  "index": 1,
+  "text": "Tre làng không bao giờ gãy!",
+  "duration": 1.306,
+  "bytes": 10656
+ },
+ {
+  "id": "VO-THIETTRUC-CHON-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHON-2.mp3",
+  "character": "THIETTRUC",
+  "action": "CHON",
+  "index": 2,
+  "text": "Lũy tre xanh, ta đứng trước.",
+  "duration": 1.698,
+  "bytes": 13791
+ },
+ {
+  "id": "VO-THIETTRUC-VAO-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-VAO-1.mp3",
+  "character": "THIETTRUC",
+  "action": "VAO",
+  "index": 1,
+  "text": "Giữ làng, giữ nước!",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-THIETTRUC-DI-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-DI-1.mp3",
+  "character": "THIETTRUC",
+  "action": "DI",
+  "index": 1,
+  "text": "Đất này có tre có người.",
+  "duration": 1.254,
+  "bytes": 10239
+ },
+ {
+  "id": "VO-THIETTRUC-DI-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-DI-2.mp3",
+  "character": "THIETTRUC",
+  "action": "DI",
+  "index": 2,
+  "text": "Đứng sau ta.",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-THIETTRUC-DANH-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-DANH-1.mp3",
+  "character": "THIETTRUC",
+  "action": "DANH",
+  "index": 1,
+  "text": "Phang!",
+  "duration": 0.418,
+  "bytes": 3551
+ },
+ {
+  "id": "VO-THIETTRUC-DANH-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-DANH-2.mp3",
+  "character": "THIETTRUC",
+  "action": "DANH",
+  "index": 2,
+  "text": "Hây!",
+  "duration": 0.392,
+  "bytes": 3342
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEU1-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEU1-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Quét đồng!",
+  "duration": 0.549,
+  "bytes": 4596
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEU1-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEU1-2.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Văng ra!",
+  "duration": 0.627,
+  "bytes": 5223
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEU2-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEU2-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Lũy tre xanh!",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEU2-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEU2-2.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Tên không qua được tre.",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEULON-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEULON-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Tre ngà , quật trời!",
+  "duration": 1.411,
+  "bytes": 11492
+ },
+ {
+  "id": "VO-THIETTRUC-CHIEULON-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CHIEULON-2.mp3",
+  "character": "THIETTRUC",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Nhổ bụi tre mà đánh!",
+  "duration": 1.28,
+  "bytes": 10448
+ },
+ {
+  "id": "VO-THIETTRUC-HA-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-HA-1.mp3",
+  "character": "THIETTRUC",
+  "action": "HA",
+  "index": 1,
+  "text": "Đổ như rạ.",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-THIETTRUC-HA-2",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-HA-2.mp3",
+  "character": "THIETTRUC",
+  "action": "HA",
+  "index": 2,
+  "text": "Về làng mà nghỉ.",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THIETTRUC-HA-LIENTIEP-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-HA-LIENTIEP-1.mp3",
+  "character": "THIETTRUC",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Cả xóm cũng không cản nổi!",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-THIETTRUC-BI-HA-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-BI-HA-1.mp3",
+  "character": "THIETTRUC",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Tre, già, măng, mọc,",
+  "duration": 2.064,
+  "bytes": 16717
+ },
+ {
+  "id": "VO-THIETTRUC-TRONG-THUONG-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-TRONG-THUONG-1.mp3",
+  "character": "THIETTRUC",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Đỡ ta, ta còn gánh được,",
+  "duration": 1.672,
+  "bytes": 13582
+ },
+ {
+  "id": "VO-THIETTRUC-CUU-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CUU-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CUU",
+  "index": 1,
+  "text": "Dậy! Làng còn cần ngươi.",
+  "duration": 2.064,
+  "bytes": 16717
+ },
+ {
+  "id": "VO-THIETTRUC-UONG-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-UONG-1.mp3",
+  "character": "THIETTRUC",
+  "action": "UONG",
+  "index": 1,
+  "text": "Uống bát nước chè.",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-THIETTRUC-MO-HOM-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-MO-HOM-1.mp3",
+  "character": "THIETTRUC",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Của trời cho, làng chia nhau.",
+  "duration": 1.881,
+  "bytes": 15254
+ },
+ {
+  "id": "VO-THIETTRUC-CUOI-DIEU-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-CUOI-DIEU-1.mp3",
+  "character": "THIETTRUC",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Diều sáo vi vu!",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THIETTRUC-SUONG-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-SUONG-1.mp3",
+  "character": "THIETTRUC",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương xuống dày quá.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THIETTRUC-LEN-CAP-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-LEN-CAP-1.mp3",
+  "character": "THIETTRUC",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Gậy nặng thêm rồi.",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-THIETTRUC-RUT-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-RUT-1.mp3",
+  "character": "THIETTRUC",
+  "action": "RUT",
+  "index": 1,
+  "text": "Gậy tre trong tay!",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THIETTRUC-THANG-1",
+  "path": "giong-noi/thiet-truc/VO-THIETTRUC-THANG-1.mp3",
+  "character": "THIETTRUC",
+  "action": "THANG",
+  "index": 1,
+  "text": "Lũy tre vẫn đứng.",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-BACHTHAO-CHON-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHON-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CHON",
+  "index": 1,
+  "text": "Vườn thuốc này chữa được cả gan trời.",
+  "duration": 2.09,
+  "bytes": 16926
+ },
+ {
+  "id": "VO-BACHTHAO-CHON-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHON-2.mp3",
+  "character": "BACHTHAO",
+  "action": "CHON",
+  "index": 2,
+  "text": "Có ta, khỏi lo đau.",
+  "duration": 1.933,
+  "bytes": 15672
+ },
+ {
+  "id": "VO-BACHTHAO-VAO-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-VAO-1.mp3",
+  "character": "BACHTHAO",
+  "action": "VAO",
+  "index": 1,
+  "text": "Hái thuốc thôi nào.",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-BACHTHAO-DI-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-DI-1.mp3",
+  "character": "BACHTHAO",
+  "action": "DI",
+  "index": 1,
+  "text": "Lá này hồi máu, lá kia trói chân.",
+  "duration": 2.534,
+  "bytes": 20479
+ },
+ {
+  "id": "VO-BACHTHAO-DI-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-DI-2.mp3",
+  "character": "BACHTHAO",
+  "action": "DI",
+  "index": 2,
+  "text": "Đừng giẫm vào vườn của ta.",
+  "duration": 1.541,
+  "bytes": 12537
+ },
+ {
+  "id": "VO-BACHTHAO-DANH-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-DANH-1.mp3",
+  "character": "BACHTHAO",
+  "action": "DANH",
+  "index": 1,
+  "text": "Nếm thử đi!",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-BACHTHAO-DANH-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-DANH-2.mp3",
+  "character": "BACHTHAO",
+  "action": "DANH",
+  "index": 2,
+  "text": "Thuốc đắng đấy.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEU1-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEU1-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Tơ hồng , trói!",
+  "duration": 1.515,
+  "bytes": 12328
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEU1-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEU1-2.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Đứng yên đó.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEU2-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEU2-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Bát lá xông!",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEU2-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEU2-2.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Khỏe lại rồi.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEULON-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEULON-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Bướm bay ngập vườn!",
+  "duration": 1.28,
+  "bytes": 10448
+ },
+ {
+  "id": "VO-BACHTHAO-CHIEULON-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CHIEULON-2.mp3",
+  "character": "BACHTHAO",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Cả vườn thức dậy!",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-BACHTHAO-HA-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-HA-1.mp3",
+  "character": "BACHTHAO",
+  "action": "HA",
+  "index": 1,
+  "text": "Thuốc hết tác dụng rồi.",
+  "duration": 1.306,
+  "bytes": 10656
+ },
+ {
+  "id": "VO-BACHTHAO-HA-2",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-HA-2.mp3",
+  "character": "BACHTHAO",
+  "action": "HA",
+  "index": 2,
+  "text": "Nghỉ ngơi đi.",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-BACHTHAO-HA-LIENTIEP-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-HA-LIENTIEP-1.mp3",
+  "character": "BACHTHAO",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Vườn ta không thiếu phân bón.",
+  "duration": 1.463,
+  "bytes": 11910
+ },
+ {
+  "id": "VO-BACHTHAO-BI-HA-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-BI-HA-1.mp3",
+  "character": "BACHTHAO",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Thuốc, không kịp, sắc,",
+  "duration": 1.881,
+  "bytes": 15254
+ },
+ {
+  "id": "VO-BACHTHAO-TRONG-THUONG-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-TRONG-THUONG-1.mp3",
+  "character": "BACHTHAO",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Ta tự chữa không được, giúp với,",
+  "duration": 2.142,
+  "bytes": 17344
+ },
+ {
+  "id": "VO-BACHTHAO-CUU-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CUU-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CUU",
+  "index": 1,
+  "text": "Nằm yên, ta đắp lá cho.",
+  "duration": 1.985,
+  "bytes": 16090
+ },
+ {
+  "id": "VO-BACHTHAO-UONG-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-UONG-1.mp3",
+  "character": "BACHTHAO",
+  "action": "UONG",
+  "index": 1,
+  "text": "Thuốc nhà làm.",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-BACHTHAO-MO-HOM-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-MO-HOM-1.mp3",
+  "character": "BACHTHAO",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Hòm này có thuốc quý!",
+  "duration": 1.332,
+  "bytes": 10865
+ },
+ {
+  "id": "VO-BACHTHAO-CUOI-DIEU-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-CUOI-DIEU-1.mp3",
+  "character": "BACHTHAO",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Bay đi tìm vườn mới.",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-BACHTHAO-SUONG-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-SUONG-1.mp3",
+  "character": "BACHTHAO",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương này độc hơn thuốc ta.",
+  "duration": 1.698,
+  "bytes": 13791
+ },
+ {
+  "id": "VO-BACHTHAO-LEN-CAP-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-LEN-CAP-1.mp3",
+  "character": "BACHTHAO",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Biết thêm một vị thuốc.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-BACHTHAO-RUT-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-RUT-1.mp3",
+  "character": "BACHTHAO",
+  "action": "RUT",
+  "index": 1,
+  "text": "Quạt lá sẵn sàng.",
+  "duration": 1.228,
+  "bytes": 10030
+ },
+ {
+  "id": "VO-BACHTHAO-THANG-1",
+  "path": "giong-noi/bach-thao/VO-BACHTHAO-THANG-1.mp3",
+  "character": "BACHTHAO",
+  "action": "THANG",
+  "index": 1,
+  "text": "Vườn thuốc còn xanh.",
+  "duration": 1.228,
+  "bytes": 10030
+ },
+ {
+  "id": "VO-HAITHUONG-CHON-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHON-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CHON",
+  "index": 1,
+  "text": "Cọc đã cắm, giặc phải dừng.",
+  "duration": 1.776,
+  "bytes": 14418
+ },
+ {
+  "id": "VO-HAITHUONG-CHON-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHON-2.mp3",
+  "character": "HAITHUONG",
+  "action": "CHON",
+  "index": 2,
+  "text": "Thương dài giữ dòng sông.",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-HAITHUONG-VAO-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-VAO-1.mp3",
+  "character": "HAITHUONG",
+  "action": "VAO",
+  "index": 1,
+  "text": "Nước lên rồi.",
+  "duration": 0.784,
+  "bytes": 6477
+ },
+ {
+  "id": "VO-HAITHUONG-DI-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-DI-1.mp3",
+  "character": "HAITHUONG",
+  "action": "DI",
+  "index": 1,
+  "text": "Chờ con nước rút.",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "VO-HAITHUONG-DI-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-DI-2.mp3",
+  "character": "HAITHUONG",
+  "action": "DI",
+  "index": 2,
+  "text": "Kẻ nào lao vào sẽ mắc cạn.",
+  "duration": 1.489,
+  "bytes": 12119
+ },
+ {
+  "id": "VO-HAITHUONG-DANH-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-DANH-1.mp3",
+  "character": "HAITHUONG",
+  "action": "DANH",
+  "index": 1,
+  "text": "Đâm!",
+  "duration": 0.418,
+  "bytes": 3551
+ },
+ {
+  "id": "VO-HAITHUONG-DANH-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-DANH-2.mp3",
+  "character": "HAITHUONG",
+  "action": "DANH",
+  "index": 2,
+  "text": "Lùi lại!",
+  "duration": 0.549,
+  "bytes": 4596
+ },
+ {
+  "id": "VO-HAITHUONG-CHIEU1-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHIEU1-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Sóng ba mũi!",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-HAITHUONG-CHIEU1-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHIEU1-2.mp3",
+  "character": "HAITHUONG",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Chậm lại đi.",
+  "duration": 0.758,
+  "bytes": 6268
+ },
+ {
+  "id": "VO-HAITHUONG-CHIEU2-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHIEU2-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Lặn theo dòng!",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-HAITHUONG-CHIEULON-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHIEULON-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Nước rút , bãi cọc lộ!",
+  "duration": 1.411,
+  "bytes": 11492
+ },
+ {
+  "id": "VO-HAITHUONG-CHIEULON-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CHIEULON-2.mp3",
+  "character": "HAITHUONG",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Mắc cạn hết đi!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-HAITHUONG-HA-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-HA-1.mp3",
+  "character": "HAITHUONG",
+  "action": "HA",
+  "index": 1,
+  "text": "Chìm.",
+  "duration": 0.444,
+  "bytes": 3760
+ },
+ {
+  "id": "VO-HAITHUONG-HA-2",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-HA-2.mp3",
+  "character": "HAITHUONG",
+  "action": "HA",
+  "index": 2,
+  "text": "Sông cuốn đi rồi.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-HAITHUONG-HA-LIENTIEP-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-HA-LIENTIEP-1.mp3",
+  "character": "HAITHUONG",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Cả đoàn thuyền mắc cọc!",
+  "duration": 1.149,
+  "bytes": 9403
+ },
+ {
+  "id": "VO-HAITHUONG-BI-HA-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-BI-HA-1.mp3",
+  "character": "HAITHUONG",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Dòng sông, cuốn ta,",
+  "duration": 1.332,
+  "bytes": 10865
+ },
+ {
+  "id": "VO-HAITHUONG-TRONG-THUONG-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-TRONG-THUONG-1.mp3",
+  "character": "HAITHUONG",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Kéo ta lên bờ!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-HAITHUONG-CUU-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CUU-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CUU",
+  "index": 1,
+  "text": "Nắm lấy cán thương.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-HAITHUONG-UONG-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-UONG-1.mp3",
+  "character": "HAITHUONG",
+  "action": "UONG",
+  "index": 1,
+  "text": "Một ngụm nước sông.",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-HAITHUONG-MO-HOM-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-MO-HOM-1.mp3",
+  "character": "HAITHUONG",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Hàng trôi sông dạt vào.",
+  "duration": 1.28,
+  "bytes": 10448
+ },
+ {
+  "id": "VO-HAITHUONG-CUOI-DIEU-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-CUOI-DIEU-1.mp3",
+  "character": "HAITHUONG",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Gió sông đưa đi.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-HAITHUONG-SUONG-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-SUONG-1.mp3",
+  "character": "HAITHUONG",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương mù trên sông.",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-HAITHUONG-LEN-CAP-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-LEN-CAP-1.mp3",
+  "character": "HAITHUONG",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Cọc đóng sâu thêm.",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-HAITHUONG-RUT-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-RUT-1.mp3",
+  "character": "HAITHUONG",
+  "action": "RUT",
+  "index": 1,
+  "text": "Thương trong tay.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-HAITHUONG-THANG-1",
+  "path": "giong-noi/hai-thuong/VO-HAITHUONG-THANG-1.mp3",
+  "character": "HAITHUONG",
+  "action": "THANG",
+  "index": 1,
+  "text": "Sông lại êm.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-THUYTIEN-CHON-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHON-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CHON",
+  "index": 1,
+  "text": "Lụa mềm, nước mạnh.",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-THUYTIEN-CHON-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHON-2.mp3",
+  "character": "THUYTIEN",
+  "action": "CHON",
+  "index": 2,
+  "text": "Đuổi theo ta thử xem.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THUYTIEN-VAO-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-VAO-1.mp3",
+  "character": "THUYTIEN",
+  "action": "VAO",
+  "index": 1,
+  "text": "Sóng vờn rồi.",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "VO-THUYTIEN-DI-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-DI-1.mp3",
+  "character": "THUYTIEN",
+  "action": "DI",
+  "index": 1,
+  "text": "Lượn một vòng nào.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-THUYTIEN-DI-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-DI-2.mp3",
+  "character": "THUYTIEN",
+  "action": "DI",
+  "index": 2,
+  "text": "Không ai bắt được nước.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THUYTIEN-DANH-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-DANH-1.mp3",
+  "character": "THUYTIEN",
+  "action": "DANH",
+  "index": 1,
+  "text": "Vút!",
+  "duration": 0.34,
+  "bytes": 2924
+ },
+ {
+  "id": "VO-THUYTIEN-DANH-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-DANH-2.mp3",
+  "character": "THUYTIEN",
+  "action": "DANH",
+  "index": 2,
+  "text": "Quất!",
+  "duration": 0.287,
+  "bytes": 2506
+ },
+ {
+  "id": "VO-THUYTIEN-CHIEU1-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHIEU1-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Lụa vờn sóng!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THUYTIEN-CHIEU2-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHIEU2-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Lướt mặt hồ!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-THUYTIEN-CHIEU2-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHIEU2-2.mp3",
+  "character": "THUYTIEN",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Ở đây này!",
+  "duration": 0.784,
+  "bytes": 6477
+ },
+ {
+  "id": "VO-THUYTIEN-CHIEULON-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHIEULON-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Nước dâng ngập lối!",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THUYTIEN-CHIEULON-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CHIEULON-2.mp3",
+  "character": "THUYTIEN",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Chìm trong sóng đi!",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THUYTIEN-HA-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-HA-1.mp3",
+  "character": "THUYTIEN",
+  "action": "HA",
+  "index": 1,
+  "text": "Trôi đi.",
+  "duration": 0.601,
+  "bytes": 5014
+ },
+ {
+  "id": "VO-THUYTIEN-HA-2",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-HA-2.mp3",
+  "character": "THUYTIEN",
+  "action": "HA",
+  "index": 2,
+  "text": "Nước chảy, người ngã.",
+  "duration": 1.437,
+  "bytes": 11701
+ },
+ {
+  "id": "VO-THUYTIEN-HA-LIENTIEP-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-HA-LIENTIEP-1.mp3",
+  "character": "THUYTIEN",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Sóng chưa ngừng đâu.",
+  "duration": 1.149,
+  "bytes": 9403
+ },
+ {
+  "id": "VO-THUYTIEN-BI-HA-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-BI-HA-1.mp3",
+  "character": "THUYTIEN",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Lụa, rách, rồi,",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-THUYTIEN-TRONG-THUONG-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-TRONG-THUONG-1.mp3",
+  "character": "THUYTIEN",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Nước cạn, cứu ta,",
+  "duration": 1.28,
+  "bytes": 10448
+ },
+ {
+  "id": "VO-THUYTIEN-CUU-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CUU-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CUU",
+  "index": 1,
+  "text": "Theo dải lụa mà dậy.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THUYTIEN-UONG-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-UONG-1.mp3",
+  "character": "THUYTIEN",
+  "action": "UONG",
+  "index": 1,
+  "text": "Ngọt như nước giếng.",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-THUYTIEN-MO-HOM-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-MO-HOM-1.mp3",
+  "character": "THUYTIEN",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Đẹp quá!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-THUYTIEN-CUOI-DIEU-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-CUOI-DIEU-1.mp3",
+  "character": "THUYTIEN",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Bay theo gió!",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-THUYTIEN-SUONG-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-SUONG-1.mp3",
+  "character": "THUYTIEN",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương lạnh quá.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-THUYTIEN-LEN-CAP-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-LEN-CAP-1.mp3",
+  "character": "THUYTIEN",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Lụa dài thêm một sải.",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "VO-THUYTIEN-RUT-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-RUT-1.mp3",
+  "character": "THUYTIEN",
+  "action": "RUT",
+  "index": 1,
+  "text": "Lụa đã tung.",
+  "duration": 0.731,
+  "bytes": 6059
+ },
+ {
+  "id": "VO-THUYTIEN-THANG-1",
+  "path": "giong-noi/thuy-tien/VO-THUYTIEN-THANG-1.mp3",
+  "character": "THUYTIEN",
+  "action": "THANG",
+  "index": 1,
+  "text": "Nước về với nước.",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-VIEMDAO-CHON-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHON-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CHON",
+  "index": 1,
+  "text": "Ngựa sắt đã đóng yên!",
+  "duration": 1.149,
+  "bytes": 9403
+ },
+ {
+  "id": "VO-VIEMDAO-CHON-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHON-2.mp3",
+  "character": "VIEMDAO",
+  "action": "CHON",
+  "index": 2,
+  "text": "Lửa ta cháy không tắt.",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-VIEMDAO-VAO-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-VAO-1.mp3",
+  "character": "VIEMDAO",
+  "action": "VAO",
+  "index": 1,
+  "text": "Xung phong!",
+  "duration": 0.731,
+  "bytes": 6059
+ },
+ {
+  "id": "VO-VIEMDAO-DI-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-DI-1.mp3",
+  "character": "VIEMDAO",
+  "action": "DI",
+  "index": 1,
+  "text": "Ngựa hí rồi.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-VIEMDAO-DI-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-DI-2.mp3",
+  "character": "VIEMDAO",
+  "action": "DI",
+  "index": 2,
+  "text": "Thấy giặc là xông.",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-VIEMDAO-DANH-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-DANH-1.mp3",
+  "character": "VIEMDAO",
+  "action": "DANH",
+  "index": 1,
+  "text": "Chém!",
+  "duration": 0.47,
+  "bytes": 3969
+ },
+ {
+  "id": "VO-VIEMDAO-DANH-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-DANH-2.mp3",
+  "character": "VIEMDAO",
+  "action": "DANH",
+  "index": 2,
+  "text": "Cháy đi!",
+  "duration": 0.575,
+  "bytes": 4805
+ },
+ {
+  "id": "VO-VIEMDAO-CHIEU1-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHIEU1-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Ngựa lửa xông trận!",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-VIEMDAO-CHIEU1-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHIEU1-2.mp3",
+  "character": "VIEMDAO",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Tránh đường!",
+  "duration": 0.679,
+  "bytes": 5641
+ },
+ {
+  "id": "VO-VIEMDAO-CHIEU2-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHIEU2-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Đao bừng lửa!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-VIEMDAO-CHIEULON-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHIEULON-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Vó lửa , đạp trời!",
+  "duration": 1.515,
+  "bytes": 12328
+ },
+ {
+  "id": "VO-VIEMDAO-CHIEULON-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CHIEULON-2.mp3",
+  "character": "VIEMDAO",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Cháy rụi hết!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-VIEMDAO-HA-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-HA-1.mp3",
+  "character": "VIEMDAO",
+  "action": "HA",
+  "index": 1,
+  "text": "Thành tro.",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-VIEMDAO-HA-2",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-HA-2.mp3",
+  "character": "VIEMDAO",
+  "action": "HA",
+  "index": 2,
+  "text": "Ngựa đã qua.",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-VIEMDAO-HA-LIENTIEP-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-HA-LIENTIEP-1.mp3",
+  "character": "VIEMDAO",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Không ai đứng nổi trước vó ngựa!",
+  "duration": 1.646,
+  "bytes": 13373
+ },
+ {
+  "id": "VO-VIEMDAO-BI-HA-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-BI-HA-1.mp3",
+  "character": "VIEMDAO",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Lửa, tắt, rồi,",
+  "duration": 1.437,
+  "bytes": 11701
+ },
+ {
+  "id": "VO-VIEMDAO-TRONG-THUONG-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-TRONG-THUONG-1.mp3",
+  "character": "VIEMDAO",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Ngựa còn, người gục, cứu ta!",
+  "duration": 2.168,
+  "bytes": 17553
+ },
+ {
+  "id": "VO-VIEMDAO-CUU-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CUU-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CUU",
+  "index": 1,
+  "text": "Lên ngựa, ta còn đánh!",
+  "duration": 1.593,
+  "bytes": 12955
+ },
+ {
+  "id": "VO-VIEMDAO-UONG-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-UONG-1.mp3",
+  "character": "VIEMDAO",
+  "action": "UONG",
+  "index": 1,
+  "text": "Thêm dầu cho lửa.",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-VIEMDAO-MO-HOM-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-MO-HOM-1.mp3",
+  "character": "VIEMDAO",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Chiến lợi phẩm!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-VIEMDAO-CUOI-DIEU-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-CUOI-DIEU-1.mp3",
+  "character": "VIEMDAO",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Ngựa không bay được, ta bay!",
+  "duration": 1.593,
+  "bytes": 12955
+ },
+ {
+  "id": "VO-VIEMDAO-SUONG-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-SUONG-1.mp3",
+  "character": "VIEMDAO",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương dập lửa ta.",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "VO-VIEMDAO-LEN-CAP-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-LEN-CAP-1.mp3",
+  "character": "VIEMDAO",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Lửa cháy to hơn.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-VIEMDAO-RUT-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-RUT-1.mp3",
+  "character": "VIEMDAO",
+  "action": "RUT",
+  "index": 1,
+  "text": "Đao ra!",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-VIEMDAO-THANG-1",
+  "path": "giong-noi/viem-dao/VO-VIEMDAO-THANG-1.mp3",
+  "character": "VIEMDAO",
+  "action": "THANG",
+  "index": 1,
+  "text": "Ngựa lửa về chuồng.",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "VO-HOALIEN-CHON-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHON-1.mp3",
+  "character": "HOALIEN",
+  "action": "CHON",
+  "index": 1,
+  "text": "Tháng ba hoa gạo đỏ trời.",
+  "duration": 1.541,
+  "bytes": 12537
+ },
+ {
+  "id": "VO-HOALIEN-CHON-2",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHON-2.mp3",
+  "character": "HOALIEN",
+  "action": "CHON",
+  "index": 2,
+  "text": "Đèn lồng đã thắp.",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-HOALIEN-VAO-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-VAO-1.mp3",
+  "character": "HOALIEN",
+  "action": "VAO",
+  "index": 1,
+  "text": "Thắp đèn nào.",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-HOALIEN-DI-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-DI-1.mp3",
+  "character": "HOALIEN",
+  "action": "DI",
+  "index": 1,
+  "text": "Hoa rơi đâu, lửa cháy đó.",
+  "duration": 1.724,
+  "bytes": 14000
+ },
+ {
+  "id": "VO-HOALIEN-DI-2",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-DI-2.mp3",
+  "character": "HOALIEN",
+  "action": "DI",
+  "index": 2,
+  "text": "Đứng gần nhau thì càng đẹp.",
+  "duration": 1.411,
+  "bytes": 11492
+ },
+ {
+  "id": "VO-HOALIEN-DANH-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-DANH-1.mp3",
+  "character": "HOALIEN",
+  "action": "DANH",
+  "index": 1,
+  "text": "Nổ!",
+  "duration": 0.444,
+  "bytes": 3760
+ },
+ {
+  "id": "VO-HOALIEN-DANH-2",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-DANH-2.mp3",
+  "character": "HOALIEN",
+  "action": "DANH",
+  "index": 2,
+  "text": "Hoa lửa!",
+  "duration": 0.627,
+  "bytes": 5223
+ },
+ {
+  "id": "VO-HOALIEN-CHIEU1-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHIEU1-1.mp3",
+  "character": "HOALIEN",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Cánh gạo lửa!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-HOALIEN-CHIEU2-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHIEU2-1.mp3",
+  "character": "HOALIEN",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Đèn lồng bay!",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-HOALIEN-CHIEULON-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHIEULON-1.mp3",
+  "character": "HOALIEN",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Trời đỏ hoa gạo!",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-HOALIEN-CHIEULON-2",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CHIEULON-2.mp3",
+  "character": "HOALIEN",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Mưa hoa , mưa lửa!",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-HOALIEN-HA-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-HA-1.mp3",
+  "character": "HOALIEN",
+  "action": "HA",
+  "index": 1,
+  "text": "Tàn như hoa rụng.",
+  "duration": 0.888,
+  "bytes": 7313
+ },
+ {
+  "id": "VO-HOALIEN-HA-2",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-HA-2.mp3",
+  "character": "HOALIEN",
+  "action": "HA",
+  "index": 2,
+  "text": "Đẹp mà buồn.",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-HOALIEN-HA-LIENTIEP-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-HA-LIENTIEP-1.mp3",
+  "character": "HOALIEN",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Cả cây gạo trổ hoa rồi!",
+  "duration": 1.489,
+  "bytes": 12119
+ },
+ {
+  "id": "VO-HOALIEN-BI-HA-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-BI-HA-1.mp3",
+  "character": "HOALIEN",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Đèn, tắt, mất rồi,",
+  "duration": 1.541,
+  "bytes": 12537
+ },
+ {
+  "id": "VO-HOALIEN-TRONG-THUONG-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-TRONG-THUONG-1.mp3",
+  "character": "HOALIEN",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Thắp lại đèn cho ta,",
+  "duration": 1.254,
+  "bytes": 10239
+ },
+ {
+  "id": "VO-HOALIEN-CUU-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CUU-1.mp3",
+  "character": "HOALIEN",
+  "action": "CUU",
+  "index": 1,
+  "text": "Đèn còn sáng, ngươi còn sống.",
+  "duration": 1.855,
+  "bytes": 15045
+ },
+ {
+  "id": "VO-HOALIEN-UONG-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-UONG-1.mp3",
+  "character": "HOALIEN",
+  "action": "UONG",
+  "index": 1,
+  "text": "Ấm người.",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-HOALIEN-MO-HOM-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-MO-HOM-1.mp3",
+  "character": "HOALIEN",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Quà từ trên trời!",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-HOALIEN-CUOI-DIEU-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-CUOI-DIEU-1.mp3",
+  "character": "HOALIEN",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Bay như đèn trời.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-HOALIEN-SUONG-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-SUONG-1.mp3",
+  "character": "HOALIEN",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương làm đèn mờ.",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-HOALIEN-LEN-CAP-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-LEN-CAP-1.mp3",
+  "character": "HOALIEN",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Lửa thêm rực.",
+  "duration": 0.81,
+  "bytes": 6686
+ },
+ {
+  "id": "VO-HOALIEN-RUT-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-RUT-1.mp3",
+  "character": "HOALIEN",
+  "action": "RUT",
+  "index": 1,
+  "text": "Nâng đèn lên.",
+  "duration": 0.784,
+  "bytes": 6477
+ },
+ {
+  "id": "VO-HOALIEN-THANG-1",
+  "path": "giong-noi/hoa-lien/VO-HOALIEN-THANG-1.mp3",
+  "character": "HOALIEN",
+  "action": "THANG",
+  "index": 1,
+  "text": "Hoa gạo vẫn đỏ.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-THIETSON-CHON-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHON-1.mp3",
+  "character": "THIETSON",
+  "action": "CHON",
+  "index": 1,
+  "text": "Núi không lùi.",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-THIETSON-CHON-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHON-2.mp3",
+  "character": "THIETSON",
+  "action": "CHON",
+  "index": 2,
+  "text": "Đánh ta đi, núi chịu được.",
+  "duration": 1.411,
+  "bytes": 11492
+ },
+ {
+  "id": "VO-THIETSON-VAO-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-VAO-1.mp3",
+  "character": "THIETSON",
+  "action": "VAO",
+  "index": 1,
+  "text": "Đất rung rồi.",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-THIETSON-DI-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-DI-1.mp3",
+  "character": "THIETSON",
+  "action": "DI",
+  "index": 1,
+  "text": "Từng bước nặng như núi.",
+  "duration": 1.045,
+  "bytes": 8567
+ },
+ {
+  "id": "VO-THIETSON-DI-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-DI-2.mp3",
+  "character": "THIETSON",
+  "action": "DI",
+  "index": 2,
+  "text": "Cứ đánh vào ta.",
+  "duration": 0.758,
+  "bytes": 6268
+ },
+ {
+  "id": "VO-THIETSON-DANH-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-DANH-1.mp3",
+  "character": "THIETSON",
+  "action": "DANH",
+  "index": 1,
+  "text": "Đập!",
+  "duration": 0.313,
+  "bytes": 2715
+ },
+ {
+  "id": "VO-THIETSON-DANH-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-DANH-2.mp3",
+  "character": "THIETSON",
+  "action": "DANH",
+  "index": 2,
+  "text": "Hự!",
+  "duration": 0.601,
+  "bytes": 5014
+ },
+ {
+  "id": "VO-THIETSON-CHIEU1-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEU1-1.mp3",
+  "character": "THIETSON",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Dậm núi!",
+  "duration": 0.47,
+  "bytes": 3969
+ },
+ {
+  "id": "VO-THIETSON-CHIEU1-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEU1-2.mp3",
+  "character": "THIETSON",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Quỳ xuống!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-THIETSON-CHIEU2-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEU2-1.mp3",
+  "character": "THIETSON",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Da đá!",
+  "duration": 0.444,
+  "bytes": 3760
+ },
+ {
+  "id": "VO-THIETSON-CHIEU2-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEU2-2.mp3",
+  "character": "THIETSON",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Không thấy đau.",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-THIETSON-CHIEULON-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEULON-1.mp3",
+  "character": "THIETSON",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Núi dâng , nước lùi!",
+  "duration": 1.28,
+  "bytes": 10448
+ },
+ {
+  "id": "VO-THIETSON-CHIEULON-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CHIEULON-2.mp3",
+  "character": "THIETSON",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Đất trời rung chuyển!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THIETSON-HA-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-HA-1.mp3",
+  "character": "THIETSON",
+  "action": "HA",
+  "index": 1,
+  "text": "Đá đè.",
+  "duration": 0.549,
+  "bytes": 4596
+ },
+ {
+  "id": "VO-THIETSON-HA-2",
+  "path": "giong-noi/thiet-son/VO-THIETSON-HA-2.mp3",
+  "character": "THIETSON",
+  "action": "HA",
+  "index": 2,
+  "text": "Nằm xuống.",
+  "duration": 0.758,
+  "bytes": 6268
+ },
+ {
+  "id": "VO-THIETSON-HA-LIENTIEP-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-HA-LIENTIEP-1.mp3",
+  "character": "THIETSON",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Núi lở rồi đấy!",
+  "duration": 0.784,
+  "bytes": 6477
+ },
+ {
+  "id": "VO-THIETSON-BI-HA-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-BI-HA-1.mp3",
+  "character": "THIETSON",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Núi, cũng, có lúc, lở,",
+  "duration": 2.011,
+  "bytes": 16299
+ },
+ {
+  "id": "VO-THIETSON-TRONG-THUONG-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-TRONG-THUONG-1.mp3",
+  "character": "THIETSON",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Ta nặng lắm, cố mà kéo,",
+  "duration": 1.384,
+  "bytes": 11283
+ },
+ {
+  "id": "VO-THIETSON-CUU-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CUU-1.mp3",
+  "character": "THIETSON",
+  "action": "CUU",
+  "index": 1,
+  "text": "Bám vào ta mà đứng.",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-THIETSON-UONG-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-UONG-1.mp3",
+  "character": "THIETSON",
+  "action": "UONG",
+  "index": 1,
+  "text": "Thêm sức.",
+  "duration": 0.549,
+  "bytes": 4596
+ },
+ {
+  "id": "VO-THIETSON-MO-HOM-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-MO-HOM-1.mp3",
+  "character": "THIETSON",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Hòm này nặng tay đấy.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-THIETSON-CUOI-DIEU-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-CUOI-DIEU-1.mp3",
+  "character": "THIETSON",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Diều có chở nổi ta không?",
+  "duration": 1.202,
+  "bytes": 9821
+ },
+ {
+  "id": "VO-THIETSON-SUONG-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-SUONG-1.mp3",
+  "character": "THIETSON",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương bào mòn cả đá.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-THIETSON-LEN-CAP-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-LEN-CAP-1.mp3",
+  "character": "THIETSON",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Núi cao thêm.",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-THIETSON-RUT-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-RUT-1.mp3",
+  "character": "THIETSON",
+  "action": "RUT",
+  "index": 1,
+  "text": "Búa đá trong tay.",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "VO-THIETSON-THANG-1",
+  "path": "giong-noi/thiet-son/VO-THIETSON-THANG-1.mp3",
+  "character": "THIETSON",
+  "action": "THANG",
+  "index": 1,
+  "text": "Núi vẫn đứng đây.",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-DONGCO-CHON-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHON-1.mp3",
+  "character": "DONGCO",
+  "action": "CHON",
+  "index": 1,
+  "text": "Tiếng chiêng gọi cả đại ngàn.",
+  "duration": 1.384,
+  "bytes": 11283
+ },
+ {
+  "id": "VO-DONGCO-CHON-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHON-2.mp3",
+  "character": "DONGCO",
+  "action": "CHON",
+  "index": 2,
+  "text": "Nghe nhịp ta mà đánh.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-DONGCO-VAO-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-VAO-1.mp3",
+  "character": "DONGCO",
+  "action": "VAO",
+  "index": 1,
+  "text": "Mở hội!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "VO-DONGCO-DI-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-DI-1.mp3",
+  "character": "DONGCO",
+  "action": "DI",
+  "index": 1,
+  "text": "Nhịp một, nhịp hai,",
+  "duration": 1.254,
+  "bytes": 10239
+ },
+ {
+  "id": "VO-DONGCO-DI-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-DI-2.mp3",
+  "character": "DONGCO",
+  "action": "DI",
+  "index": 2,
+  "text": "Rừng đang nghe.",
+  "duration": 0.731,
+  "bytes": 6059
+ },
+ {
+  "id": "VO-DONGCO-DANH-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-DANH-1.mp3",
+  "character": "DONGCO",
+  "action": "DANH",
+  "index": 1,
+  "text": "Boong!",
+  "duration": 0.418,
+  "bytes": 3551
+ },
+ {
+  "id": "VO-DONGCO-DANH-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-DANH-2.mp3",
+  "character": "DONGCO",
+  "action": "DANH",
+  "index": 2,
+  "text": "Vang!",
+  "duration": 0.313,
+  "bytes": 2715
+ },
+ {
+  "id": "VO-DONGCO-CHIEU1-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEU1-1.mp3",
+  "character": "DONGCO",
+  "action": "CHIEU1",
+  "index": 1,
+  "text": "Tiếng chiêng vang!",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-DONGCO-CHIEU1-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEU1-2.mp3",
+  "character": "DONGCO",
+  "action": "CHIEU1",
+  "index": 2,
+  "text": "Choáng chưa?",
+  "duration": 0.601,
+  "bytes": 5014
+ },
+ {
+  "id": "VO-DONGCO-CHIEU2-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEU2-1.mp3",
+  "character": "DONGCO",
+  "action": "CHIEU2",
+  "index": 1,
+  "text": "Nhịp trống hội!",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-DONGCO-CHIEU2-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEU2-2.mp3",
+  "character": "DONGCO",
+  "action": "CHIEU2",
+  "index": 2,
+  "text": "Theo nhịp mà chạy!",
+  "duration": 0.862,
+  "bytes": 7104
+ },
+ {
+  "id": "VO-DONGCO-CHIEULON-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEULON-1.mp3",
+  "character": "DONGCO",
+  "action": "CHIEULON",
+  "index": 1,
+  "text": "Chiêng rền đại ngàn!",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-DONGCO-CHIEULON-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-CHIEULON-2.mp3",
+  "character": "DONGCO",
+  "action": "CHIEULON",
+  "index": 2,
+  "text": "Cả núi rừng cùng đánh!",
+  "duration": 1.149,
+  "bytes": 9403
+ },
+ {
+  "id": "VO-DONGCO-HA-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-HA-1.mp3",
+  "character": "DONGCO",
+  "action": "HA",
+  "index": 1,
+  "text": "Hết nhịp.",
+  "duration": 0.549,
+  "bytes": 4596
+ },
+ {
+  "id": "VO-DONGCO-HA-2",
+  "path": "giong-noi/dong-co/VO-DONGCO-HA-2.mp3",
+  "character": "DONGCO",
+  "action": "HA",
+  "index": 2,
+  "text": "Lặng rồi.",
+  "duration": 0.575,
+  "bytes": 4805
+ },
+ {
+  "id": "VO-DONGCO-HA-LIENTIEP-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-HA-LIENTIEP-1.mp3",
+  "character": "DONGCO",
+  "action": "HA-LIENTIEP",
+  "index": 1,
+  "text": "Hội còn dài, chiêng còn rền!",
+  "duration": 1.489,
+  "bytes": 12119
+ },
+ {
+  "id": "VO-DONGCO-BI-HA-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-BI-HA-1.mp3",
+  "character": "DONGCO",
+  "action": "BI-HA",
+  "index": 1,
+  "text": "Tiếng chiêng, nhỏ dần,",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "VO-DONGCO-TRONG-THUONG-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-TRONG-THUONG-1.mp3",
+  "character": "DONGCO",
+  "action": "TRONG-THUONG",
+  "index": 1,
+  "text": "Gõ chiêng gọi ta dậy,",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "VO-DONGCO-CUU-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CUU-1.mp3",
+  "character": "DONGCO",
+  "action": "CUU",
+  "index": 1,
+  "text": "Nghe nhịp mà đứng lên.",
+  "duration": 1.019,
+  "bytes": 8358
+ },
+ {
+  "id": "VO-DONGCO-UONG-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-UONG-1.mp3",
+  "character": "DONGCO",
+  "action": "UONG",
+  "index": 1,
+  "text": "Rượu cần ngọt quá.",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "VO-DONGCO-MO-HOM-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-MO-HOM-1.mp3",
+  "character": "DONGCO",
+  "action": "MO-HOM",
+  "index": 1,
+  "text": "Lễ vật của trời!",
+  "duration": 0.94,
+  "bytes": 7731
+ },
+ {
+  "id": "VO-DONGCO-CUOI-DIEU-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-CUOI-DIEU-1.mp3",
+  "character": "DONGCO",
+  "action": "CUOI-DIEU",
+  "index": 1,
+  "text": "Bay theo tiếng chiêng.",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "VO-DONGCO-SUONG-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-SUONG-1.mp3",
+  "character": "DONGCO",
+  "action": "SUONG",
+  "index": 1,
+  "text": "Sương lấp tiếng chiêng.",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "VO-DONGCO-LEN-CAP-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-LEN-CAP-1.mp3",
+  "character": "DONGCO",
+  "action": "LEN-CAP",
+  "index": 1,
+  "text": "Chiêng to thêm.",
+  "duration": 0.705,
+  "bytes": 5850
+ },
+ {
+  "id": "VO-DONGCO-RUT-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-RUT-1.mp3",
+  "character": "DONGCO",
+  "action": "RUT",
+  "index": 1,
+  "text": "Cầm dùi lên.",
+  "duration": 0.679,
+  "bytes": 5641
+ },
+ {
+  "id": "VO-DONGCO-THANG-1",
+  "path": "giong-noi/dong-co/VO-DONGCO-THANG-1.mp3",
+  "character": "DONGCO",
+  "action": "THANG",
+  "index": 1,
+  "text": "Chiêng mừng chiến thắng!",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "ANN-BAT-DAU-1",
+  "path": "nguoi-dan-tran/ANN-BAT-DAU-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "BAT-DAU",
+  "index": 1,
+  "text": "Mười Dòng đã tề tựu , giao đấu!",
+  "duration": 1.985,
+  "bytes": 16090
+ },
+ {
+  "id": "ANN-HA-DAU-1",
+  "path": "nguoi-dan-tran/ANN-HA-DAU-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HA-DAU",
+  "index": 1,
+  "text": "Máu đầu đã đổ!",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "ANN-HA-2-1",
+  "path": "nguoi-dan-tran/ANN-HA-2-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HA-2",
+  "index": 1,
+  "text": "Hạ đôi!",
+  "duration": 0.627,
+  "bytes": 5223
+ },
+ {
+  "id": "ANN-HA-3-1",
+  "path": "nguoi-dan-tran/ANN-HA-3-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HA-3",
+  "index": 1,
+  "text": "Hạ ba!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "ANN-HA-4-1",
+  "path": "nguoi-dan-tran/ANN-HA-4-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HA-4",
+  "index": 1,
+  "text": "Hạ bốn!",
+  "duration": 0.653,
+  "bytes": 5432
+ },
+ {
+  "id": "ANN-HA-5-1",
+  "path": "nguoi-dan-tran/ANN-HA-5-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HA-5",
+  "index": 1,
+  "text": "Năm mạng , vô song!",
+  "duration": 1.358,
+  "bytes": 11074
+ },
+ {
+  "id": "ANN-CHUOI-3-1",
+  "path": "nguoi-dan-tran/ANN-CHUOI-3-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CHUOI-3",
+  "index": 1,
+  "text": "Đang hăng tay!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "ANN-CHUOI-5-1",
+  "path": "nguoi-dan-tran/ANN-CHUOI-5-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CHUOI-5",
+  "index": 1,
+  "text": "Không ai cản nổi!",
+  "duration": 1.097,
+  "bytes": 8985
+ },
+ {
+  "id": "ANN-CHUOI-8-1",
+  "path": "nguoi-dan-tran/ANN-CHUOI-8-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CHUOI-8",
+  "index": 1,
+  "text": "Thần võ giáng trần!",
+  "duration": 1.149,
+  "bytes": 9403
+ },
+ {
+  "id": "ANN-CHAN-CHUOI-1",
+  "path": "nguoi-dan-tran/ANN-CHAN-CHUOI-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CHAN-CHUOI",
+  "index": 1,
+  "text": "Chuỗi đã bị chặn!",
+  "duration": 0.967,
+  "bytes": 7940
+ },
+ {
+  "id": "ANN-SUONG-THU-1",
+  "path": "nguoi-dan-tran/ANN-SUONG-THU-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "SUONG-THU",
+  "index": 1,
+  "text": "Sương đang khép lại!",
+  "duration": 1.176,
+  "bytes": 9612
+ },
+ {
+  "id": "ANN-HOM-DIEU-1",
+  "path": "nguoi-dan-tran/ANN-HOM-DIEU-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "HOM-DIEU",
+  "index": 1,
+  "text": "Hòm Diều từ trời xuống!",
+  "duration": 1.332,
+  "bytes": 10865
+ },
+ {
+  "id": "ANN-TRUM-XUAT-HIEN-1",
+  "path": "nguoi-dan-tran/ANN-TRUM-XUAT-HIEN-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "TRUM-XUAT-HIEN",
+  "index": 1,
+  "text": "Thuồng Luồng đã thức giấc!",
+  "duration": 1.123,
+  "bytes": 9194
+ },
+ {
+  "id": "ANN-TRUM-BI-HA-1",
+  "path": "nguoi-dan-tran/ANN-TRUM-BI-HA-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "TRUM-BI-HA",
+  "index": 1,
+  "text": "Thuồng Luồng đã gục!",
+  "duration": 0.993,
+  "bytes": 8149
+ },
+ {
+  "id": "ANN-CON-10-1",
+  "path": "nguoi-dan-tran/ANN-CON-10-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CON-10",
+  "index": 1,
+  "text": "Còn mười người!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "ANN-CON-5-1",
+  "path": "nguoi-dan-tran/ANN-CON-5-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CON-5",
+  "index": 1,
+  "text": "Còn năm người!",
+  "duration": 0.836,
+  "bytes": 6895
+ },
+ {
+  "id": "ANN-CON-3-1",
+  "path": "nguoi-dan-tran/ANN-CON-3-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CON-3",
+  "index": 1,
+  "text": "Ba người cuối cùng!",
+  "duration": 1.071,
+  "bytes": 8776
+ },
+ {
+  "id": "ANN-CON-2-1",
+  "path": "nguoi-dan-tran/ANN-CON-2-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "CON-2",
+  "index": 1,
+  "text": "Một chọi một!",
+  "duration": 0.784,
+  "bytes": 6477
+ },
+ {
+  "id": "ANN-THANG-1",
+  "path": "nguoi-dan-tran/ANN-THANG-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "THANG",
+  "index": 1,
+  "text": "Người Đứng Cuối!",
+  "duration": 0.914,
+  "bytes": 7522
+ },
+ {
+  "id": "ANN-BI-LOAI-1",
+  "path": "nguoi-dan-tran/ANN-BI-LOAI-1.mp3",
+  "character": "Hệ thống/Announcer",
+  "action": "BI-LOAI",
+  "index": 1,
+  "text": "Đã bị loại.",
+  "duration": 0.81,
+  "bytes": 6686
+ }
+]

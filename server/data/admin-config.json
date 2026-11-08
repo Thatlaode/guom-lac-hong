@@ -1,0 +1,21 @@
+{
+ "preset": "tuychinh",
+ "matchSize": 18,
+ "lobbyWait": 20,
+ "fillBots": true,
+ "chests": true,
+ "boss": true,
+ "monsters": true,
+ "practiceBots": 17,
+ "n": "Thường",
+ "botSkill": "de",
+ "dmgMul": 1,
+ "monHpMul": 1,
+ "monAtkMul": 1,
+ "zoneSpeedMul": 1,
+ "zoneDpsMul": 1,
+ "expMul": 1,
+ "lootMul": 1,
+ "aimAssistTouch": 0.08,
+ "aimAssistPc": 0
+}

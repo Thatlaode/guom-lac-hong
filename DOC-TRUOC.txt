@@ -1,0 +1,4 @@
+GUOM LAC HONG - MA NGUON v0.3.0
+Doc HUONG-DAN-CHAY.md. Bam dup CHAY_SERVER.bat de choi (can Node.js LTS).
+Xem nhan vat: http://localhost:8080/xem-nhan-vat.html
+Thiet ke & ke hoach: ..\00-BO-NAO-GUOM-LAC-HONG (Obsidian)

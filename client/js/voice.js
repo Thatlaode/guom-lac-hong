@@ -10,10 +10,11 @@
 const Voice = {
   peers: new Map(), stream: null, on: false, talking: false, ICE: [{ urls: 'stun:stun.l.google.com:19302' }, { urls: 'stun:stun1.l.google.com:19302' }],
   init(G) {
-    if (this.G) return; this.G = G; setInterval(() => this.tick(), 1000);
+    if (this.G) return; this.G = G; this.loadIce(); setInterval(() => this.loadIce(), 20 * 60e3); setInterval(() => this.tick(), 1000);
     addEventListener('keydown', e => { if (e.code === 'KeyV' && !e.repeat && !(e.target && e.target.tagName === 'INPUT')) this.ptt(true); if (e.code === 'Enter' && G.mode === 'play' && !(e.target && e.target.tagName === 'INPUT')) { e.preventDefault(); this.openChat(); } });
     addEventListener('keyup', e => { if (e.code === 'KeyV') this.ptt(false); });
   },
+  loadIce() { fetch('/api/ice').then(r => r.json()).then(l => { if (Array.isArray(l) && l.length) this.ICE = l; }).catch(() => { }); },  // TURN do máy chủ cấp (biến môi trường)
   mode() { return (this.G && this.G.S.mic) || 'off'; },
   async enable() {
     if (this.stream || this.mode() === 'off') return !!this.stream;

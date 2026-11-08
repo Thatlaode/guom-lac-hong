@@ -84,6 +84,7 @@ const httpSrv = http.createServer((req, res) => {
 function json(res, code, o) { res.writeHead(code, { 'Content-Type': 'application/json; charset=utf-8' }); res.end(JSON.stringify(o)); }
 function body(req) { return new Promise(r => { let b = ''; req.on('data', d => { b += d; if (b.length > 1e5) req.destroy(); }); req.on('end', () => { try { r(JSON.parse(b || '{}')); } catch (e) { r({}); } }); }); }
 async function api(req, res, u, p) {
+  if (p === '/api/ice') { iceServers().then(ice => json(res, 200, ice)).catch(() => json(res, 200, STUN)); return; }
   if (p === '/api/health') return json(res, 200, { ok: true, version: GLH.VERSION, beta: BETA, uptime: Math.round((Date.now() - START_T) / 1000), online: srv.conns.size, matches: srv.matches.size, mem: Math.round(process.memoryUsage().rss / 1048576) + ' MB' });
   if (p === '/api/info') return json(res, 200, { beta: BETA, name: GLH.NAME, version: GLH.VERSION, preset: CFG.preset, presetName: (GLH.PRESETS[CFG.preset] || { n: 'Tự chỉnh' }).n, online: srv.conns.size, matches: srv.matches.size, lobby: srv.lobby.solo.length });
   if (p === '/api/top') return json(res, 200, srv.store.top(50));
@@ -106,6 +107,20 @@ async function api(req, res, u, p) {
 }
 
 /* ---------- WebSocket ---------- */
+/* ---- Máy chủ chuyển tiếng TURN cho voice chat (QĐ-0048) — khai bằng biến môi trường, không sửa code ----
+   Cách 1 (Metered, miễn phí 20 GB/tháng): METERED_APP=tenapp  METERED_KEY=khoa-api   (khóa giữ kín ở máy chủ)
+   Cách 2 (coturn tự dựng):                TURN_URL=turn:ten-mien:3478  TURN_USER=glh  TURN_PASS=mat-khau */
+const STUN = [{ urls: 'stun:stun.l.google.com:19302' }, { urls: 'stun:stun1.l.google.com:19302' }]; let iceCache = null, iceT = 0;
+async function iceServers() {
+  const E = process.env;
+  if (E.METERED_APP && E.METERED_KEY) {
+    if (iceCache && Date.now() - iceT < 30 * 60e3) return iceCache;
+    const r = await fetch(`https://${E.METERED_APP}.metered.live/api/v1/turn/credentials?apiKey=${encodeURIComponent(E.METERED_KEY)}`); if (!r.ok) throw new Error('metered ' + r.status);
+    const list = await r.json(); if (!Array.isArray(list) || !list.length) throw new Error('metered rỗng'); iceCache = STUN.concat(list); iceT = Date.now(); return iceCache;
+  }
+  if (E.TURN_URL) return STUN.concat([{ urls: E.TURN_URL.split(',').map(x => x.trim()), username: E.TURN_USER || '', credential: E.TURN_PASS || '' }]);
+  return STUN;
+}
 const MAX_PER_IP = +process.env.MAX_PER_IP || 20, MAX_CONN = +process.env.MAX_CONN || 300, perIp = new Map();
 const wss = new WebSocketServer({ server: httpSrv, path: '/ws', maxPayload: 16 * 1024 });
 wss.on('connection', (ws, req) => {
@@ -165,6 +180,7 @@ httpSrv.listen(PORT, HOST, () => {
   console.log('  Chơi trên máy này :  http://localhost:' + PORT);
   for (const ip of lanIPs()) console.log('  Điện thoại/PC khác cùng wifi :  http://' + ip + ':' + PORT);
   console.log('  Bảng Admin        :  http://localhost:' + PORT + '/admin.html');
+  console.log('  Voice chat (TURN) :  ' + (process.env.METERED_APP ? 'Metered · ' + process.env.METERED_APP : process.env.TURN_URL ? process.env.TURN_URL : 'chưa có — chỉ STUN (đa số mạng vẫn nói được)'));
   console.log('  Mã Admin          :  ' + ADMIN_KEY + (process.env.ADMIN_KEY ? '   (đặt trong biến môi trường ADMIN_KEY)' : '   (lưu ở ' + KEY_FILE + ')'));
   console.log('  Độ khó hiện tại   :  ' + CFG.preset);
   console.log('  Tắt máy chủ: bấm Ctrl + C\n');

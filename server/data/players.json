@@ -1,0 +1,18 @@
+{
+ "người chơi": {
+  "name": "Người chơi",
+  "pts": 13,
+  "matches": 5,
+  "wins": 0,
+  "kills": 1,
+  "best": 8
+ },
+ "ngũ ca": {
+  "name": "ngũ ca",
+  "pts": 0,
+  "matches": 4,
+  "wins": 0,
+  "kills": 0,
+  "best": 6
+ }
+}
