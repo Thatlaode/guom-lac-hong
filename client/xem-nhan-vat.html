@@ -12,7 +12,7 @@ canvas{display:block}
 <div id="top"><div><b>Phòng xem nhân vật</b> <span class="mut">· khung 65 xương · hoạt ảnh Quaternius (CC0) · kéo chuột để xoay</span></div><div class="mut" id="info">Đang nạp…</div></div>
 <div id="ui"></div>
 <script src="js/lib/three.min.js"></script><script src="js/lib/GLTFLoader.js"></script><script src="js/lib/SkeletonUtils.js"></script>
-<script src="js/core.js"></script><script src="shared/rules.js"></script><script src="js/rig.js"></script>
+<script src="js/core.js"></script><script src="shared/rules.js"></script><script src="js/rig.js"></script><script src="js/rig-outfit.js"></script>
 <script>
 const R=new THREE.WebGLRenderer({antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;R.toneMapping=THREE.ACESFilmicToneMapping;R.toneMappingExposure=1.15;document.body.prepend(R.domElement);
 const S=new THREE.Scene();S.background=new THREE.Color(0x2c3e38);S.fog=new THREE.Fog(0x2c3e38,14,40);

@@ -6,10 +6,10 @@
   "BGM-LOBBY": "bgm/BGM-GUONG-MO-KIEM-GIA-1.mp3",
   "BGM-SPECTATE": "bgm/BGM-GUONG-MO-KIEM-GIA-2.mp3",
   "BGM-MATCH-CALM": "bgm/BGM-GUONG-MO-KIEM-GIA-2.mp3",
-  "BGM-MATCH-COMBAT": "bgm/BGM-lac-viet-hung-ca-dong-mau-rong-tien.mp3",
-  "BGM-ZONE-SHRINK": "bgm/BGM-lac-viet-hung-ca-dong-mau-rong-tien.mp3",
-  "BGM-FINAL": "bgm/BGM-lac-viet-hung-ca-dong-mau-rong-tien.mp3",
-  "BGM-BOSS": "bgm/BGM-lac-viet-hung-ca-dong-mau-rong-tien.mp3",
+  "BGM-MATCH-COMBAT": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-ZONE-SHRINK": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-FINAL": "bgm/BGM-NHAC-THU.mp3",
+  "BGM-BOSS": "bgm/BGM-NHAC-THU.mp3",
   "SFX-KIEM-BASIC-CAST": [
    "thu-vien/can-chien/fx-sword-swing-02.mp3",
    "thu-vien/can-chien/fx-sword-swing-03.mp3"

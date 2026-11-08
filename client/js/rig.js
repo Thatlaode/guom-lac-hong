@@ -229,8 +229,8 @@ const STD2UE = (() => {
 /* Ngoại hình 10 Dòng — outfit: 1 = áo Nông dân, 2 = áo Lữ khách (có mũ trùm, giáp vai)
    tint: màu nhuộm áo · hood: đội mũ trùm · nonLa/khan/tram: đồ vẽ bằng code (thuần Việt) */
 const CHAR_LOOK = {
-  kiem: { sex: 'nam', outfit: 2, hood: false, tint: 0xf2ecd8, hair: 'hair_long', hairCol: 0x15100c, khan: 0xe9dfb8 },
-  tram: { sex: 'nu', outfit: 2, hood: false, tint: 0xd6dbe6, hair: 'hair_buns', hairCol: 0x120e0c, tram: true },
+  kiem: { sex: 'nam', outfit: 2, hood: false, tint: 0x8a5a2c, skin: 0xc8946e, skinMul: [2.3, 2.05, 1.9], hair: 'hair_buzzed', hairCol: 0x15100c, kim: 'nam' }, // 🆙 bản Kim theo concept (trang phục: rig-outfit.js)
+  tram: { sex: 'nu', outfit: 2, hood: false, tint: 0x9a6a30, skin: 0xd09c76, skinMul: [2.4, 2.15, 2.0], hair: 'hair_long', hairCol: 0x120e0c, kim: 'nu' }, // 🆙 bản Kim theo concept (trang phục: rig-outfit.js)
   tre: { sex: 'nam', outfit: 1, tint: 0x9fcf7a, hair: 'hair_buzzed', hairCol: 0x1a1410, nonLa: true },
   duoc: { sex: 'nu', outfit: 1, tint: 0x9fdca8, hair: 'hair_buns', hairCol: 0x1a1410, khan: 0x4f9a5a },
   bang: { sex: 'nam', outfit: 2, hood: true, tint: 0x86b2e6, hair: null },
@@ -299,8 +299,9 @@ const CharLib = {
       for (const m of meshes) {
         if (/Hood/.test(m.name) && !Lk.hood) continue; // bỏ mũ trùm nếu Dòng này không đội
         const sk = new THREE.Skeleton(m.skeleton.bones.map(b => bones[b.name]), m.skeleton.boneInverses); root.add(m); m.bind(sk, m.bindMatrix);
-        const mats = Array.isArray(m.material) ? m.material : [m.material]; m.material = mats.map(mt => { const c = mt.clone(); if (/Peasant|Ranger/.test(mt.name)) { c.color.setHex(Lk.tint); c.roughness = 0.78; } if (/Regular/.test(mt.name)) { c.map = null; c.color.setHex(0xb07a5a); c.roughness = 0.7; } return c; }); if (m.material.length === 1) m.material = m.material[0];
+        const mats = Array.isArray(m.material) ? m.material : [m.material]; m.material = mats.map(mt => { const c = mt.clone(); if (/Peasant|Ranger/.test(mt.name)) { c.color.setHex(Lk.tint); c.roughness = 0.78; } if (/Regular/.test(mt.name)) { c.map = null; c.color.setHex(Lk.skin || 0xb07a5a); c.roughness = 0.7; } return c; }); if (m.material.length === 1) m.material = m.material[0];
       }
+      if (Lk.skinMul) root.traverse(o => { if (o.isMesh && o.material && /Superhero/.test(o.material.name)) { o.material = o.material.clone(); o.material.color.setRGB(Lk.skinMul[0], Lk.skinMul[1], Lk.skinMul[2]); o.material.roughness = 0.62; } }); // 🆙 màu da theo Dòng
       root.updateMatrixWorld(true); const H = bones.Head, inv = new THREE.Matrix4().copy(H.matrixWorld).invert();
       if (Lk.hair && !Lk.hood) { const hs = THREE.SkeletonUtils.clone((await this.load(QB + Lk.hair + '.glb')).scene); hs.updateMatrixWorld(true); hs.applyMatrix4(inv); hs.position.y += 0.012; hs.scale.multiplyScalar(1.04); hs.traverse(o => { if (o.isMesh) { o.material = o.material.clone(); o.material.color.setHex(Lk.hairCol || 0x1a1410); } }); H.add(hs); }
       root.traverse(o => { if (o.isMesh) { o.castShadow = true; o.frustumCulled = false; } });
@@ -336,6 +337,7 @@ Rig.prototype.useChar = async function (fk) {
     if (L.nonLa) { const nl = new THREE.Mesh(new THREE.ConeGeometry(0.3, 0.17, 18), rigMat(0xd9c48a, { roughness: 0.85 })); nl.position.set(0, 0.03, 0); nl.castShadow = true; this.sockets.head_top.add(nl); }
     if (L.khan) { const kh = new THREE.Mesh(new THREE.TorusGeometry(0.098, 0.016, 6, 20), rigMat(L.khan, { roughness: 0.9 })); kh.rotation.x = Math.PI / 2 - 0.3; kh.position.set(0, -0.02, -0.01); kh.scale.set(1, 1.18, 1); this.sockets.head_top.add(kh); }
     if (L.tram) { const tr = new THREE.Mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.26, 5), rigMat(0xe8eef4, { metalness: 0.9, roughness: 0.2 })); tr.rotation.z = 1.1; tr.position.set(0, -0.02, -0.08); this.sockets.head_top.add(tr); }
+    if (L.kim && typeof applyKimOutfit === 'function') applyKimOutfit(this, m, b, L); // 🆙 trang phục Kim (rig-outfit.js)
     /* vũ khí thật */
     const F = GLH.FACTIONS[fk] || {}, wk = F.weapon || 'guom', WD = WEAPON_DEF[wk] || WEAPON_DEF.guom; this.wk = wk; this.WD = WD; this.hp.R = WD.hand || 'cam_kiem';
     for (const s of [this.sockets.weapon]) for (const c of [...s.children]) if (c.isProcWeapon) s.remove(c);

@@ -5,7 +5,7 @@
 <style>body{margin:0;background:#120c0b;color:#F1E9D6;font:14px "Segoe UI",system-ui,sans-serif;overflow:hidden}#top{position:fixed;left:10px;top:8px}#top b{color:#D5AD59;font-size:18px}.m{opacity:.7;font-size:12px}canvas{display:block}</style></head><body>
 <div id="top"><b>Xem vật thể chiến thuật</b> <span class="m">· bụi cỏ · nhà tranh · cây · tảng đá · kéo chuột để xoay</span></div>
 <script src="js/lib/three.min.js"></script><script src="js/lib/GLTFLoader.js"></script><script src="js/lib/SkeletonUtils.js"></script>
-<script src="js/core.js"></script><script src="shared/rules.js"></script><script src="shared/props.js"></script><script src="js/palette.js"></script><script src="js/rig.js"></script><script src="js/props.js"></script>
+<script src="js/core.js"></script><script src="shared/rules.js"></script><script src="shared/props.js"></script><script src="js/palette.js"></script><script src="js/rig.js"></script><script src="js/rig-outfit.js"></script><script src="js/props.js"></script>
 <script>
 const R=new THREE.WebGLRenderer({antialias:true});R.setSize(innerWidth,innerHeight);R.shadowMap.enabled=true;R.toneMapping=THREE.ACESFilmicToneMapping;document.body.prepend(R.domElement);
 const S=new THREE.Scene();S.background=new THREE.Color(PAL.suong);S.fog=new THREE.Fog(PAL.suong,30,80);
